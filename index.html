@@ -58,9 +58,22 @@ function renderFaq(items){document.getElementById("faqList").innerHTML=items.map
 function openDecor(code){const p=products.find(x=>x[0]===code);document.getElementById("mname").textContent=p[1];document.getElementById("mcode").textContent=p[0];document.getElementById("mdetails").textContent=p[2]+" · "+p[3]+" поверхность";document.getElementById("mprice").innerHTML=priceHTML(code);document.getElementById("modalwood").style.background='repeating-linear-gradient(4deg,'+p[4]+' 0 18px,#ffffff12 19px 20px),'+p[4];document.getElementById("modal").classList.add("open")}
 function closeDecor(){document.getElementById("modal").classList.remove("open")}
 renderProducts();renderFaq(fallbackFaq);
-/* Google Sheets integration is pre-wired architecturally. When endpoint is supplied,
-   load sanitized JSON with {prices:{SKU:{regular,sale,active}}, faq:[[question,answer],...]},
-   then assign prices=data.prices; renderProducts(); renderFaq(data.faq); */
+const DATA_ENDPOINT="https://script.google.com/macros/s/AKfycbz5vLVF3OefJ1r_JUwijdQVuj3eOnF_D9eANn367wLMAfQawrltGwMjbcwxxTRhwRRt/exec";
+async function loadSiteData(){
+  try{
+    const r=await fetch(DATA_ENDPOINT,{cache:"no-store"});
+    if(!r.ok) throw new Error("HTTP "+r.status);
+    const data=await r.json();
+    if(data.prices&&typeof data.prices==="object"){
+      prices={...fallbackPrices,...data.prices};
+      renderProducts();
+    }
+    if(Array.isArray(data.faq)&&data.faq.length) renderFaq(data.faq);
+  }catch(e){
+    console.warn("Site data: fallback is used",e);
+  }
+}
+loadSiteData();
 </script><style>
 .wood{background-image:var(--photo)!important;background-position:center!important;background-size:cover!important;filter:none!important}.wood i{display:none!important}
 .layer-art{background:url('assets/layers.jpeg') center/contain no-repeat!important}.layer-art .layer{display:none}
