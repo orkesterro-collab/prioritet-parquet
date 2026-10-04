@@ -18,7 +18,22 @@ section{padding:110px 0}.dark{background:linear-gradient(135deg,#101214,#191c1e)
 .cta{text-align:center;background:linear-gradient(135deg,#d8dada,#8f9699);color:#111}.cta h2{max-width:900px;margin:0 auto 35px}footer{background:#050505;border-top:1px solid #747a7c;color:#888;padding:45px 0;font-size:12px}footer .wrap{display:flex;justify-content:space-between;gap:30px}
 .modal{display:none;position:fixed;z-index:50;inset:0;background:#000b;align-items:center;justify-content:center;padding:24px}.modal.open{display:flex}.modalbox{background:#0b0b0b;color:#fff;width:min(900px,100%);display:grid;grid-template-columns:1fr 1fr;position:relative}.modalwood{min-height:500px}.modalcopy{padding:50px}.close{position:absolute;right:15px;top:12px;border:0;background:none;font-size:28px;cursor:pointer}
 @media(max-width:900px){.layers .layer-art,.layers .layer-list{grid-column:auto;grid-row:auto}nav a:not(.btn){display:none}.stats{grid-template-columns:1fr 1fr}.section-head,.layers,.specs{grid-template-columns:1fr}.features{grid-template-columns:1fr 1fr}.decor-grid{grid-template-columns:repeat(2,1fr)}.layouts{grid-template-columns:1fr 1fr}.modalbox{grid-template-columns:1fr}.modalwood{min-height:260px}}@media(max-width:560px){.wrap{width:min(100% - 28px,1220px)}h1{font-size:56px}.features{grid-template-columns:1fr}.decor-grid{grid-template-columns:1fr 1fr}.wood{height:190px}}
-</style><style>#tech{background:rgb(19,19,19)!important}</style></head><body>
+</style><style>#tech{background:rgb(19,19,19)!important}</style><style>
+#tech{background:#131313!important}
+#tech .layer-art{
+  position:relative;
+  background-color:#131313!important;
+  background-size:contain!important;
+  background-repeat:no-repeat!important;
+}
+#tech .layer-art:after{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  pointer-events:none;
+  box-shadow:inset 0 0 75px 42px #131313;
+}
+</style></head><body>
 <header><nav class="wrap"><div class="logo">ПРИОРИТЕТ ПАРКЕТ<small>ALPINE FLOOR</small></div><a href="#why">Преимущества</a><a href="#tech">Технология</a><a href="#collection">Коллекция</a><a href="#spec">Характеристики</a><a href="#faq">Вопросы</a><a class="btn" href="#contact">Где купить</a></nav></header>
 <main><section class="hero"><div class="wrap hero-copy"><div class="eyebrow">Премиум-коллекция VSPC</div><h1>Настоящее<br>дерево.<br>Новые правила.</h1><p>Натуральный строганый шпон на влагостойкой SPC-основе. Паркет, который создан для современной жизни.</p><div class="actions"><a class="btn fill" href="#collection">Смотреть коллекцию</a><a class="btn" href="#tech">Как это устроено</a></div></div><div class="statbar"><div class="wrap stats"><div class="stat"><b>100%</b><span>водостойкий</span></div><div class="stat"><b>200 м²</b><span>без порогов</span></div><div class="stat"><b>0,6 мм</b><span>натуральный шпон</span></div><div class="stat"><b>7 слоёв</b><span>УФ-лака</span></div></div></div></section>
 <section id="tech" class="dark"><div class="wrap"><div class="section-head"><div><div class="kicker">Технология VSPC</div><h2>Природа сверху.<br>Технологии внутри.</h2></div><p class="lead">Приоритет Паркет соединяет натуральное дерево с каменно-полимерным основанием SPC.</p></div><div class="layers"><div class="layer-art"><div class="layer l1"></div><div class="layer l2"></div><div class="layer l3"></div></div><div class="layer-list"><div><b>01</b><span><h3>7 слоёв УФ-лака</h3>Защита натуральной поверхности.</span></div><div><b>02</b><span><h3>Натуральный шпон</h3>Уникальный рисунок каждой доски.</span></div><div><b>03</b><span><h3>SPC-основа</h3>Стабильная влагостойкая основа.</span></div></div></div></div></section>
