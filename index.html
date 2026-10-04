@@ -46,6 +46,15 @@ renderProducts();renderFaq(fallbackFaq);
 /* Google Sheets integration is pre-wired architecturally. When endpoint is supplied,
    load sanitized JSON with {prices:{SKU:{regular,sale,active}}, faq:[[question,answer],...]},
    then assign prices=data.prices; renderProducts(); renderFaq(data.faq); */
+</script><style>
+.wood{background-image:var(--photo)!important;background-position:center!important;background-size:cover!important;filter:none!important}.wood i{display:none!important}
+.layer-art{background:url('assets/layers.jpeg') center/contain no-repeat!important}.layer-art .layer{display:none}
+</style>
+<script>
+const decorPhotos={"ECO 30-1":"assets/ECO-30-1.png","ECO 30-2":"assets/ECO-30-2.png","ECO 30-3":"assets/ECO-30-3.png","ECO 30-4":"assets/ECO-30-4.png","ECO 30-5":"assets/ECO-30-5.png","ECO 30-6":"assets/ECO-30-6.png","ECO 30-7":"assets/ECO-30-7.png","ECO 30-8":"assets/ECO-30-8.png","ECO 30-9":"assets/ECO-30-9.png","ECO 30-10":"assets/ECO-30-10.png"};
+function applyRealPhotos(){document.querySelectorAll('.decor-card').forEach((card,i)=>{const w=card.querySelector('.wood');if(w&&products[i])w.style.setProperty('--photo',"url('"+decorPhotos[products[i][0]]+"')")})}
+applyRealPhotos();
+const oldOpenDecor=openDecor;openDecor=function(code){oldOpenDecor(code);document.getElementById('modalwood').style.background="url('"+decorPhotos[code]+"') center/cover no-repeat";}
 </script></body></html><style>
 /* Alpine Floor showroom-inspired finish */
 .hero:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(105deg,transparent 0 46%,rgba(255,255,255,.18) 46.1%,transparent 46.8%);mix-blend-mode:screen}
