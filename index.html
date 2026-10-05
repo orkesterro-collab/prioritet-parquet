@@ -161,7 +161,7 @@ function applyRealPhotos(){
     const code=products[i]?.[0];
     const src=code&&decorGalleries[code]?.[0];
     if(w&&src){
-      w.style.backgroundImage="url('"+src+"')";
+      w.style.setProperty('--photo',"url('"+src+"')");
       w.style.backgroundPosition="center";
       w.style.backgroundSize="cover";
       w.style.backgroundRepeat="no-repeat";
