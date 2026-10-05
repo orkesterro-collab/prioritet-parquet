@@ -108,6 +108,15 @@ section{padding:110px 0}.dark{background:linear-gradient(135deg,#101214,#191c1e)
   pointer-events:none;
   box-shadow:inset 0 0 75px 42px #131313;
 }
+</style><style>
+.where-buy{max-width:760px;margin:42px auto 0;text-align:left;border-top:1px solid rgba(17,19,21,.25);padding-top:28px}
+.where-buy h3{font-size:28px;margin:0 0 4px;text-transform:uppercase;letter-spacing:.04em}
+.where-city{font-size:14px;text-transform:uppercase;letter-spacing:.14em;margin-bottom:18px;opacity:.62}
+.store-list{display:grid;grid-template-columns:1fr 1fr;gap:10px 24px}
+.store-item{padding:15px 0;border-top:1px solid rgba(17,19,21,.18);display:flex;flex-direction:column;gap:4px}
+.store-item strong{font-size:17px}
+.store-item span{font-size:15px;opacity:.72}
+@media(max-width:560px){.where-buy{margin-top:34px}.store-list{grid-template-columns:1fr}.store-item{padding:13px 0}.where-buy h3{font-size:24px}}
 </style></head><body>
 <header><nav class="wrap"><div class="logo">ПРИОРИТЕТ ПАРКЕТ<small>ALPINE FLOOR</small></div><a href="#why">Преимущества</a><a href="#tech">Технология</a><a href="#collection">Коллекция</a><a href="#spec">Характеристики</a><a href="#faq">Вопросы</a><a class="btn" href="#contact">Где купить</a></nav></header>
 <main><section class="hero"><div class="wrap hero-copy"><div class="eyebrow">Премиум-коллекция VSPC</div><h1>Настоящее<br>дерево.<br>Новые правила.</h1><p>Натуральный строганый шпон на влагостойкой SPC-основе. Паркет, который создан для современной жизни.</p><div class="actions"><a class="btn fill" href="#collection">Смотреть коллекцию</a><a class="btn" href="#tech">Как это устроено</a></div></div><div class="statbar"><div class="wrap stats"><div class="stat"><b>100%</b><span>водостойкий</span></div><div class="stat"><b>200 м²</b><span>без порогов</span></div><div class="stat"><b>0,6 мм</b><span>натуральный шпон</span></div><div class="stat"><b>7 слоёв</b><span>УФ-лака</span></div></div></div></section>
@@ -117,7 +126,20 @@ section{padding:110px 0}.dark{background:linear-gradient(135deg,#101214,#191c1e)
 <section id="collection" class="collection"><div class="wrap"><div class="section-head"><div><div class="kicker">10 декоров</div><h2>Выберите свой характер дерева.</h2></div><p class="lead">Дуб и орех, гладкие и брашированные поверхности.</p></div><div id="decorGrid" class="decor-grid"></div></div></section>
 <section id="spec" class="dark"><div class="wrap specs"><div><div class="kicker">Технические характеристики</div><h2>Продуман<br>до миллиметра.</h2></div><table><tr><td>Формат</td><td>600 × 125 × 5,5 мм</td></tr><tr><td>Состав</td><td>Натуральный шпон + доломитовый композит</td></tr><tr><td>Толщина шпона</td><td>0,6 мм</td></tr><tr><td>Обработка</td><td>7 слоёв УФ-лака</td></tr><tr><td>Водостойкость</td><td>Полностью водостойкий</td></tr><tr><td>Породы</td><td>Дуб и орех</td></tr><tr><td>Укладка</td><td>Плавающая и клеевая</td></tr><tr><td>Температурное расширение</td><td>&lt; 0,04%</td></tr><tr><td>Соединение</td><td>Замковое</td></tr><tr><td>Фаска</td><td>4V</td></tr></table></div><div class="wrap layouts"><div class="layout"><img src="assets/layout-english.svg" alt="Английская ёлка"><span>Английская ёлка</span></div><div class="layout"><img src="assets/layout-double.svg" alt="Двойная ёлка"><span>Двойная ёлка</span></div><div class="layout"><img src="assets/layout-deck.svg" alt="Палубная укладка"><span>Палуба</span></div><div class="layout"><img src="assets/layout-diagonal.svg" alt="Диагональная укладка"><span>Диагональная</span></div></div></section>
 <section id="faq" class="faq"><div class="wrap faq-wrap"><div class="kicker">Вопросы и ответы</div><h2>Что важно знать<br>о Приоритет Паркет.</h2><div id="faqList"></div></div></section>
-<section id="contact" class="cta"><div class="wrap"><div class="kicker">Приоритет Паркет</div><h2>Натуральное дерево без привычных ограничений.</h2><a class="btn" href="#">Получить образец / Где купить</a></div></section></main>
+<section id="contact" class="cta"><div class="wrap">
+  <div class="kicker">Приоритет Паркет</div>
+  <h2>Натуральное дерево без привычных ограничений.</h2>
+  <div class="where-buy">
+    <h3>Где купить</h3>
+    <div class="where-city">г. Минск</div>
+    <div class="store-list">
+      <div class="store-item"><strong>ТРИО — центр напольных покрытий</strong><span>пр-т Победителей, 129</span></div>
+      <div class="store-item"><strong>ELECORD</strong><span>ул. Нововиленская, 41</span></div>
+      <div class="store-item"><strong>Европаркет</strong><span>ул. Уманская, 54</span></div>
+      <div class="store-item"><strong>Европаркет</strong><span>ул. Ложинская, 4</span></div>
+    </div>
+  </div>
+</div></section></main>
 <footer>
   <div class="wrap" style="display:block">
     <div style="max-width:980px">
