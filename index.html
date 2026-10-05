@@ -138,6 +138,16 @@ section{padding:110px 0}.dark{background:linear-gradient(135deg,#101214,#191c1e)
   pointer-events:none;
   background:none!important;
 }
+</style><style>
+.meta-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px}
+.decor-meta{padding:20px 20px 22px}
+.decor-meta .meta-top span,.decor-meta .meta-top .sku{font-size:14px;line-height:1.2;color:#9ea3a6;text-transform:uppercase;letter-spacing:.04em;font-weight:600}
+.decor-meta h3{margin:0 0 12px;font-size:17px}
+.pricebox{min-height:auto}
+.price{font-size:24px;font-weight:800;line-height:1.2}
+.price small{font-size:11px;color:#9ea3a6;text-transform:uppercase}
+.old-price{font-size:15px}
+.sale-price{font-size:24px}
 </style></head><body>
 <header><nav class="wrap"><div class="logo">ПРИОРИТЕТ ПАРКЕТ<small>ALPINE FLOOR</small></div><a href="#why">Преимущества</a><a href="#tech">Технология</a><a href="#collection">Коллекция</a><a href="#spec">Характеристики</a><a href="#faq">Вопросы</a><a class="btn" href="#contact">Где купить</a></nav></header>
 <main><section class="hero"><div class="wrap hero-copy"><div class="eyebrow">Премиум-коллекция VSPC</div><h1>Настоящее<br>дерево.<br>Новые правила.</h1><p>Натуральный строганый шпон на влагостойкой SPC-основе. Паркет, который создан для современной жизни.</p><div class="actions"><a class="btn fill" href="#collection">Смотреть коллекцию</a><a class="btn" href="#tech">Как это устроено</a></div></div><div class="statbar"><div class="wrap stats"><div class="stat"><b>100%</b><span>водостойкий</span></div><div class="stat"><b>200 м²</b><span>без порогов</span></div><div class="stat"><b>0,6 мм</b><span>натуральный шпон</span></div><div class="stat"><b>7 слоёв</b><span>УФ-лака</span></div></div></div></section>
@@ -195,7 +205,7 @@ const fallbackFaq=[["Это натуральное дерево или имит�
 let prices={...fallbackPrices};
 function money(n){return Number(n).toLocaleString("ru-RU")+" BYN";}
 function priceHTML(code){const p=prices[code]||fallbackPrices[code];if(p&&p.active&&p.sale){return '<span class="old-price">'+money(p.regular)+'</span><span class="sale-price">'+money(p.sale)+'</span><small> / м²</small>'}return '<span class="price">'+money(p?.regular||189)+' <small>/ м²</small></span>'}
-function renderProducts(){document.getElementById("decorGrid").innerHTML=products.map(p=>'<article class="decor-card" onclick="openDecor(\''+p[0]+'\')">'+((prices[p[0]]?.active&&prices[p[0]]?.sale)?'<span class="sale-badge">Акция</span>':'')+'<div class="wood" style="--wood:'+p[4]+'"><i></i><i></i><i></i><i></i></div><div class="decor-meta"><b class="sku">'+p[0]+'</b><span>'+p[2]+'</span><h3>'+p[1].replace(p[2]+" ","")+'</h3><div class="pricebox">'+priceHTML(p[0])+'</div></div></article>').join("")}
+function renderProducts(){document.getElementById("decorGrid").innerHTML=products.map(p=>'<article class="decor-card" onclick="openDecor(\''+p[0]+'\')">'+((prices[p[0]]?.active&&prices[p[0]]?.sale)?'<span class="sale-badge">Акция</span>':'')+'<div class="wood" style="--wood:'+p[4]+'"><i></i><i></i><i></i><i></i></div><div class="decor-meta"><div class="meta-top"><span>'+p[2]+'</span><b class="sku">'+p[0]+'</b></div><h3>'+p[1].replace(p[2]+" ","")+'</h3><div class="pricebox">'+priceHTML(p[0])+'</div></div></article>').join("")}
 function renderFaq(items){document.getElementById("faqList").innerHTML=items.map(x=>'<div class="faq-item"><button class="faq-q"><span>'+x[0]+'</span><span>+</span></button><div class="faq-a"><p>'+x[1]+'</p></div></div>').join("");document.querySelectorAll(".faq-q").forEach(b=>b.onclick=()=>b.parentElement.classList.toggle("open"))}
 function openDecor(code){const p=products.find(x=>x[0]===code);document.getElementById("mname").textContent=p[1];document.getElementById("mcode").textContent=p[0];document.getElementById("mdetails").textContent=p[2]+" · "+p[3]+" поверхность";document.getElementById("mprice").innerHTML=priceHTML(code);document.getElementById("modalwood").style.background='repeating-linear-gradient(4deg,'+p[4]+' 0 18px,#ffffff12 19px 20px),'+p[4];document.getElementById("modal").classList.add("open")}
 function closeDecor(){document.getElementById("modal").classList.remove("open")}
