@@ -61,3 +61,25 @@ footer{background:#050505;color:#888;border-top:1px solid #333;padding:40px 0;fo
   .layout-grid,.related-grid,.benefit-grid,.install-grid{grid-template-columns:1fr}
   .related-card img{height:250px}.footer-row{flex-direction:column}
 }
+
+/* Improve small labels on product pages */
+.kicker,
+.eyebrow,
+.install-card .num{
+  font-size:13px!important;
+  font-weight:600!important;
+  letter-spacing:.18em!important;
+  opacity:1!important;
+}
+.kicker,
+.eyebrow{
+  color:#5c6164!important;
+}
+.specs .kicker,
+.layouts .kicker,
+.product-info .eyebrow{
+  color:#b8bdc0!important;
+}
+.install-card .num{
+  color:#666!important;
+}
