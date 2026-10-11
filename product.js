@@ -76,3 +76,17 @@ async function loadPrice(){
 window.showImage=showImage;
 document.addEventListener("keydown",e=>{if(e.key==="ArrowLeft")showImage(current-1);if(e.key==="ArrowRight")showImage(current+1)});
 renderGallery();renderBase();loadPrice();
+
+/* Installation adhesive: use the supplied Alpine Floor Ridge product image. */
+document.querySelectorAll('.glue-visual').forEach(el=>{
+  el.innerHTML='<img src="assets/alpine-floor-ridge.jpg" alt="Силановый клей Alpine Floor Ridge 10 кг" loading="lazy">';
+});
+document.querySelectorAll('.install-card').forEach(card=>{
+  if(card.textContent.includes('Силан Про')){
+    const h=card.querySelector('h3');
+    if(h) h.textContent='Alpine Floor Ridge';
+    card.querySelectorAll('p').forEach(p=>{
+      p.innerHTML=p.innerHTML.replaceAll('Силан Про','Ridge');
+    });
+  }
+});
