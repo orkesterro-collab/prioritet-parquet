@@ -16,6 +16,33 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Fetch Alpine Floor Silver Foil Blue EVA image
+        run: |
+          python3 - <<'PY'
+          import re, html, urllib.request, pathlib
+          page_url = "https://triopol.by/product/podlojka-pod-kvarts-vinilovyie-pvh-ltv-spc-pokryitiya-alpine-floor-silver-foil-blue-eva-9660/"
+          req = urllib.request.Request(page_url, headers={"User-Agent":"Mozilla/5.0"})
+          page = urllib.request.urlopen(req, timeout=30).read().decode("utf-8","ignore")
+          patterns = [
+              r'<meta[^>]+property=["\']og:image["\'][^>]+content=["\']([^"\']+)["\']',
+              r'<meta[^>]+content=["\']([^"\']+)["\'][^>]+property=["\']og:image["\']',
+              r'<meta[^>]+name=["\']twitter:image["\'][^>]+content=["\']([^"\']+)["\']'
+          ]
+          image_url = None
+          for p in patterns:
+              m = re.search(p, page, re.I)
+              if m:
+                  image_url = html.unescape(m.group(1))
+                  break
+          if not image_url:
+              raise SystemExit("Could not find product image on Triopol page")
+          out = pathlib.Path("assets/alpine-floor-silver-foil-blue-eva.jpg")
+          out.parent.mkdir(parents=True, exist_ok=True)
+          req2 = urllib.request.Request(image_url, headers={"User-Agent":"Mozilla/5.0","Referer":page_url})
+          out.write_bytes(urllib.request.urlopen(req2, timeout=30).read())
+          print("Saved", image_url, "->", out, out.stat().st_size, "bytes")
+          PY
+
       - name: Deploy website via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
