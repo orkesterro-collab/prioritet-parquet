@@ -1,4 +1,5 @@
 name: Deploy to hoster.by
+# deployment trigger
 
 on:
   push:
