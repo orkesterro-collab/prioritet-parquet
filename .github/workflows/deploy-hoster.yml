@@ -22,7 +22,7 @@ jobs:
           server: 87.232.64.108
           username: chatgpt
           password: ${{ secrets.FTP_PASSWORD }}
-          protocol: ftp
+          protocol: ftps
           port: 21
           server-dir: /
           local-dir: ./
