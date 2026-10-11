@@ -127,14 +127,23 @@ section{padding:110px 0}.dark{background:linear-gradient(135deg,#101214,#191c1e)
   background:none!important;
 }
 </style><style>
-.where-buy{max-width:760px;margin:42px auto 0;text-align:left;border-top:1px solid rgba(17,19,21,.25);padding-top:28px}
-.where-buy h3{font-size:28px;margin:0 0 4px;text-transform:uppercase;letter-spacing:.04em}
-.where-city{font-size:14px;text-transform:uppercase;letter-spacing:.14em;margin-bottom:18px;opacity:.62}
-.store-list{display:grid;grid-template-columns:1fr 1fr;gap:10px 24px}
-.store-item{padding:15px 0;border-top:1px solid rgba(17,19,21,.18);display:flex;flex-direction:column;gap:4px}
-.store-item strong{font-size:17px}
-.store-item span{font-size:15px;opacity:.72}
-@media(max-width:560px){.where-buy{margin-top:34px}.store-list{grid-template-columns:1fr}.store-item{padding:13px 0}.where-buy h3{font-size:24px}}
+.where-buy{max-width:1080px;margin:46px auto 0;text-align:left}
+.where-buy-head{display:flex;align-items:end;justify-content:space-between;gap:30px;padding-bottom:22px;border-bottom:1px solid rgba(17,19,21,.28)}
+.where-buy h3{font-size:32px;margin:0;text-transform:uppercase;letter-spacing:.035em}
+.where-buy-note{max-width:480px;margin:0;color:#3f4446;font-size:15px;line-height:1.55}
+.city-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
+.city-card{background:rgba(255,255,255,.38);border:1px solid rgba(17,19,21,.18);padding:22px}
+.where-city{font-size:12px;text-transform:uppercase;letter-spacing:.18em;margin-bottom:16px;opacity:.58}
+.store-list{display:grid;grid-template-columns:1fr;gap:12px}
+.store-item{display:grid;grid-template-columns:82px 1fr;gap:14px;align-items:center;padding:12px;border-top:1px solid rgba(17,19,21,.14)}
+.store-item:first-child{border-top:0}
+.store-photo{width:82px;height:64px;border:1px solid rgba(17,19,21,.16);background:linear-gradient(145deg,#d9dbdb,#aeb3b5);display:flex;align-items:center;justify-content:center;text-align:center;font-size:9px;line-height:1.25;letter-spacing:.12em;text-transform:uppercase;color:#4e5355}
+.store-copy{min-width:0}
+.store-item strong{display:block;font-size:17px;line-height:1.25;margin-bottom:5px}
+.store-item span,.store-item a{display:block;font-size:14px;line-height:1.45;color:#4e5355}
+.store-item a{text-decoration:underline;text-underline-offset:3px}
+@media(max-width:900px){.city-grid{grid-template-columns:1fr 1fr}.where-buy-head{align-items:flex-start;flex-direction:column}}
+@media(max-width:560px){.where-buy{margin-top:34px}.city-grid{grid-template-columns:1fr}.store-item{grid-template-columns:72px 1fr;padding:10px}.store-photo{width:72px;height:58px}.where-buy h3{font-size:26px}}
 </style><style>
 /* Keep product photos unaltered */
 .decor-card .wood{
@@ -222,13 +231,32 @@ body,.collection,.decor-card,.decor-card .wood,.modalbox,.modalwood{
   <div class="kicker">Приоритет Паркет</div>
   <h2>Натуральное дерево без привычных ограничений.</h2>
   <div class="where-buy">
-    <h3>Где купить</h3>
-    <div class="where-city">г. Минск</div>
-    <div class="store-list">
-      <div class="store-item"><strong>Европаркет</strong><span>ул. Уманская, 54</span></div>
-      <div class="store-item"><strong>Европаркет</strong><span>ул. Ложинская, 4</span></div>
-      <div class="store-item"><strong>ELECORD</strong><span>ул. Нововиленская, 41</span></div>
-      <div class="store-item"><strong>ТРИО — центр напольных покрытий</strong><span>пр-т Победителей, 129</span></div>
+    <div class="where-buy-head">
+      <h3>Где купить</h3>
+      <p class="where-buy-note">Посмотреть коллекцию вживую, сравнить декоры и получить консультацию можно в салонах наших партнёров.</p>
+    </div>
+    <div class="city-grid">
+      <section class="city-card">
+        <div class="where-city">Минск</div>
+        <div class="store-list">
+          <div class="store-item"><div class="store-photo">Фото<br>салона</div><div class="store-copy"><strong>Европаркет</strong><span>ул. Уманская, 54</span></div></div>
+          <div class="store-item"><div class="store-photo">Фото<br>салона</div><div class="store-copy"><strong>Европаркет</strong><span>ул. Ложинская, 4</span></div></div>
+          <div class="store-item"><div class="store-photo">Фото<br>салона</div><div class="store-copy"><strong>ELECORD</strong><span>ул. Нововиленская, 41</span></div></div>
+          <div class="store-item"><div class="store-photo">Фото<br>салона</div><div class="store-copy"><strong>ТРИО — центр напольных покрытий</strong><span>пр-т Победителей, 129</span></div></div>
+        </div>
+      </section>
+      <section class="city-card">
+        <div class="where-city">Брест</div>
+        <div class="store-list">
+          <div class="store-item"><div class="store-photo">Фото<br>салона</div><div class="store-copy"><strong>ТРИО — центр напольных покрытий</strong><span>ул. 17-го Сентября, 12</span></div></div>
+        </div>
+      </section>
+      <section class="city-card">
+        <div class="where-city">Гродно</div>
+        <div class="store-list">
+          <div class="store-item"><div class="store-photo">Фото<br>салона</div><div class="store-copy"><strong>Пол Маккартни</strong><a href="https://yandex.by/maps/10274/grodno/house/ZkoYfgNjSUwEQFtpfXp5cH9jZA==/" target="_blank" rel="noopener">ул. Будённого, 30</a></div></div>
+        </div>
+      </section>
     </div>
   </div>
 </div></section></main>
