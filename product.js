@@ -86,7 +86,7 @@ document.querySelectorAll('.install-card').forEach(card=>{
     const h=card.querySelector('h3');
     if(h) h.textContent='Alpine Floor Ridge';
     card.querySelectorAll('p').forEach(p=>{
-      p.innerHTML=p.innerHTML.replaceAll('Силан Про','Ridge');
+      p.innerHTML=p.innerHTML.replace(/Силан Про/g,'Ridge');
     });
   }
 });
