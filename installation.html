@@ -3,58 +3,215 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Способы укладки — Приоритет Паркет</title>
+<title>Инструкция по укладке — Приоритет Паркет</title>
+<meta name="description" content="Подробная инструкция по плавающей и клеевой укладке Приоритет Паркет: подготовка основания, зазоры, подложка, клей, тёплый пол и правила после монтажа.">
 <style>
-:root{--ink:#111315;--paper:#f2f2f2;--line:#d1d4d5}
+:root{--ink:#111315;--paper:#f3f3f1;--line:#c9cdce;--muted:#62676a;--silver:#d9dcdd}
 *{box-sizing:border-box}
-body{margin:0;font:16px/1.55 Arial,sans-serif;background:#f3f3f3;color:var(--ink)}
+html{scroll-behavior:smooth}
+body{margin:0;font:16px/1.58 Arial,sans-serif;background:var(--paper);color:var(--ink)}
 a{color:inherit;text-decoration:none}
-.wrap{width:calc(100% - 32px);max-width:1120px;margin:auto}
-header{background:#0d0f10;color:#fff;border-bottom:1px solid #34383a}
-nav{min-height:76px;display:flex;align-items:center;gap:20px}
+.wrap{width:calc(100% - 32px);max-width:1160px;margin:auto}
+header{position:sticky;top:0;z-index:20;background:#0b0d0e;color:#fff;border-bottom:1px solid #303436}
+nav{min-height:76px;display:flex;align-items:center;gap:24px}
 .logo{font-weight:900;letter-spacing:.055em;margin-right:auto}
-.logo small{display:block;font-size:9px;letter-spacing:.28em;color:#bbb}
+.logo small{display:block;font-size:9px;letter-spacing:.28em;color:#b9bdc0}
+.navlinks{display:flex;align-items:center;gap:24px;font-size:12px}
 .btn{display:inline-block;border:1px solid currentColor;padding:14px 18px;text-transform:uppercase;font-size:11px;letter-spacing:.12em}
-.hero{background:#111315;color:#fff;padding:72px 0 56px}
-.kicker{text-transform:uppercase;letter-spacing:.18em;font-size:12px;color:#b8bdc0;font-weight:700}
-h1{font-size:clamp(42px,7vw,78px);line-height:.95;letter-spacing:-.045em;margin:14px 0 20px}
-.lead{max-width:760px;color:#bbb;font-size:20px}
-.compare{padding:48px 0}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.card{background:#fff;border:1px solid var(--line);overflow:hidden}
-.visual{height:250px;background:#fff;display:flex;align-items:center;justify-content:center}
-.visual img{width:100%;height:100%;object-fit:contain}
-.copy{padding:28px}
-.num{font-size:11px;text-transform:uppercase;letter-spacing:.16em;color:#777;font-weight:700}
-h2{font-size:30px;line-height:1.08;margin:10px 0 14px}
-.copy p{color:#555;margin:0 0 14px}
-.fact{padding:13px 0;border-top:1px solid #ddd;display:grid;grid-template-columns:145px 1fr;gap:14px}
+.btn.fill{background:#fff;color:#111;border-color:#fff}
+.hero{background:#111315;color:#fff;padding:78px 0 62px}
+.kicker{text-transform:uppercase;letter-spacing:.18em;font-size:13px;color:#b8bdc0;font-weight:700}
+h1{font-size:clamp(46px,7vw,82px);line-height:.93;letter-spacing:-.05em;margin:16px 0 22px;max-width:900px}
+.lead{max-width:800px;color:#c5c8c9;font-size:20px;margin:0}
+.hero-facts{display:grid;grid-template-columns:repeat(4,1fr);margin-top:42px;border:1px solid #34383a}
+.hero-fact{padding:20px 22px;border-right:1px solid #34383a}
+.hero-fact:last-child{border-right:0}
+.hero-fact b{display:block;font-size:22px}
+.hero-fact span{font-size:12px;color:#aaa;text-transform:uppercase;letter-spacing:.08em}
+.section{padding:72px 0}
+.section.alt{background:#e8e9e8}
+.section.dark{background:#111315;color:#fff}
+.section-head{display:grid;grid-template-columns:330px 1fr;gap:52px;align-items:start;margin-bottom:34px}
+.section-head h2{font-size:44px;line-height:1;margin:10px 0 0;letter-spacing:-.035em}
+.section-head p{font-size:18px;color:var(--muted);margin:0;max-width:720px}
+.dark .section-head p{color:#b8bdc0}
+.checks{display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.check{background:#fff;min-height:150px;padding:24px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.check b{display:block;font-size:20px;margin-bottom:7px}
+.check p{margin:0;color:#5f6467}
+.notice{margin-top:22px;padding:22px 24px;background:#111315;color:#fff;border-left:4px solid #c7cbcc}
+.notice strong{display:block;margin-bottom:5px}
+.notice p{margin:0;color:#c3c6c7}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.method{background:#fff;border:1px solid var(--line);overflow:hidden}
+.method-visual{height:250px;background:#fff;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line)}
+.method-visual img{width:100%;height:100%;object-fit:contain}
+.method-copy{padding:30px}
+.num{font-size:12px;text-transform:uppercase;letter-spacing:.17em;color:#73787b;font-weight:700}
+.method h3{font-size:30px;line-height:1.05;margin:12px 0 14px}
+.method p{color:#5f6467}
+.facts{margin-top:20px;border-top:1px solid #ddd}
+.fact{display:grid;grid-template-columns:155px 1fr;gap:15px;padding:12px 0;border-bottom:1px solid #ddd}
 .fact b{font-size:13px}
 .fact span{font-size:14px;color:#555}
-.note{background:#111315;color:#fff;padding:44px 0}
-.note h2{margin-top:0}
-.note p{color:#bbb;max-width:820px}
-.back{margin-top:24px}
-@media(max-width:680px){
-  .grid{grid-template-columns:1fr}
-  .hero{padding:48px 0 38px}
-  .lead{font-size:18px}
-  .visual{height:210px}
-  .copy{padding:22px}
-  h2{font-size:25px}
+.steps{counter-reset:step;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.step{counter-increment:step;background:#fff;border:1px solid var(--line);padding:22px 22px 22px 74px;position:relative;min-height:130px}
+.step:before{content:counter(step,decimal-leading-zero);position:absolute;left:20px;top:19px;font-size:24px;font-weight:900;color:#979c9f}
+.step h3{font-size:18px;margin:0 0 6px}
+.step p{margin:0;color:#606568}
+.pro-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.pro{border:1px solid #34383a;padding:22px}
+.pro b{display:block;font-size:22px;margin-bottom:5px}
+.pro span{color:#b8bdc0}
+.after{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.after-card{background:#fff;border:1px solid var(--line);padding:28px}
+.after-card b{font-size:34px;display:block}
+.after-card span{color:#5f6467}
+.bottom-cta{padding:56px 0;background:linear-gradient(135deg,#d9dbdb,#999fa1)}
+.bottom-row{display:flex;justify-content:space-between;align-items:center;gap:30px}
+.bottom-row h2{font-size:38px;margin:0;line-height:1.05}
+.small-note{margin-top:20px;color:#686d70;font-size:13px}
+footer{background:#050505;color:#888;padding:34px 0;font-size:12px}
+.footer-row{display:flex;justify-content:space-between;gap:20px}
+@media(max-width:850px){
+  .navlinks a:not(.btn){display:none}
+  .hero-facts,.pro-grid,.after{grid-template-columns:1fr 1fr}
+  .section-head,.two{grid-template-columns:1fr}
+  .section-head{gap:16px}
+}
+@media(max-width:600px){
+  .wrap{width:calc(100% - 28px)}
+  nav{min-height:72px}.logo{font-size:14px}.navlinks{gap:8px}.btn{padding:12px 13px;font-size:9px}
+  .hero{padding:52px 0 42px}.lead{font-size:18px}
+  .hero-facts,.checks,.steps,.pro-grid,.after{grid-template-columns:1fr}
+  .hero-fact{border-right:0;border-bottom:1px solid #34383a}.hero-fact:last-child{border-bottom:0}
+  .section{padding:54px 0}.section-head h2{font-size:38px}
+  .method-visual{height:210px}.method-copy{padding:22px}.method h3{font-size:26px}
   .fact{grid-template-columns:1fr;gap:3px}
+  .bottom-row{align-items:flex-start;flex-direction:column}
+  .footer-row{flex-direction:column}
 }
 </style>
 </head>
-<body>
-<header><nav class="wrap"><div class="logo">ПРИОРИТЕТ ПАРКЕТ<small>ALPINE FLOOR</small></div><a class="btn" href="index.html#contact">Где купить</a></nav></header>
+<body id="top">
+<header><nav class="wrap">
+  <a class="logo" href="index.html">ПРИОРИТЕТ ПАРКЕТ<small>ALPINE FLOOR</small></a>
+  <div class="navlinks"><a href="#before">Подготовка</a><a href="#floating">Плавающая</a><a href="#glue">Клеевая</a><a class="btn" href="index.html#contact">Где купить</a></div>
+</nav></header>
+
 <main>
-<section class="hero"><div class="wrap"><div class="kicker">Монтаж</div><h1>Два способа укладки.</h1><p class="lead">Один и тот же Приоритет Паркет можно уложить плавающим способом на подложку или приклеить к основанию. Ниже — основные различия, чтобы проще выбрать подходящий вариант.</p></div></section>
-<section class="compare"><div class="wrap grid">
-<article class="card"><div class="visual"><img src="assets/alpine-floor-silver-foil-blue-eva.svg" alt="Подложка Alpine Floor Silver Foil Blue EVA 1,5 мм"></div><div class="copy"><div class="num">01 · Плавающая укладка</div><h2>На подложку Alpine Floor Silver Foil Blue EVA</h2><p>Покрытие собирается на замок без приклеивания к основанию.</p><div class="fact"><b>Подложка</b><span>Alpine Floor Silver Foil Blue EVA, 1,5 мм</span></div><div class="fact"><b>Высота конструкции</b><span>примерно 7 мм</span></div><div class="fact"><b>Монтаж</b><span>быстрее и проще демонтировать</span></div><div class="fact"><b>Тёплый пол</b><span>совместимо при соблюдении требований системы</span></div></div></article>
-<article class="card"><div class="visual"><img src="assets/alpine-floor-ridge.jpg" alt="Силановый клей Alpine Floor Ridge"></div><div class="copy"><div class="num">02 · Клеевая укладка</div><h2>На Alpine Floor Ridge</h2><p>Покрытие фиксируется непосредственно к подготовленному основанию.</p><div class="fact"><b>Клей</b><span>Alpine Floor Ridge</span></div><div class="fact"><b>Клеевой слой</b><span>ориентировочно около 1 мм</span></div><div class="fact"><b>Высота конструкции</b><span>примерно 6,5 мм</span></div><div class="fact"><b>Фиксация</b><span>жёсткая фиксация покрытия к основанию</span></div></div></article>
+<section class="hero"><div class="wrap">
+  <div class="kicker">Инструкция по укладке</div>
+  <h1>Монтаж без догадок.</h1>
+  <p class="lead">Основные требования и порядок работ собраны по инструкции производителя на упаковке «Приоритет Паркет». Здесь — подготовка основания, плавающая и клеевая укладка, тёплый пол и правила после монтажа.</p>
+  <div class="hero-facts">
+    <div class="hero-fact"><b>≥ 24 ч</b><span>акклиматизация</span></div>
+    <div class="hero-fact"><b>≤ 2 мм</b><span>перепад на 2 м</span></div>
+    <div class="hero-fact"><b>≥ 8 мм</b><span>зазор по периметру</span></div>
+    <div class="hero-fact"><b>≤ 28 °C</b><span>тёплый пол</span></div>
+  </div>
 </div></section>
-<section class="note"><div class="wrap"><h2>Как выбрать?</h2><p>Выбор зависит от качества основания, площади помещения, требований к акустике, возможности демонтажа и особенностей проекта. Перед монтажом основание должно соответствовать требованиям к укладке SPC-покрытий.</p><a class="btn back" href="index.html#installation">Вернуться к коллекции</a></div></section>
+
+<section id="before" class="section"><div class="wrap">
+  <div class="section-head"><div><div class="kicker">Перед началом</div><h2>Подготовьте покрытие и основание.</h2></div><p>Большинство проблем после укладки связано не с замком, а с неподготовленным основанием или отсутствием компенсационных зазоров.</p></div>
+  <div class="checks">
+    <div class="check"><b>Акклиматизация</b><p>Выдержите закрытые упаковки в помещении не менее суток при температуре воздуха не ниже +18 °C. Храните упаковки горизонтально.</p></div>
+    <div class="check"><b>Проверка декора</b><p>До монтажа разложите несколько планок, проверьте рисунок и отсутствие видимых дефектов. Дефектные панели не укладывайте.</p></div>
+    <div class="check"><b>Ровность</b><p>Просвет между двухметровой контрольной рейкой и основанием — не более 2 мм. Не допускаются трещины, выбоины, вздутия и заметные деформации.</p></div>
+    <div class="check"><b>Чистота и влажность</b><p>Основание должно быть чистым, сухим и прочным. Влажность цементной стяжки — не более 4% по массе.</p></div>
+    <div class="check"><b>Стяжка</b><p>Толщина — не менее 4–5 см. Прочность на сжатие — не ниже 15 МПа. Под сосредоточенной нагрузкой 100 кг на площадке 30 × 30 мм прогиб — не более 1 мм.</p></div>
+    <div class="check"><b>Компенсационный зазор</b><p>Оставляйте не менее 8 мм по всему периметру и вокруг труб, колонн и других неподвижных элементов.</p></div>
+  </div>
+  <div class="notice"><strong>Большие площади и сложная планировка</strong><p>При площади укладки более 56 м² в одном помещении либо при нестандартной планировке производитель указывает увеличение компенсационного зазора до 10 мм. Дверные коробки при плавающем монтаже не должны препятствовать температурному расширению покрытия.</p></div>
+</div></section>
+
+<section class="section dark"><div class="wrap">
+  <div class="section-head"><div><div class="kicker">Тёплый пол</div><h2>Не выше 28 °C.</h2></div><p>Монтаж нельзя выполнять при работающем подогреве. Систему необходимо отключить минимум за 24 часа до начала укладки. Максимально допустимая температура нагрева покрытия — 28 °C.</p></div>
+  <div class="pro-grid">
+    <div class="pro"><b>24 часа</b><span>минимум без подогрева перед монтажом</span></div>
+    <div class="pro"><b>28 °C</b><span>максимальная температура нагрева покрытия</span></div>
+    <div class="pro"><b>Без перегрева</b><span>соблюдайте ограничения конкретной системы тёплого пола</span></div>
+  </div>
+</div></section>
+
+<section id="floating" class="section alt"><div class="wrap">
+  <div class="section-head"><div><div class="kicker">01 · Плавающий способ</div><h2>На специализированную подложку.</h2></div><p>Панели соединяются замком и не приклеиваются к основанию. Для «Приоритет Паркет» подходит специализированная подложка для каменно-полимерных покрытий.</p></div>
+  <div class="two">
+    <article class="method"><div class="method-visual"><img src="assets/alpine-floor-silver-foil-blue-eva.svg" alt="Подложка Alpine Floor Silver Foil Blue EVA 1,5 мм"></div><div class="method-copy">
+      <div class="num">Подложка</div><h3>Alpine Floor Silver Foil Blue EVA 1,5 мм</h3>
+      <p>Для плавающей укладки используйте плотную специализированную подложку.</p>
+      <div class="facts">
+        <div class="fact"><b>Толщина</b><span>не более 1,5 мм</span></div>
+        <div class="fact"><b>Плотность</b><span>90 кг/м³ и более</span></div>
+        <div class="fact"><b>Для нашего пола</b><span>5,5 мм покрытия + 1,5 мм подложки ≈ 7 мм общей высоты</span></div>
+      </div>
+      <p class="small-note">Если покрытие уже имеет встроенную подложку либо его толщина менее 3,5 мм, дополнительную подложку использовать нельзя.</p>
+    </div></article>
+    <article class="method"><div class="method-copy">
+      <div class="num">Схема укладки</div><h3>Начинайте с левого угла.</h3>
+      <p>По инструкции панели A и B собираются последовательно с формированием первых рядов, после чего стартовая линия подрезается параллельно стене.</p>
+      <div class="facts">
+        <div class="fact"><b>Старт</b><span>панель A длинной стороной к левой стене под углом 45°</span></div>
+        <div class="fact"><b>Соединение</b><span>панель B длинной стороной соединяется с короткой стороной панели A и прижимается к полу до фиксации</span></div>
+        <div class="fact"><b>Первые ряды</b><span>соберите четыре полные линии, затем разметьте и подрежьте их параллельно стене</span></div>
+        <div class="fact"><b>Распорные клинья</b><span>сохраняйте зазор 8 мм от стены</span></div>
+      </div>
+    </div></article>
+  </div>
+  <div style="height:26px"></div>
+  <div class="steps">
+    <div class="step"><h3>Соберите первую линию</h3><p>Чередуйте панели A и B, следя, чтобы пазы образовывали непрерывную линию.</p></div>
+    <div class="step"><h3>Сформируйте четыре стартовых ряда</h3><p>Это позволяет точно разметить линию реза относительно стены.</p></div>
+    <div class="step"><h3>Разметьте и подрежьте</h3><p>Пронумеруйте панели, сохраните порядок и подрежьте стартовые элементы по линии, параллельной стене.</p></div>
+    <div class="step"><h3>Соберите стартовые треугольники</h3><p>Соедините подрезанные начальные панели и начните укладку от левого угла.</p></div>
+    <div class="step"><h3>Продолжайте рядами</h3><p>Каждую линию начинайте панелями A слева направо и завершайте панелями B справа налево.</p></div>
+    <div class="step"><h3>Завершите последний ряд</h3><p>Отмерьте и подрежьте панели по размеру, сохранив необходимый компенсационный зазор.</p></div>
+  </div>
+</div></section>
+
+<section id="glue" class="section"><div class="wrap">
+  <div class="section-head"><div><div class="kicker">02 · Клеевой способ</div><h2>Фиксация к подготовленному основанию.</h2></div><p>Производитель рекомендует двухкомпонентный полиуретановый либо специализированный силан-модифицированный клей. Водно-дисперсионные составы не допускаются.</p></div>
+  <div class="two">
+    <article class="method"><div class="method-visual"><img src="assets/alpine-floor-ridge.jpg" alt="Силановый клей Alpine Floor Ridge 10 кг"></div><div class="method-copy">
+      <div class="num">Клей</div><h3>Alpine Floor Ridge</h3>
+      <p>Силановый клей подходит для фиксации покрытия непосредственно к подготовленному основанию. Состав для грунтования основания выбирайте в соответствии с рекомендациями производителя клея.</p>
+      <div class="facts">
+        <div class="fact"><b>Шпатель</b><span>B2 или B3</span></div>
+        <div class="fact"><b>Площадь нанесения</b><span>не более 3–5 м² за один раз</span></div>
+        <div class="fact"><b>Нанесение</b><span>равномерно, без непромазанных участков и без сгустков клея</span></div>
+      </div>
+      <p class="small-note">Приклеивать покрытие со встроенной подложкой нельзя.</p>
+    </div></article>
+    <article class="method"><div class="method-copy">
+      <div class="num">Порядок работ</div><h3>Сначала разметка — затем клей.</h3>
+      <p>Стартовые ряды сначала собирают «насухо», размечают и подрезают. Панели нумеруют, чтобы после нанесения клея вернуть их в том же порядке.</p>
+      <div class="facts">
+        <div class="fact"><b>Разметка</b><span>первые четыре линии подготавливаются параллельно стене</span></div>
+        <div class="fact"><b>Клей</b><span>наносится небольшими участками непосредственно перед монтажом</span></div>
+        <div class="fact"><b>Зазор</b><span>по периметру сохраняется минимум 8 мм</span></div>
+        <div class="fact"><b>Очистка</b><span>свежий клей удаляйте влажной тканью до высыхания</span></div>
+      </div>
+    </div></article>
+  </div>
+  <div class="notice"><strong>Не используйте абразивы</strong><p>Для удаления клея с лицевой поверхности производитель запрещает абразивные средства: они могут повредить защитный слой покрытия.</p></div>
+</div></section>
+
+<section class="section alt"><div class="wrap">
+  <div class="section-head"><div><div class="kicker">После монтажа</div><h2>Дайте клею набрать прочность.</h2></div><p>После плавающей укладки можно переходить к плинтусам сразу после завершения работ. После клеевого монтажа соблюдайте временные ограничения.</p></div>
+  <div class="after">
+    <div class="after-card"><b>8 ч</b><span>не рекомендуется ходить по покрытию; затем можно убрать распорки и строительный мусор</span></div>
+    <div class="after-card"><b>24 ч</b><span>после клеевой укладки можно мыть пол</span></div>
+    <div class="after-card"><b>48 ч</b><span>можно устанавливать мебель и другие тяжёлые предметы</span></div>
+  </div>
+  <div class="notice"><strong>Плинтус крепится только к стене</strong><p>Он не должен фиксировать покрытие к полу. Расширительные зазоры закрывают порожками или мягким силиконовым герметиком на неотвердевающей основе.</p></div>
+</div></section>
+
+<section class="bottom-cta"><div class="wrap bottom-row">
+  <div><div class="kicker" style="color:#555">Приоритет Паркет</div><h2>Вернуться к коллекции<br>или выбрать декор.</h2></div>
+  <div><a class="btn fill" href="index.html#collection">Смотреть коллекцию</a> <a class="btn" href="index.html#contact">Где купить</a></div>
+</div></section>
 </main>
+
+<footer><div class="wrap footer-row"><span>Приоритет Паркет · Alpine Floor</span><span>Инструкция подготовлена по информации на упаковке покрытия</span></div></footer>
 </body>
 </html>
