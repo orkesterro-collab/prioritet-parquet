@@ -13,7 +13,7 @@ const ALL_PRODUCTS=[
 {code:"ECO 30-10",name:"Дуб Изящный",species:"Дуб",surface:"Брашированная",url:"eco-30-10.html"}
 ];
 const product=window.PRODUCT;
-const PRODUCT_IMAGE_VERSION="?v=20261012-color1";
+const PRODUCT_IMAGE_VERSION="?v=20261012-color2";
 const codeSlug=product.code.replace(" ","-");
 const images=[`assets/${codeSlug}.png${PRODUCT_IMAGE_VERSION}`,`assets/${codeSlug}-2.png${PRODUCT_IMAGE_VERSION}`,`assets/${codeSlug}-3.png${PRODUCT_IMAGE_VERSION}`,`assets/${codeSlug}-4.png${PRODUCT_IMAGE_VERSION}`];
 let current=0;
