@@ -13,8 +13,9 @@ const ALL_PRODUCTS=[
 {code:"ECO 30-10",name:"Дуб Изящный",species:"Дуб",surface:"Брашированная",url:"eco-30-10.html"}
 ];
 const product=window.PRODUCT;
+const PRODUCT_IMAGE_VERSION="?v=20261012-color1";
 const codeSlug=product.code.replace(" ","-");
-const images=[`assets/${codeSlug}.png`,`assets/${codeSlug}-2.png`,`assets/${codeSlug}-3.png`,`assets/${codeSlug}-4.png`];
+const images=[`assets/${codeSlug}.png${PRODUCT_IMAGE_VERSION}`,`assets/${codeSlug}-2.png${PRODUCT_IMAGE_VERSION}`,`assets/${codeSlug}-3.png${PRODUCT_IMAGE_VERSION}`,`assets/${codeSlug}-4.png${PRODUCT_IMAGE_VERSION}`];
 let current=0;
 function money(n){return Number(n).toLocaleString("ru-RU")+" BYN"}
 function showImage(i){
@@ -53,7 +54,7 @@ function renderBase(){
   const related=[1,2,3,4].map(n=>ALL_PRODUCTS[(idx+n)%ALL_PRODUCTS.length]);
   document.getElementById("relatedGrid").innerHTML=related.map(p=>{
     const slug=p.code.replace(" ","-");
-    return `<a class="related-card" href="${p.url}"><img src="assets/${slug}.png" alt="${p.name}" loading="lazy"><div class="related-meta"><small><span>${p.species}</span><span>${p.code}</span></small><h3>${p.name.replace(p.species+" ","")}</h3></div></a>`;
+    return `<a class="related-card" href="${p.url}"><img src="assets/${slug}.png${PRODUCT_IMAGE_VERSION}" alt="${p.name}" loading="lazy"><div class="related-meta"><small><span>${p.species}</span><span>${p.code}</span></small><h3>${p.name.replace(p.species+" ","")}</h3></div></a>`;
   }).join("");
 }
 function renderPrice(p){
