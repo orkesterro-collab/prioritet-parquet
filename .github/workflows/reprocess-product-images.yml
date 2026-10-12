@@ -26,78 +26,86 @@ jobs:
       - name: Install Pillow
         run: python -m pip install --quiet pillow
 
-      - name: Reprocess product images in full sRGB
+      - name: Correct product render exposure
         run: |
           python - <<'PY'
           from pathlib import Path
-          from PIL import Image, ImageEnhance, ImageCms
+          from PIL import Image, ImageStat, ImageCms
           import re
 
           assets = Path("assets")
           srgb = ImageCms.ImageCmsProfile(ImageCms.createProfile("sRGB")).tobytes()
-          lut = [max(0, min(255, round(((i / 255.0) ** 0.94) * 255))) for i in range(256)]
+          target_luma = 118.0
+          max_factor = 1.55
+
+          def mean_luma(rgb):
+              small = rgb.resize((max(1, rgb.width // 8), max(1, rgb.height // 8)))
+              stat = ImageStat.Stat(small)
+              r, g, b = stat.mean[:3]
+              return 0.2126*r + 0.7152*g + 0.0722*b
 
           changed = 0
           for path in sorted(assets.glob("ECO-30-*.png")):
-              im = Image.open(path)
-
-              # The supplied renders are indexed PNGs with very small palettes.
-              # Process only those originals, so the workflow is safe to run again.
-              if im.mode != "P":
-                  print("skip already reprocessed:", path)
+              # The fourth image is a close-up/texture reference. Keep its tone accurate.
+              if re.search(r"-4\.png$", path.name):
+                  print("keep texture unchanged:", path)
                   continue
 
+              im = Image.open(path)
               rgba = im.convert("RGBA")
               r, g, b, a = rgba.split()
-              rgb = Image.merge("RGB", (r.point(lut), g.point(lut), b.point(lut)))
-              # Mild color restoration only; no contrast filter.
-              rgb = ImageEnhance.Color(rgb).enhance(1.08)
+              rgb = Image.merge("RGB", (r, g, b))
+
+              before = mean_luma(rgb)
+              factor = min(max_factor, max(1.0, target_luma / max(before, 1.0)))
+
+              if factor <= 1.005:
+                  print(f"keep exposure: {path} mean={before:.1f}")
+                  continue
+
+              lut = [min(255, round(i * factor)) for i in range(256)]
+              bright = Image.merge("RGB", (
+                  rgb.getchannel("R").point(lut),
+                  rgb.getchannel("G").point(lut),
+                  rgb.getchannel("B").point(lut),
+              ))
 
               amin, amax = a.getextrema()
               if amin < 253:
-                  out = Image.merge("RGBA", (*rgb.split(), a))
+                  out = Image.merge("RGBA", (*bright.split(), a))
               else:
-                  out = rgb
+                  out = bright
 
-              out.save(
-                  path,
-                  "PNG",
-                  icc_profile=srgb,
-                  optimize=True,
-                  compress_level=7,
-              )
+              out.save(path, "PNG", icc_profile=srgb, optimize=True, compress_level=7)
+              after = mean_luma(bright)
               changed += 1
-              print("reprocessed:", path, im.mode, "->", out.mode)
+              print(f"brightened: {path} mean {before:.1f} -> {after:.1f}; factor={factor:.3f}")
 
-          # Force browsers to request the new first image immediately on each product page.
-          version = "20261012-color1"
-          for path in sorted(Path(".").glob("eco-30-*.html")):
+          version = "20261012-color2"
+          files = [Path("index.html"), Path("product.js"), *sorted(Path(".").glob("eco-30-*.html"))]
+          for path in files:
               text = path.read_text(encoding="utf-8")
-              new = re.sub(
-                  r'(src="assets/ECO-30-\d+\.png)(?:\?[^"]*)?(")',
-                  rf'\1?v={version}\2',
-                  text,
-              )
+              new = text.replace("20261012-color1", version)
               if new != text:
                   path.write_text(new, encoding="utf-8")
                   print("cache version:", path)
 
-          print("processed images:", changed)
+          print("brightened images:", changed)
           PY
 
-      - name: Commit reprocessed images
+      - name: Commit corrected images
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/ECO-30-*.png eco-30-*.html
+          git add assets/ECO-30-*.png index.html product.js eco-30-*.html
           if git diff --cached --quiet; then
             echo "No image changes to commit"
           else
-            git commit -m "Reprocess product images in full sRGB"
+            git commit -m "Brighten product renders without contrast filter"
             git push origin main
           fi
 
-      - name: Deploy processed site to hoster.by
+      - name: Deploy corrected site to hoster.by
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: 87.232.64.108
