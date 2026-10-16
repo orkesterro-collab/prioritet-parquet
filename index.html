@@ -168,6 +168,10 @@ section{padding:110px 0}.dark{background:linear-gradient(135deg,#101214,#191c1e)
 .compare-row strong{font-size:19px;color:#111}
 .install-compare+.install-note{margin-top:23px}
 @media(max-width:700px){.install-compare{margin-top:16px}.install-compare-head,.compare-row{grid-template-columns:28% 36% 36%}.install-compare-head>*,.compare-row>*{padding:12px 8px}.compare-label{font-size:11px;overflow-wrap:anywhere}.compare-method strong{font-size:14px;line-height:1.2}.compare-method span{font-size:11px;line-height:1.25}.compare-icon{height:auto;max-height:70px;margin:0 0 7px}.compare-row{font-size:12px;line-height:1.4;overflow-wrap:anywhere}.compare-row strong{font-size:15px}}
+
+/* Store list without photo placeholders */
+.store-item{grid-template-columns:minmax(0,1fr)!important;display:flex!important;align-items:center!important;gap:0!important}
+.store-copy{width:100%;min-width:0}
 </style><style>#tech{background:rgb(19,19,19)!important}</style><style>
 #tech{background:#131313!important}
 #tech .layer-art{
@@ -376,22 +380,22 @@ html,body{min-height:100%;width:100%;visibility:visible!important;opacity:1!impo
       <section class="city-card">
         <div class="where-city">Минск</div>
         <div class="store-list">
-          <div class="store-item"><div class="store-photo">Фото<br>салона</div><div class="store-copy"><strong>Европаркет</strong><span>ул. Уманская, 54</span></div></div>
-          <div class="store-item"><div class="store-photo">Фото<br>салона</div><div class="store-copy"><strong>Европаркет</strong><span>ул. Ложинская, 4</span></div></div>
-          <div class="store-item"><div class="store-photo">Фото<br>салона</div><div class="store-copy"><strong>ELECORD</strong><span>ул. Нововиленская, 41</span></div></div>
-          <div class="store-item"><div class="store-photo">Фото<br>салона</div><div class="store-copy"><strong>ТРИО — центр напольных покрытий</strong><span>пр-т Победителей, 129</span></div></div>
+          <div class="store-item"><div class="store-copy"><strong>Европаркет</strong><span>ул. Уманская, 54</span></div></div>
+          <div class="store-item"><div class="store-copy"><strong>Европаркет</strong><span>ул. Ложинская, 4</span></div></div>
+          <div class="store-item"><div class="store-copy"><strong>ELECORD</strong><span>ул. Нововиленская, 41</span></div></div>
+          <div class="store-item"><div class="store-copy"><strong>ТРИО — центр напольных покрытий</strong><span>пр-т Победителей, 129</span></div></div>
         </div>
       </section>
       <section class="city-card">
         <div class="where-city">Брест</div>
         <div class="store-list">
-          <div class="store-item"><div class="store-photo">Фото<br>салона</div><div class="store-copy"><strong>ТРИО — центр напольных покрытий</strong><span>ул. 17-го Сентября, 12</span></div></div>
+          <div class="store-item"><div class="store-copy"><strong>ТРИО — центр напольных покрытий</strong><span>ул. 17-го Сентября, 12</span></div></div>
         </div>
       </section>
       <section class="city-card">
         <div class="where-city">Гродно</div>
         <div class="store-list">
-          <div class="store-item"><div class="store-photo">Фото<br>салона</div><div class="store-copy"><strong>Пол Маккартни</strong><a href="https://yandex.by/maps/10274/grodno/house/ZkoYfgNjSUwEQFtpfXp5cH9jZA==/" target="_blank" rel="noopener">ул. Будённого, 30</a></div></div>
+          <div class="store-item"><div class="store-copy"><strong>Пол Маккартни</strong><a href="https://yandex.by/maps/10274/grodno/house/ZkoYfgNjSUwEQFtpfXp5cH9jZA==/" target="_blank" rel="noopener">ул. Будённого, 30</a></div></div>
         </div>
       </section>
     </div>
