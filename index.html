@@ -153,6 +153,21 @@ section{padding:110px 0}.dark{background:linear-gradient(135deg,#101214,#191c1e)
 .layouts-interior-btn:hover{background:#f2f2f2;color:#111}
 @media(max-width:900px){.layouts{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}}
 @media(max-width:560px){.layouts{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}.layout span{padding:10px 5px 12px;font-size:11px;line-height:1.2;text-align:center;hyphens:auto}.layouts-action{margin-top:18px}.layouts-interior-btn{display:block;width:100%;padding:14px 8px;font-size:11px}}
+
+/* Installation comparison, not product cards */
+.install-compare{border:1px solid #c4c7c9;background:#fff;margin-top:36px;color:#202326}
+.install-compare-head,.compare-row{display:grid;grid-template-columns:29% 35.5% 35.5%}
+.install-compare-head{background:#f1f2f2;align-items:stretch}
+.install-compare-head>*,.compare-row>*{padding:20px 22px;min-width:0}
+.install-compare-head>*+*,.compare-row>*+*{border-left:1px solid #d8dadb}
+.compare-row{border-top:1px solid #d8dadb;font-size:15px;line-height:1.45}
+.compare-label{font-weight:700;color:#65696c;font-size:14px}
+.compare-method{display:flex;flex-direction:column;align-items:center;text-align:center;gap:3px}
+.compare-method strong{font-size:21px}.compare-method span{font-size:13px;color:#64686a}
+.compare-icon{width:min(100%,170px);height:93px;margin-bottom:9px}
+.compare-row strong{font-size:19px;color:#111}
+.install-compare+.install-note{margin-top:23px}
+@media(max-width:700px){.install-compare{margin-top:16px}.install-compare-head,.compare-row{grid-template-columns:28% 36% 36%}.install-compare-head>*,.compare-row>*{padding:12px 8px}.compare-label{font-size:11px;overflow-wrap:anywhere}.compare-method strong{font-size:14px;line-height:1.2}.compare-method span{font-size:11px;line-height:1.25}.compare-icon{height:auto;max-height:70px;margin:0 0 7px}.compare-row{font-size:12px;line-height:1.4;overflow-wrap:anywhere}.compare-row strong{font-size:15px}}
 </style><style>#tech{background:rgb(19,19,19)!important}</style><style>
 #tech{background:#131313!important}
 #tech .layer-art{
@@ -337,13 +352,16 @@ html,body{min-height:100%;width:100%;visibility:visible!important;opacity:1!impo
 <section id="collection" class="collection"><div class="wrap"><div class="section-head"><div><div class="kicker">10 декоров</div><h2>Выберите свой характер дерева.</h2></div><p class="lead">Дуб и орех, гладкие и брашированные поверхности.</p></div><div id="decorGrid" class="decor-grid"></div></div></section>
 <section id="spec" class="dark"><div class="wrap specs"><div><div class="kicker">Технические характеристики</div><h2>Продуман<br>до миллиметра.</h2></div><table><tr><td>Формат</td><td>600 × 125 × 5,5 мм</td></tr><tr><td>Состав</td><td>Натуральный шпон + доломитовый композит</td></tr><tr><td>Толщина шпона</td><td>0,6 мм</td></tr><tr><td>Обработка</td><td>7 слоёв УФ-лака</td></tr><tr><td>Водостойкость</td><td>Полностью водостойкий</td></tr><tr><td>Породы</td><td>Дуб и орех</td></tr><tr><td>Укладка</td><td>Плавающая на подложку Alpine Floor Silver Foil Blue EVA 1,5 мм или клеевая на Alpine Floor Ridge</td></tr><tr><td>Толщина конструкции</td><td>Около 7 мм на подложке или около 6,5 мм при клеевой укладке</td></tr><tr><td>Температурное расширение</td><td>&lt; 0,04%</td></tr><tr><td>Соединение</td><td>Замковое</td></tr><tr><td>Фаска</td><td>4V</td></tr></table></div><div class="wrap layouts"><div class="layout"><img src="assets/layout-english.svg" alt="Английская ёлка"><span>Английская ёлка</span></div><div class="layout"><img src="assets/layout-double.svg" alt="Двойная ёлка"><span>Двойная ёлка</span></div><div class="layout"><img src="assets/layout-deck.svg" alt="Палубная укладка"><span>Палуба</span></div></div><div class="wrap layouts-action"><a class="btn layouts-interior-btn" href="layouts.html">Увидеть в интерьере</a></div></section>
 <section id="installation" class="installation"><div class="wrap">
-  <div class="section-head"><div><div class="kicker">Монтаж</div><h2>Два способа укладки.</h2></div><p class="lead">Один и тот же Приоритет Паркет можно уложить плавающим способом или приклеить к основанию — в зависимости от задачи помещения.</p></div>
-  <div class="install-grid">
-    <article class="install-card"><div class="install-visual"><img src="assets/alpine-floor-silver-foil-blue-eva.svg" alt="Подложка Alpine Floor Silver Foil Blue EVA 1,5 мм" loading="lazy"></div><div class="install-num">01 · Плавающая укладка</div><h3>На подложку Alpine Floor Silver Foil Blue EVA</h3><p>Фирменная EVA-подложка для SPC толщиной <strong>1,5 мм</strong> с фольгированным слоем. Покрытие собирается на замок без приклеивания к основанию.</p><p>Подходит для быстрого монтажа и совместимо с системой тёплого пола.</p><p class="install-thickness"><strong>Итоговая высота пола:</strong> 5,5 мм паркет + 1,5 мм подложка = примерно 7 мм.</p></article>
-    <article class="install-card"><div class="install-visual glue-visual"><img src="assets/alpine-floor-ridge.jpg" alt="Силановый клей Alpine Floor Ridge 10 кг" loading="lazy"></div><div class="install-num">02 · Клеевая укладка</div><h3>На Alpine Floor Ridge</h3><p>Силановый клей Alpine Floor Ridge для фиксации покрытия непосредственно к подготовленному основанию. Ориентировочная толщина клеевого слоя — <strong>около 1 мм</strong>.</p><p>Такой способ обеспечивает жёсткую фиксацию и также подходит для тёплого пола.</p><p class="install-thickness"><strong>Итоговая высота пола:</strong> 5,5 мм паркет + около 1 мм клея = примерно 6,5 мм.</p></article>
-  </div>
-  <p class="install-note">Выбор способа укладки зависит от основания, помещения и требований проекта. Основание должно соответствовать требованиям к монтажу SPC-покрытий.</p>
-  <div class="install-guide-wrap"><a class="btn install-guide-btn" href="installation.html">Полная инструкция по укладке</a></div>
+<div class="section-head"><div><div class="kicker">Монтаж</div><h2>Два способа укладки.</h2></div><p class="lead">Один и тот же Приоритет Паркет можно уложить плавающим способом или приклеить к основанию — в зависимости от задачи помещения.</p></div>
+<div class="install-compare" aria-label="Сравнение двух способов укладки">
+<div class="install-compare-head"><div class="compare-label">Сравнение технологий</div><div class="compare-method"><svg class="compare-icon" viewBox="0 0 180 95" role="img" aria-label="Паркет поверх подложки и основания" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="12" width="160" height="23" rx="2" fill="#9c8c78"/><path d="M48 12v23M92 12v23M136 12v23" stroke="#554d43" stroke-width="1.5"/><rect x="10" y="39" width="160" height="10" fill="#bdc4c7"/><path d="M10 44h160" stroke="#818c91" stroke-dasharray="4 4"/><rect x="10" y="52" width="160" height="27" fill="#73777a"/><path d="M10 63h160M10 70h160" stroke="#929699" stroke-width="1"/><text x="90" y="91" fill="#596064" font-size="10" text-anchor="middle">Подложка 1,5 мм</text></svg><strong>На подложку</strong><span>Плавающая укладка</span></div><div class="compare-method"><svg class="compare-icon" viewBox="0 0 180 95" role="img" aria-label="Паркет поверх клея и основания" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="12" width="160" height="23" rx="2" fill="#9c8c78"/><path d="M48 12v23M92 12v23M136 12v23" stroke="#554d43" stroke-width="1.5"/><path d="M10 39l8 -4 8 4 8 -4 8 4 8 -4 8 4 8 -4 8 4 8 -4 8 4 8 -4 8 4 8 -4 8 4 8 -4 8 4 8 -4 8 4 8 -4 8 4v10H10z" fill="#bdc4c7"/><rect x="10" y="52" width="160" height="27" fill="#73777a"/><path d="M10 63h160M10 70h160" stroke="#929699" stroke-width="1"/><text x="90" y="91" fill="#596064" font-size="10" text-anchor="middle">Клеевой слой ~1 мм</text></svg><strong>На клей</strong><span>Клеевая укладка</span></div></div>
+<div class="compare-row"><div class="compare-label">Принцип монтажа</div><div>Замковое соединение, без приклеивания к основанию</div><div>Фиксация покрытия клеем к подготовленному основанию</div></div>
+<div class="compare-row"><div class="compare-label">Дополнительный слой</div><div>EVA-подложка Alpine Floor Silver Foil Blue EVA, 1,5 мм</div><div>Силановый клей Alpine Floor Ridge, ориентировочно 1 мм</div></div>
+<div class="compare-row"><div class="compare-label">Итоговая толщина*</div><div><strong>≈ 7 мм</strong></div><div><strong>≈ 6,5 мм</strong></div></div>
+<div class="compare-row"><div class="compare-label">Особенность</div><div>Не требует приклеивания покрытия</div><div>Обеспечивает фиксацию покрытия к основанию</div></div>
+</div>
+<p class="install-note">* Расчёт: толщина паркета 5,5 мм плюс подложка или ориентировочный слой клея. Фактическая высота зависит от условий монтажа. Выбор технологии и подготовка основания — по инструкции производителя.</p>
+<div class="install-guide-wrap"><a class="btn install-guide-btn" href="installation.html">Полная инструкция по укладке</a></div>
 </div></section>
 <section id="faq" class="faq"><div class="wrap faq-wrap"><div class="kicker">Вопросы и ответы</div><h2>Что важно знать<br>о Приоритет Паркет.</h2><div id="faqList"></div></div></section>
 <section id="contact" class="cta"><div class="wrap">
