@@ -15,8 +15,26 @@ header{position:sticky;top:0;z-index:40;background:#101214;color:white;border-bo
 .hero{background:#101214;color:white;padding:76px 0 64px}.kicker{font-size:11px;color:#bfc4c6;letter-spacing:.16em;text-transform:uppercase;font-weight:700}h1{font-size:clamp(42px,6.5vw,76px);letter-spacing:-.045em;line-height:1;margin:13px 0 22px}.lead{font-size:19px;max-width:810px;color:#c4c8ca}.intro{padding:36px 0 16px}.intro-inner{border:1px solid #cbd0d2;background:white;padding:26px 30px}.intro h2{font-size:26px;margin:0 0 10px;line-height:1.2}.intro p{margin:0;color:#4d5558;font-size:16px}.care-list{padding:18px 0 80px}.care-card{display:grid;grid-template-columns:62px minmax(0,1fr);gap:14px;padding:25px 28px;background:#fff;border:1px solid #ccd0d2;margin-bottom:10px}.care-number{font-size:26px;font-weight:800;color:#abb0b2}.care-card h2{font-size:23px;line-height:1.25;margin:0 0 10px}.care-card p{margin:0;color:#4b5357;font-size:16px}.bottom{background:#dadcdd;padding:40px 0}.bottom-row{display:flex;align-items:center;justify-content:space-between;gap:20px}.bottom h2{font-size:28px;line-height:1.2;margin:0}.actions{display:flex;flex-wrap:wrap;gap:10px}footer{background:#070808;color:#aaa;padding:32px 0;font-size:12px}
 @media(max-width:900px){.navlinks{display:none}.site-menu-button{display:inline-flex}.site-mobile-menu:not([hidden]){display:block}}
 @media(max-width:600px){nav{min-height:58px}.logo{font-size:13px}.logo small{font-size:8px}.hero{padding:37px 0 33px}h1{font-size:38px}.lead{font-size:15px}.intro{padding:16px 0 4px}.intro-inner{padding:16px}.intro h2{font-size:20px}.intro p{font-size:13px}.care-list{padding:8px 0 40px}.care-card{grid-template-columns:34px minmax(0,1fr);gap:7px;padding:15px 12px;margin-bottom:7px}.care-number{font-size:19px}.care-card h2{font-size:17px;margin-bottom:6px}.care-card p{font-size:13px;line-height:1.48}.bottom{padding:25px 0}.bottom-row{flex-direction:column;align-items:stretch}.bottom h2{font-size:23px}.actions .btn{font-size:10px}footer{padding:22px 0}}
+</style><style>
+/* Compact charcoal two-column floating mobile navigation */
+.site-menu-scrim[hidden]{display:none!important}
+.site-menu-scrim{display:none}
+@media(max-width:900px){
+  header{overflow:visible!important}
+  header nav{position:relative;z-index:1}
+  .site-menu-scrim{display:block;position:fixed;inset:0;background:rgba(0,0,0,.62);z-index:19;-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px)}
+  .site-mobile-menu{position:absolute!important;top:calc(100% + 9px);left:12px;right:12px;width:auto;max-width:480px;margin:0 auto;padding:12px 14px!important;box-sizing:border-box;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:14px;row-gap:3px;background:#343739!important;color:#fff;border:1px solid #686c6e!important;border-radius:14px;box-shadow:0 20px 44px rgba(0,0,0,.48);max-height:calc(100dvh - 100px);overflow:auto;z-index:2}
+  .site-mobile-menu:not([hidden]){display:grid!important}
+  .site-mobile-menu a{min-width:0;min-height:46px;padding:10px 3px!important;margin:0!important;display:flex;align-items:center;justify-content:flex-start;text-align:left!important;background:transparent!important;color:#f5f5f5!important;border:0!important;border-bottom:1px solid #575c5e!important;border-radius:0!important;line-height:1.2;font-size:clamp(12px,3.5vw,14px)!important;font-weight:500!important;text-decoration:none}
+  .site-mobile-menu a:last-child{background:#ebebeb!important;color:#151515!important;justify-content:center;text-align:center!important;border:0!important;border-radius:5px!important;font-weight:700!important;margin-top:2px!important}
+  .site-mobile-menu a:focus-visible{outline:2px solid #fff;outline-offset:2px}
+  .site-menu-button[aria-expanded="true"] svg{display:none}
+  .site-menu-button[aria-expanded="true"]::after{content:"×";font:30px/1 Arial,sans-serif;color:#fff}
+  body.site-menu-open{overflow:hidden}
+}
+@media(max-width:370px){.site-mobile-menu{padding:10px!important;column-gap:8px}.site-mobile-menu a{font-size:12px!important}}
 </style></head><body>
-<header><nav class="wrap"><a href="index.html" class="logo">ПРИОРИТЕТ ПАРКЕТ<small>ALPINE FLOOR</small></a><div class="navlinks"><a href="index.html#collection">Коллекция</a><a href="installation.html">Монтаж</a><a href="care.html" aria-current="page">Эксплуатация и уход</a><a class="btn" href="index.html#contact">Где купить</a></div><button class="site-menu-button" type="button" aria-controls="site-mobile-navigation" aria-expanded="false" aria-label="Открыть меню"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button></nav><div id="site-mobile-navigation" class="site-mobile-menu" hidden><a href="index.html">Главная</a><a href="index.html#collection">Коллекция</a><a href="index.html#why">Преимущества и технология</a><a href="index.html#spec">Характеристики</a><a href="installation.html">Инструкция по монтажу</a><a href="care.html">Эксплуатация и уход</a><a href="index.html#faq">Вопросы и ответы</a><a href="index.html#contact">Где купить</a></div></header>
+<header><nav class="wrap"><a href="index.html" class="logo">ПРИОРИТЕТ ПАРКЕТ<small>ALPINE FLOOR</small></a><div class="navlinks"><a href="index.html#collection">Коллекция</a><a href="installation.html">Монтаж</a><a href="care.html" aria-current="page">Эксплуатация и уход</a><a class="btn" href="index.html#contact">Где купить</a></div><button class="site-menu-button" type="button" aria-controls="site-mobile-navigation" aria-expanded="false" aria-label="Открыть меню"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button></nav><div id="site-mobile-navigation" class="site-mobile-menu" hidden><a href="index.html">Главная</a><a href="index.html#collection">Коллекция</a><a href="index.html#why">Преимущества</a><a href="index.html#spec">Характеристики</a><a href="installation.html">Монтаж</a><a href="care.html">Уход</a><a href="index.html#faq">Вопросы</a><a href="index.html#contact">Где купить</a></div></header><div class="site-menu-scrim" hidden aria-hidden="true"></div>
 <main><section class="hero"><div class="wrap"><div class="kicker">Приоритет Паркет · рекомендации</div><h1>Эксплуатация<br>и уход.</h1><p class="lead">Настоящий дуб под защитным лаком на стабильной SPC-основе. Уход простой: обычная уборка, подходящие средства и разумная защита поверхности от царапин.</p></div></section>
 <section class="intro"><div class="wrap intro-inner"><h2>Влагостойкая основа. Натуральная поверхность.</h2><p>SPC-основа устойчива к воздействию воды и изменению влажности. Но верхний слой выполнен из натурального дубового шпона с лаковым покрытием. Поэтому основная задача при уходе — сохранять красивый вид лака и древесины, защищая их от песка, ударов и механических повреждений.</p></div></section>
 <section class="care-list"><div class="wrap"><article class="care-card" id="care-01"><div class="care-number">01</div><div><h2>Ежедневная уборка</h2><p>Регулярно удаляйте пыль, песок и мелкие частицы пылесосом с мягкой насадкой для твёрдых полов, мягкой щёткой или микрофиброй. Для влажной уборки используйте мягкую хорошо отжатую насадку. При необходимости добавляйте средство, предназначенное для лакированного паркета, в дозировке изготовителя.</p></div></article>
@@ -30,7 +48,27 @@ header{position:sticky;top:0;z-index:40;background:#101214;color:white;border-bo
 <article class="care-card" id="care-09"><div class="care-number">09</div><div><h2>Царапины и восстановление</h2><p>Небольшие поверхностные царапины иногда удаётся сделать менее заметными специализированными средствами, совместимыми с типом лака. При глубоких повреждениях требуется оценка профессионала. Сплошная шлифовка, как у массивного паркета, для тонкого дубового шпона не рекомендуется. Возможность локального ремонта или замены планки рассматривается индивидуально.</p></div></article>
 <article class="care-card" id="care-10"><div class="care-number">10</div><div><h2>Сохранение внешнего вида</h2><p>Покрытие рассчитано на повседневное использование в жилых помещениях. Для сохранения красивого вида достаточно регулярной уборки, подходящих средств и защиты от песка, царапин и ударов. Естественное изменение оттенка древесины и постепенные следы эксплуатации возможны у любого пола с настоящим дубовым шпоном.</p></div></article><p style="font-size:12px;color:#777;margin:14px 0 0">Рекомендации относятся к бережному бытовому использованию. Совместимость конкретных моющих, защитных и ремонтных средств с лаковым покрытием проверяйте перед применением.</p></div></section>
 <section class="bottom"><div class="wrap bottom-row"><div><div class="kicker" style="color:#555">Полезная информация</div><h2>Планируете укладку<br>или выбираете декор?</h2></div><div class="actions"><a class="btn fill" href="installation.html">Инструкция по монтажу</a><a class="btn" href="index.html#collection">Коллекция</a><a class="btn" href="index.html#contact">Где купить</a></div></div></section></main><footer><div class="wrap">Приоритет Паркет · Alpine Floor · Рекомендации по эксплуатации и уходу</div></footer>
-<script>(function(){const btn=document.querySelector('.site-menu-button'),panel=document.querySelector('.site-mobile-menu');function close(){panel.hidden=true;btn.setAttribute('aria-expanded','false')}btn.addEventListener('click',()=>{const open=panel.hidden;panel.hidden=!open;btn.setAttribute('aria-expanded',String(open))});panel.querySelectorAll('a').forEach(a=>a.addEventListener('click',close));document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});window.addEventListener('resize',()=>{if(innerWidth>900)close()})})();</script>
+<script>
+/* Shared overlay navigation behaviour */
+(function(){
+  const btn=document.querySelector('.site-menu-button');
+  const menu=document.querySelector('.site-mobile-menu');
+  const scrim=document.querySelector('.site-menu-scrim');
+  if(!btn||!menu||!scrim)return;
+  function toggle(open){
+    menu.hidden=!open;
+    scrim.hidden=!open;
+    btn.setAttribute('aria-expanded',String(open));
+    btn.setAttribute('aria-label',open?'Закрыть меню':'Открыть меню');
+    document.body.classList.toggle('site-menu-open',open);
+  }
+  btn.addEventListener('click',()=>toggle(menu.hidden));
+  scrim.addEventListener('click',()=>toggle(false));
+  menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>toggle(false)));
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!menu.hidden){toggle(false);btn.focus()}});
+  window.addEventListener('resize',()=>{if(innerWidth>900&&!menu.hidden)toggle(false)});
+})();
+</script>
 <script>
 /* Analytics: visitor interest in retail locations */
 document.addEventListener('click',function(event){
