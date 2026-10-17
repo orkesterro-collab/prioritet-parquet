@@ -419,5 +419,15 @@ panel.querySelectorAll('a').forEach(a=>a.addEventListener('click',close));
 document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
 window.addEventListener('resize',()=>{if(innerWidth>900)close()});
 })();
-</script></body>
+</script><script>
+/* Analytics: visitor interest in retail locations */
+document.addEventListener('click',function(event){
+  var link=event.target.closest('a[href]');if(!link)return;
+  var target=link.getAttribute('href')||'';
+  if(/(?:^|\/)(?:index\.html)?#contact$|^#contact$/.test(target) && typeof gtag==='function'){
+    gtag('event','where_to_buy_click',{link_url:target,page_location:location.href});
+  }
+});
+</script>
+</body>
 </html>
