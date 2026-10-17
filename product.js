@@ -40,16 +40,6 @@ function renderBase(){
     ["Формат","600 × 125 × 5,5 мм"],["Шпон","0,6 мм"]
   ];
   document.getElementById("keyfacts").innerHTML=facts.map(x=>`<div class="keyfact"><b>${x[1]}</b><span>${x[0]}</span></div>`).join("");
-  const specs=[
-    ["Артикул",product.code],["Тип товара","VSPC / натуральный шпон на SPC-основе"],
-    ["Порода дерева",product.species],["Поверхность",product.surface],
-    ["Длина","600 мм"],["Ширина","125 мм"],["Толщина","5,5 мм"],
-    ["Толщина натурального шпона","0,6 мм"],["Защитное покрытие","7 слоёв УФ-лака"],
-    ["Фаска","4V"],["Соединение","Замковое"],["Беспороговая укладка","до 200 м²"],
-    ["Температурное расширение","< 0,04%"],["Тёплый пол","Да"],
-    ["Способы укладки","Плавающая или клеевая"]
-  ];
-  document.getElementById("specTable").innerHTML=specs.map(x=>`<tr><td>${x[0]}</td><td>${x[1]}</td></tr>`).join("");
   const idx=ALL_PRODUCTS.findIndex(p=>p.code===product.code);
   const related=[1,2,3,4].map(n=>ALL_PRODUCTS[(idx+n)%ALL_PRODUCTS.length]);
   document.getElementById("relatedGrid").innerHTML=related.map(p=>{
@@ -78,16 +68,14 @@ window.showImage=showImage;
 document.addEventListener("keydown",e=>{if(e.key==="ArrowLeft")showImage(current-1);if(e.key==="ArrowRight")showImage(current+1)});
 renderGallery();renderBase();loadPrice();
 
-/* Installation adhesive: use the supplied Alpine Floor Ridge product image. */
-document.querySelectorAll('.glue-visual').forEach(el=>{
-  el.innerHTML='<img src="assets/alpine-floor-ridge.jpg" alt="Силановый клей Alpine Floor Ridge 10 кг" loading="lazy">';
-});
-document.querySelectorAll('.install-card').forEach(card=>{
-  if(card.textContent.includes('Силан Про')){
-    const h=card.querySelector('h3');
-    if(h) h.textContent='Alpine Floor Ridge';
-    card.querySelectorAll('p').forEach(p=>{
-      p.innerHTML=p.innerHTML.replace(/Силан Про/g,'Ridge');
-    });
-  }
-});
+
+(function(){
+const btn=document.querySelector(".site-menu-button"),panel=document.querySelector(".site-mobile-menu"),scrim=document.querySelector(".site-menu-scrim");
+if(!btn||!panel||!scrim)return;
+function toggle(open){panel.hidden=!open;scrim.hidden=!open;btn.setAttribute("aria-expanded",String(open));btn.setAttribute("aria-label",open?"Закрыть меню":"Открыть меню");document.body.classList.toggle("site-menu-open",open)}
+btn.addEventListener("click",()=>toggle(panel.hidden));
+scrim.addEventListener("click",()=>toggle(false));
+panel.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>toggle(false)));
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!panel.hidden){toggle(false);btn.focus()}});
+window.addEventListener("resize",()=>{if(innerWidth>900&&!panel.hidden)toggle(false)});
+})();
