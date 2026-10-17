@@ -252,12 +252,30 @@ footer{background:#050505;color:#888;padding:34px 0;font-size:12px}
 .packaging-image{overflow:visible;align-items:stretch}
 .packaging-image img{width:100%;height:100%;object-fit:contain;object-position:center;transform:none}
 @media(max-width:700px){.packaging-image img{transform:none}}
+</style><style>
+/* Compact charcoal two-column floating mobile navigation */
+.site-menu-scrim[hidden]{display:none!important}
+.site-menu-scrim{display:none}
+@media(max-width:900px){
+  header{overflow:visible!important}
+  header nav{position:relative;z-index:1}
+  .site-menu-scrim{display:block;position:fixed;inset:0;background:rgba(0,0,0,.62);z-index:19;-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px)}
+  .site-mobile-menu{position:absolute!important;top:calc(100% + 9px);left:12px;right:12px;width:auto;max-width:480px;margin:0 auto;padding:12px 14px!important;box-sizing:border-box;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:14px;row-gap:3px;background:#343739!important;color:#fff;border:1px solid #686c6e!important;border-radius:14px;box-shadow:0 20px 44px rgba(0,0,0,.48);max-height:calc(100dvh - 100px);overflow:auto;z-index:2}
+  .site-mobile-menu:not([hidden]){display:grid!important}
+  .site-mobile-menu a{min-width:0;min-height:46px;padding:10px 3px!important;margin:0!important;display:flex;align-items:center;justify-content:flex-start;text-align:left!important;background:transparent!important;color:#f5f5f5!important;border:0!important;border-bottom:1px solid #575c5e!important;border-radius:0!important;line-height:1.2;font-size:clamp(12px,3.5vw,14px)!important;font-weight:500!important;text-decoration:none}
+  .site-mobile-menu a:last-child{background:#ebebeb!important;color:#151515!important;justify-content:center;text-align:center!important;border:0!important;border-radius:5px!important;font-weight:700!important;margin-top:2px!important}
+  .site-mobile-menu a:focus-visible{outline:2px solid #fff;outline-offset:2px}
+  .site-menu-button[aria-expanded="true"] svg{display:none}
+  .site-menu-button[aria-expanded="true"]::after{content:"×";font:30px/1 Arial,sans-serif;color:#fff}
+  body.site-menu-open{overflow:hidden}
+}
+@media(max-width:370px){.site-mobile-menu{padding:10px!important;column-gap:8px}.site-mobile-menu a{font-size:12px!important}}
 </style></head>
 <body id="top">
 <header><nav class="wrap">
   <a class="logo" href="index.html">ПРИОРИТЕТ ПАРКЕТ<small>ALPINE FLOOR</small></a>
   <div class="navlinks"><a href="#before">Подготовка</a><a href="#floating">Плавающая</a><a href="#glue">Клеевая</a><a class="btn site-desktop-contact" href="index.html#contact">Где купить</a></div><button type="button" class="site-menu-button" aria-expanded="false" aria-controls="site-mobile-navigation" aria-label="Открыть меню"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
-</nav><div class="site-mobile-menu" id="site-mobile-navigation" hidden><a href="index.html">Главная</a><a href="index.html#collection">Коллекция</a><a href="index.html#why">Преимущества и технология</a><a href="index.html#spec">Характеристики</a><a href="installation.html">Инструкция по монтажу</a><a href="care.html">Эксплуатация и уход</a><a href="index.html#faq">Вопросы и ответы</a><a href="index.html#contact">Где купить</a></div></header>
+</nav><div class="site-mobile-menu" id="site-mobile-navigation" hidden><a href="index.html">Главная</a><a href="index.html#collection">Коллекция</a><a href="index.html#why">Преимущества</a><a href="index.html#spec">Характеристики</a><a href="installation.html">Монтаж</a><a href="care.html">Уход</a><a href="index.html#faq">Вопросы</a><a href="index.html#contact">Где купить</a></div></header><div class="site-menu-scrim" hidden aria-hidden="true"></div>
 
 <main>
 
@@ -415,14 +433,24 @@ footer{background:#050505;color:#888;padding:34px 0;font-size:12px}
 
 <footer><div class="wrap footer-row"><span>Приоритет Паркет · Alpine Floor</span><span>Инструкция подготовлена по информации на упаковке покрытия</span></div></footer>
 <script>
+/* Shared overlay navigation behaviour */
 (function(){
-const btn=document.querySelector('.site-menu-button'),panel=document.querySelector('.site-mobile-menu');
-if(!btn||!panel)return;
-function close(){panel.hidden=true;btn.setAttribute('aria-expanded','false')}
-btn.addEventListener('click',()=>{const next=panel.hidden;panel.hidden=!next;btn.setAttribute('aria-expanded',String(next))});
-panel.querySelectorAll('a').forEach(a=>a.addEventListener('click',close));
-document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
-window.addEventListener('resize',()=>{if(innerWidth>900)close()});
+  const btn=document.querySelector('.site-menu-button');
+  const menu=document.querySelector('.site-mobile-menu');
+  const scrim=document.querySelector('.site-menu-scrim');
+  if(!btn||!menu||!scrim)return;
+  function toggle(open){
+    menu.hidden=!open;
+    scrim.hidden=!open;
+    btn.setAttribute('aria-expanded',String(open));
+    btn.setAttribute('aria-label',open?'Закрыть меню':'Открыть меню');
+    document.body.classList.toggle('site-menu-open',open);
+  }
+  btn.addEventListener('click',()=>toggle(menu.hidden));
+  scrim.addEventListener('click',()=>toggle(false));
+  menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>toggle(false)));
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!menu.hidden){toggle(false);btn.focus()}});
+  window.addEventListener('resize',()=>{if(innerWidth>900&&!menu.hidden)toggle(false)});
 })();
 </script><script>
 /* Analytics: visitor interest in retail locations */
