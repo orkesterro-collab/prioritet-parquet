@@ -377,8 +377,26 @@ html,body{min-height:100%;width:100%;visibility:visible!important;opacity:1!impo
 .site-mobile-menu a:last-child{margin-top:12px;background:#e7e7e7;color:#111;text-align:center;font-weight:700;border:0}
 .site-mobile-menu[hidden]{display:none!important}
 @media(max-width:900px){.site-menu-button{display:inline-flex!important;flex:0 0 auto}.site-mobile-menu:not([hidden]){display:block}.site-desktop-contact{display:none!important}}
+</style><style>
+/* Compact charcoal two-column floating mobile navigation */
+.site-menu-scrim[hidden]{display:none!important}
+.site-menu-scrim{display:none}
+@media(max-width:900px){
+  header{overflow:visible!important}
+  header nav{position:relative;z-index:1}
+  .site-menu-scrim{display:block;position:fixed;inset:0;background:rgba(0,0,0,.62);z-index:19;-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px)}
+  .site-mobile-menu{position:absolute!important;top:calc(100% + 9px);left:12px;right:12px;width:auto;max-width:480px;margin:0 auto;padding:12px 14px!important;box-sizing:border-box;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:14px;row-gap:3px;background:#343739!important;color:#fff;border:1px solid #686c6e!important;border-radius:14px;box-shadow:0 20px 44px rgba(0,0,0,.48);max-height:calc(100dvh - 100px);overflow:auto;z-index:2}
+  .site-mobile-menu:not([hidden]){display:grid!important}
+  .site-mobile-menu a{min-width:0;min-height:46px;padding:10px 3px!important;margin:0!important;display:flex;align-items:center;justify-content:flex-start;text-align:left!important;background:transparent!important;color:#f5f5f5!important;border:0!important;border-bottom:1px solid #575c5e!important;border-radius:0!important;line-height:1.2;font-size:clamp(12px,3.5vw,14px)!important;font-weight:500!important;text-decoration:none}
+  .site-mobile-menu a:last-child{background:#ebebeb!important;color:#151515!important;justify-content:center;text-align:center!important;border:0!important;border-radius:5px!important;font-weight:700!important;margin-top:2px!important}
+  .site-mobile-menu a:focus-visible{outline:2px solid #fff;outline-offset:2px}
+  .site-menu-button[aria-expanded="true"] svg{display:none}
+  .site-menu-button[aria-expanded="true"]::after{content:"×";font:30px/1 Arial,sans-serif;color:#fff}
+  body.site-menu-open{overflow:hidden}
+}
+@media(max-width:370px){.site-mobile-menu{padding:10px!important;column-gap:8px}.site-mobile-menu a{font-size:12px!important}}
 </style></head><body id="top">
-<header><nav class="wrap"><a class="logo" href="#top" aria-label="В начало страницы">ПРИОРИТЕТ ПАРКЕТ<small>ALPINE FLOOR</small></a><a href="#why">Преимущества</a><a href="#tech">Технология</a><a href="#collection">Коллекция</a><a href="#spec">Характеристики</a><a href="installation.html">Монтаж</a><a href="care.html">Уход</a><a href="#faq">Вопросы</a><a class="btn site-desktop-contact" href="#contact">Где купить</a><button type="button" class="site-menu-button" aria-expanded="false" aria-controls="site-mobile-navigation" aria-label="Открыть меню"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button></nav><div class="site-mobile-menu" id="site-mobile-navigation" hidden><a href="index.html">Главная</a><a href="index.html#collection">Коллекция</a><a href="index.html#why">Преимущества и технология</a><a href="index.html#spec">Характеристики</a><a href="installation.html">Инструкция по монтажу</a><a href="care.html">Эксплуатация и уход</a><a href="index.html#faq">Вопросы и ответы</a><a href="index.html#contact">Где купить</a></div></header>
+<header><nav class="wrap"><a class="logo" href="#top" aria-label="В начало страницы">ПРИОРИТЕТ ПАРКЕТ<small>ALPINE FLOOR</small></a><a href="#why">Преимущества</a><a href="#tech">Технология</a><a href="#collection">Коллекция</a><a href="#spec">Характеристики</a><a href="installation.html">Монтаж</a><a href="care.html">Уход</a><a href="#faq">Вопросы</a><a class="btn site-desktop-contact" href="#contact">Где купить</a><button type="button" class="site-menu-button" aria-expanded="false" aria-controls="site-mobile-navigation" aria-label="Открыть меню"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button></nav><div class="site-mobile-menu" id="site-mobile-navigation" hidden><a href="index.html">Главная</a><a href="index.html#collection">Коллекция</a><a href="index.html#why">Преимущества</a><a href="index.html#spec">Характеристики</a><a href="installation.html">Монтаж</a><a href="care.html">Уход</a><a href="index.html#faq">Вопросы</a><a href="index.html#contact">Где купить</a></div></header><div class="site-menu-scrim" hidden aria-hidden="true"></div>
 <main><section class="hero"><div class="wrap hero-copy"><div class="eyebrow">Премиум-коллекция VSPC</div><h1>Настоящее<br>дерево.<br>Новые правила.</h1><p>Натуральный строганый шпон на влагостойкой SPC-основе. Такой каменный паркет сочетает поверхность настоящего дерева со стабильной каменно-полимерной основой.</p><div class="actions"><a class="btn fill" href="#collection">Смотреть коллекцию</a><a class="btn" href="#tech">Как это устроено</a></div></div><div class="statbar"><div class="wrap stats"><div class="stat"><b>100%</b><span>водостойкий</span></div><div class="stat"><b>200 м²</b><span>без порогов</span></div><div class="stat"><b>0,6 мм</b><span>натуральный шпон</span></div><div class="stat"><b>7 слоёв</b><span>УФ-лака</span></div></div></div></section>
 <section id="tech" class="dark"><div class="wrap"><div class="section-head"><div><div class="kicker">Технология VSPC</div><h2>Природа сверху.<br>Технологии внутри.</h2></div><p class="lead">Приоритет Паркет соединяет натуральное дерево с каменно-полимерным основанием SPC.</p></div><div class="layers"><div class="layer-art"><div class="layer l1"></div><div class="layer l2"></div><div class="layer l3"></div></div><div class="layer-list"><div><b>01</b><span><h3>7 слоёв УФ-лака</h3>Защита натуральной поверхности.</span></div><div><b>02</b><span><h3>Натуральный шпон</h3>Уникальный рисунок каждой доски.</span></div><div><b>03</b><span><h3>SPC-основа</h3>Стабильная влагостойкая основа.</span></div></div></div></div></section>
 <section class="spc-intro" aria-labelledby="spc-intro-title"><div class="wrap spc-intro-grid"><div><div class="kicker">Новое поколение паркета</div><h2 id="spc-intro-title">Натуральное дерево.<br>Современная SPC-основа.</h2></div><div><p>Приоритет Паркет — покрытие с натуральным древесным шпоном на каменно-полимерной основе. Этот тип конструкции также описывают терминами «SPC-паркет», «каменно-полимерный паркет» и «кварцевый паркет». Узнайте, чем он отличается от обычного винила и традиционного паркета.</p><a class="btn spc-intro-btn" href="spc-parket.html">Что такое SPC-паркет</a></div></div></section>
@@ -547,14 +565,24 @@ document.addEventListener('keydown',e=>{
   if(e.key==='Escape')closeDecor();
 });
 </script><script>
+/* Shared overlay navigation behaviour */
 (function(){
-const btn=document.querySelector('.site-menu-button'),panel=document.querySelector('.site-mobile-menu');
-if(!btn||!panel)return;
-function close(){panel.hidden=true;btn.setAttribute('aria-expanded','false')}
-btn.addEventListener('click',()=>{const next=panel.hidden;panel.hidden=!next;btn.setAttribute('aria-expanded',String(next))});
-panel.querySelectorAll('a').forEach(a=>a.addEventListener('click',close));
-document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
-window.addEventListener('resize',()=>{if(innerWidth>900)close()});
+  const btn=document.querySelector('.site-menu-button');
+  const menu=document.querySelector('.site-mobile-menu');
+  const scrim=document.querySelector('.site-menu-scrim');
+  if(!btn||!menu||!scrim)return;
+  function toggle(open){
+    menu.hidden=!open;
+    scrim.hidden=!open;
+    btn.setAttribute('aria-expanded',String(open));
+    btn.setAttribute('aria-label',open?'Закрыть меню':'Открыть меню');
+    document.body.classList.toggle('site-menu-open',open);
+  }
+  btn.addEventListener('click',()=>toggle(menu.hidden));
+  scrim.addEventListener('click',()=>toggle(false));
+  menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>toggle(false)));
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!menu.hidden){toggle(false);btn.focus()}});
+  window.addEventListener('resize',()=>{if(innerWidth>900&&!menu.hidden)toggle(false)});
 })();
 </script><script>
 /* Analytics: visitor interest in retail locations */
