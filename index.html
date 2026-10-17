@@ -466,6 +466,29 @@ html,body{min-height:100%;width:100%;visibility:visible!important;opacity:1!impo
   #why .feature:last-child{border-bottom:0}
   #why .feature h3{font-size:19px}
 }
+</style><style>
+/* Декоры: исходно фактура древесины, при наведении или касании выезжает интерьер. */
+#collection .decor-card .wood{position:relative;isolation:isolate}
+#collection .decor-card .wood-photo{flex:none}
+#collection .decor-card .wood-interior{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center;
+  transform:translate3d(101%,0,0);
+  transition:transform .46s cubic-bezier(.23,.72,.25,1);
+  pointer-events:none;z-index:1;
+}
+#collection .decor-card:focus-visible .wood-interior{transform:translate3d(0,0,0)}
+@media(hover:hover) and (pointer:fine){
+  #collection .decor-card:hover .wood-interior{transform:translate3d(0,0,0)}
+}
+@media(hover:none){
+  #collection .decor-card.is-touch-preview .wood-interior,
+  #collection .decor-card:active .wood-interior{transform:translate3d(0,0,0)}
+}
+#collection .decor-card .sale-badge{z-index:3}
+@media(prefers-reduced-motion:reduce){
+  #collection .decor-card .wood-interior{transition:none}
+}
 </style></head><body id="top">
 <header class="pp-header pp-home"><nav class="wrap pp-nav" aria-label="Основная навигация"><a class="pp-logo" href="index.html" aria-label="Приоритет Паркет, на главную">ПРИОРИТЕТ ПАРКЕТ<small>ALPINE FLOOR</small></a><div class="pp-links"><a href="#collection">Коллекция</a><a href="advantages.html">Преимущества</a><a href="spc-parket.html">Технология</a><a href="installation.html">Монтаж</a><a href="care.html">Уход</a><a href="layouts.html">Раскладки</a><a class="pp-buy" href="#contact">Где купить</a></div><button class="pp-toggle" type="button" aria-expanded="false" aria-controls="pp-menu" aria-label="Открыть меню"><svg class="pp-hamburger" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg><svg class="pp-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg></button></nav><div id="pp-menu" class="pp-menu" hidden><a href="index.html">Главная</a><a href="#collection">Коллекция</a><a href="advantages.html">Преимущества</a><a href="spc-parket.html">Технология</a><a href="installation.html">Монтаж</a><a href="care.html">Уход</a><a href="layouts.html">Раскладки</a><a class="pp-mobile-buy" href="#contact">Где купить</a></div></header><div class="pp-backdrop" hidden aria-hidden="true"></div>
 <main><section class="hero"><div class="wrap hero-copy"><div class="eyebrow">Премиум-коллекция VSPC</div><h1>Настоящее<br>дерево.<br>Новые правила.</h1><p>Натуральный строганый шпон на влагостойкой SPC-основе. Такой каменный паркет сочетает поверхность настоящего дерева со стабильной каменно-полимерной основой.</p><div class="actions"><a class="btn fill" href="#collection">Смотреть коллекцию</a><a class="btn" href="#tech">Как это устроено</a></div></div><div class="statbar"><div class="wrap stats"><div class="stat"><b>SPC</b><span>Водостойкая основа</span></div><div class="stat"><b>200 м²</b><span>без порогов</span></div><div class="stat"><b>0,6 мм</b><span>натуральный шпон</span></div><div class="stat"><b>7 слоёв</b><span>УФ-лака</span></div></div></div></section>
@@ -597,7 +620,7 @@ let prices={...fallbackPrices};
 function money(n){return Number(n).toLocaleString("ru-RU")+" BYN";}
 function priceHTML(code){const p=prices[code]||fallbackPrices[code];if(p&&p.active&&p.sale){return '<span class="old-price">'+money(p.regular)+'</span><span class="sale-price">'+money(p.sale)+'</span><small> / м²</small>'}return '<span class="price">'+money((p&&p.regular)||189)+' <small>/ м²</small></span>'}
 const productUrls={"ECO 30-1":"eco-30-1.html","ECO 30-2":"eco-30-2.html","ECO 30-3":"eco-30-3.html","ECO 30-4":"eco-30-4.html","ECO 30-5":"eco-30-5.html","ECO 30-6":"eco-30-6.html","ECO 30-7":"eco-30-7.html","ECO 30-8":"eco-30-8.html","ECO 30-9":"eco-30-9.html","ECO 30-10":"eco-30-10.html"};
-function renderProducts(){document.getElementById("decorGrid").innerHTML=products.map(p=>'<a class="decor-card" href="'+productUrls[p[0]]+'" aria-label="'+p[1]+'">'+(((prices[p[0]]&&prices[p[0]].active)&&(prices[p[0]]&&prices[p[0]].sale))?'<span class="sale-badge">Акция</span>':'')+'<div class="wood" style="--wood:'+p[4]+'"><img class="wood-photo" src="assets/'+p[0].replace(" ","-")+'.png?v=20261012-color2" alt="'+p[1]+'" loading="lazy" decoding="async"></div><div class="decor-meta"><div class="meta-top"><span>'+p[2]+'</span><b class="sku">'+p[0]+'</b></div><h3>'+p[1].replace(p[2]+" ","")+'</h3><div class="pricebox">'+priceHTML(p[0])+'</div></div></a>').join("")}
+function renderProducts(){document.getElementById("decorGrid").innerHTML=products.map(p=>'<a class="decor-card" href="'+productUrls[p[0]]+'" aria-label="'+p[1]+'">'+(((prices[p[0]]&&prices[p[0]].active)&&(prices[p[0]]&&prices[p[0]].sale))?'<span class="sale-badge">Акция</span>':'')+'<div class="wood" style="--wood:'+p[4]+'"><img class="wood-photo" src="assets/'+p[0].replace(" ","-")+'-4.png?v=20261018" alt="'+p[1]+' — фактура покрытия" loading="lazy" decoding="async"><img class="wood-photo wood-interior" src="assets/'+p[0].replace(" ","-")+'.png?v=20261018" alt="" aria-hidden="true" loading="lazy" decoding="async"></div><div class="decor-meta"><div class="meta-top"><span>'+p[2]+'</span><b class="sku">'+p[0]+'</b></div><h3>'+p[1].replace(p[2]+" ","")+'</h3><div class="pricebox">'+priceHTML(p[0])+'</div></div></a>').join("")}
 function renderFaq(items){document.getElementById("faqList").innerHTML=items.map(x=>'<div class="faq-item"><button class="faq-q"><span>'+x[0]+'</span><span>+</span></button><div class="faq-a"><p>'+x[1]+'</p></div></div>').join("");document.querySelectorAll(".faq-q").forEach(b=>b.onclick=()=>b.parentElement.classList.toggle("open"))}
 function openDecor(code){const p=products.find(x=>x[0]===code);document.getElementById("mname").textContent=p[1];document.getElementById("mcode").textContent=p[0];document.getElementById("mdetails").textContent=p[2]+" · "+p[3]+" поверхность";document.getElementById("mprice").innerHTML=priceHTML(code);document.getElementById("modalwood").style.background='repeating-linear-gradient(4deg,'+p[4]+' 0 18px,#ffffff12 19px 20px),'+p[4];document.getElementById("modal").classList.add("open")}
 function closeDecor(){document.getElementById("modal").classList.remove("open")}
@@ -628,7 +651,7 @@ function applyRealPhotos(){
   document.querySelectorAll('.decor-card').forEach((card,i)=>{
     const w=card.querySelector('.wood');
     const code=(products[i]&&products[i][0]);
-    const src=code&&(decorGalleries[code]&&decorGalleries[code][0]);
+    const src=code&&(decorGalleries[code]&&decorGalleries[code][3]);
     if(w&&src){
       w.style.setProperty('--photo',"url('"+src+"')");
       w.style.backgroundPosition="center";
@@ -642,6 +665,20 @@ if(decorGridEl){
   new MutationObserver(()=>applyRealPhotos()).observe(decorGridEl,{childList:true});
 }
 applyRealPhotos();
+// На сенсорных экранах интерьер показывается, пока палец на карточке.
+// Обработчик делегирован: карточки могут обновляться при загрузке цен.
+if(decorGridEl){
+  decorGridEl.addEventListener('pointerdown',e=>{
+    if(e.pointerType==='mouse')return;
+    const card=e.target.closest('.decor-card');
+    if(card)card.classList.add('is-touch-preview');
+  });
+  const resetTouchPreviews=()=>{
+    decorGridEl.querySelectorAll('.is-touch-preview').forEach(card=>card.classList.remove('is-touch-preview'));
+  };
+  document.addEventListener('pointerup',resetTouchPreviews);
+  document.addEventListener('pointercancel',resetTouchPreviews);
+}
 
 let galleryCode=null;
 let galleryIndex=0;
