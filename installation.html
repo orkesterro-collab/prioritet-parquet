@@ -181,6 +181,38 @@ footer{background:#050505;color:#888;padding:34px 0;font-size:12px}
 .expert-tip-point p{font-size:14px;margin:0;color:#cbd0d2}
 .expert-tip .expert-tip-foot{border-top:1px solid #454b4e;padding-top:15px;margin:0;font-size:13px;color:#bfc5c7}
 @media(max-width:700px){.expert-tip{grid-template-columns:42px minmax(0,1fr);gap:11px;padding:15px 13px;margin-top:14px}.expert-tip-icon{width:38px;height:38px}.expert-tip-icon svg{width:25px;height:25px}.expert-tip-eyebrow{font-size:9px;letter-spacing:.07em}.expert-tip h3{font-size:18px;margin:7px 0 10px}.expert-tip p{font-size:12px;line-height:1.5}.expert-tip-split{grid-template-columns:1fr;gap:8px;margin:12px 0}.expert-tip-point{padding:12px}.expert-tip-point b{font-size:13px;margin-bottom:5px}.expert-tip-point p{font-size:12px}.expert-tip .expert-tip-foot{font-size:11px;padding-top:11px}}
+
+/* Instruction followed immediately by an understated supplementary note */
+.checks{display:block;border:0;background:transparent}
+.instruction-pair{margin-bottom:14px}
+.instruction-pair>.check{border:1px solid var(--line);min-height:0}
+.instruction-pair>.expert-tip{margin:0;display:grid;grid-template-columns:36px minmax(0,1fr);gap:12px;padding:17px 20px;background:#e9ecec;color:#303638;border:1px solid var(--line);border-top:0;border-left:3px solid #a6afb2}
+.instruction-pair .expert-tip-icon{width:30px;height:30px;background:#d8dddf;color:#4e585c}
+.instruction-pair .expert-tip-icon svg{width:20px;height:20px}
+.instruction-pair .expert-tip-eyebrow{color:#626b70;font-size:10px;letter-spacing:.1em}
+.instruction-pair .expert-tip h3{color:#24292b;font-size:19px;line-height:1.25;margin:5px 0 10px}
+.instruction-pair .expert-tip p{color:#50585b;font-size:14px;line-height:1.55}
+.instruction-pair .expert-tip strong{color:#202729}
+.instruction-pair .expert-tip-split{gap:8px;margin:12px 0}
+.instruction-pair .expert-tip-point{background:#f3f4f4;border:1px solid #d2d7d8;padding:13px}
+.instruction-pair .expert-tip-point b{color:#303638;font-size:14px}
+.instruction-pair .expert-tip-point p{color:#566065;font-size:13px}
+.instruction-pair .expert-tip .expert-tip-warning{background:#f3f4f4;color:#4a5357!important;border-left:2px solid #a1aaae;padding:12px 14px}
+.instruction-pair .expert-tip .expert-tip-foot{color:#566065;border-top:1px solid #ccd2d4;font-size:12px}
+@media(max-width:600px){
+ .instruction-pair{margin-bottom:9px}
+ .instruction-pair>.expert-tip{grid-template-columns:24px minmax(0,1fr);gap:8px;padding:11px 12px}
+ .instruction-pair .expert-tip-icon{width:23px;height:23px}
+ .instruction-pair .expert-tip-icon svg{width:16px;height:16px}
+ .instruction-pair .expert-tip-eyebrow{font-size:9px;letter-spacing:.03em}
+ .instruction-pair .expert-tip h3{font-size:15px;margin:4px 0 8px}
+ .instruction-pair .expert-tip p{font-size:12px;line-height:1.48}
+ .instruction-pair .expert-tip-split{grid-template-columns:1fr;gap:6px;margin:9px 0}
+ .instruction-pair .expert-tip-point{padding:10px}
+ .instruction-pair .expert-tip-point b{font-size:12px}
+ .instruction-pair .expert-tip-point p{font-size:12px}
+ .instruction-pair .expert-tip .expert-tip-foot{font-size:11px}
+}
 </style>
 </head>
 <body id="top">
@@ -200,26 +232,8 @@ footer{background:#050505;color:#888;padding:34px 0;font-size:12px}
 <section id="before" class="section"><div class="wrap">
   <div class="section-head"><div><div class="kicker">Перед началом</div><h2>Подготовьте покрытие и основание.</h2></div><p>Большинство проблем после укладки связано не с замком, а с неподготовленным основанием или отсутствием компенсационных зазоров.</p></div>
   <div class="checks">
+    <div class="instruction-pair">
     <div class="check"><b>Акклиматизация</b><p>Выдержите закрытые упаковки в помещении не менее суток при температуре воздуха не ниже +18 °C. Храните упаковки горизонтально.</p></div>
-    <div class="check"><b>Проверка декора</b><p>Для предварительной оценки продукции допускается аккуратное вскрытие одной упаковки с сохранением упаковочного материала и без повреждения планок. До монтажа разложите несколько планок и проверьте рисунок. Мастер обязан осматривать каждую планку на видимые дефекты непосредственно перед укладкой. Монтаж должен выполняться при хорошем освещении, позволяющем обнаружить дефекты поверхности и декора. Планки с видимыми дефектами укладывать нельзя.</p></div>
-    <div class="check"><b>Ровность</b><p>Просвет между двухметровой контрольной рейкой и основанием — не более 2 мм. Не допускаются трещины, выбоины, вздутия и заметные деформации.</p></div>
-    <div class="check"><b>Чистота и влажность</b><p>Основание должно быть чистым, сухим и прочным. Влажность цементной стяжки — не более 4% по массе.</p></div>
-    <div class="check"><b>Стяжка</b><p>Толщина — не менее 4–5 см. Прочность на сжатие — не ниже 15 МПа. Под сосредоточенной нагрузкой 100 кг на площадке 30 × 30 мм прогиб — не более 1 мм.</p></div>
-    <div class="check"><b>Компенсационный зазор</b><p>Оставляйте не менее 8 мм по всему периметру и вокруг труб, колонн и других неподвижных элементов.</p></div>
-  </div>
-  <aside class="expert-tip" aria-label="Дополнительная рекомендация по проверке покрытия">
-    <div class="expert-tip-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="21" cy="21" r="12" stroke="currentColor" stroke-width="2.5"/><path d="m30 30 10 10M16 21l4 4 7-8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-    <div class="expert-tip-content">
-      <div class="expert-tip-eyebrow">Дополнительно · из практики</div>
-      <h3>Осмотр каждой планки и правильное освещение</h3>
-      <p>Перед монтажом мастер должен внимательно осматривать <strong>каждую планку</strong> на видимые дефекты поверхности, декора, кромок и замкового соединения. Не укладывайте планки, если заметны повреждения или дефекты.</p>
-      <div class="expert-tip-split">
-        <div class="expert-tip-point"><b>Обеспечьте хорошее освещение</b><p>Проводите осмотр и укладку при достаточном равномерном освещении, чтобы сразу замечать царапины, сколы, отличия декора и другие видимые недостатки.</p></div>
-        <div class="expert-tip-point"><b>Осмотрите материал заранее</b><p>Для оценки декора допускается аккуратно вскрыть одну упаковку, сохраняя упаковочный материал и не повреждая планки. Перед укладкой разложите несколько планок и оцените рисунок.</p></div>
-      </div>
-      <p class="expert-tip-foot"><strong>Практический совет:</strong> проверяйте каждую планку непосредственно перед установкой, пока ещё можно отложить её без демонтажа уже собранного покрытия.</p>
-    </div>
-  </aside>
   <aside class="expert-tip" aria-label="Дополнительная практическая рекомендация по акклиматизации">
     <div class="expert-tip-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="24" r="21" stroke="currentColor" stroke-width="2"/><path d="M24 12v15m0 8v1" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><path d="M17 18a10 10 0 0 1 14 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
     <div class="expert-tip-content">
@@ -234,6 +248,28 @@ footer{background:#050505;color:#888;padding:34px 0;font-size:12px}
       <p class="expert-tip-foot"><strong>Важно:</strong> SPC значительно меньше реагирует на изменения влажности воздуха, чем древесина. При акклиматизации основное внимание уделяйте температуре. Упаковки сохраняйте закрытыми до начала работ.</p>
     </div>
   </aside>
+    </div>
+    <div class="instruction-pair">
+    <div class="check"><b>Проверка декора</b><p>Для предварительной оценки продукции допускается аккуратное вскрытие одной упаковки с сохранением упаковочного материала и без повреждения планок. До монтажа разложите несколько планок и проверьте рисунок. Мастер обязан осматривать каждую планку на видимые дефекты непосредственно перед укладкой. Монтаж должен выполняться при хорошем освещении, позволяющем обнаружить дефекты поверхности и декора. Планки с видимыми дефектами укладывать нельзя.</p></div>
+  <aside class="expert-tip" aria-label="Дополнительная рекомендация по проверке покрытия">
+    <div class="expert-tip-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="21" cy="21" r="12" stroke="currentColor" stroke-width="2.5"/><path d="m30 30 10 10M16 21l4 4 7-8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="expert-tip-content">
+      <div class="expert-tip-eyebrow">Дополнительно · из практики</div>
+      <h3>Осмотр каждой планки и правильное освещение</h3>
+      <p>Перед монтажом мастер должен внимательно осматривать <strong>каждую планку</strong> на видимые дефекты поверхности, декора, кромок и замкового соединения. Не укладывайте планки, если заметны повреждения или дефекты.</p>
+      <div class="expert-tip-split">
+        <div class="expert-tip-point"><b>Обеспечьте хорошее освещение</b><p>Проводите осмотр и укладку при достаточном равномерном освещении, чтобы сразу замечать царапины, сколы, отличия декора и другие видимые недостатки.</p></div>
+        <div class="expert-tip-point"><b>Осмотрите материал заранее</b><p>Для оценки декора допускается аккуратно вскрыть одну упаковку, сохраняя упаковочный материал и не повреждая планки. Перед укладкой разложите несколько планок и оцените рисунок.</p></div>
+      </div>
+      <p class="expert-tip-foot"><strong>Практический совет:</strong> проверяйте каждую планку непосредственно перед установкой, пока ещё можно отложить её без демонтажа уже собранного покрытия.</p>
+    </div>
+  </aside>
+    </div>
+    <div class="check"><b>Ровность</b><p>Просвет между двухметровой контрольной рейкой и основанием — не более 2 мм. Не допускаются трещины, выбоины, вздутия и заметные деформации.</p></div>
+    <div class="check"><b>Чистота и влажность</b><p>Основание должно быть чистым, сухим и прочным. Влажность цементной стяжки — не более 4% по массе.</p></div>
+    <div class="check"><b>Стяжка</b><p>Толщина — не менее 4–5 см. Прочность на сжатие — не ниже 15 МПа. Под сосредоточенной нагрузкой 100 кг на площадке 30 × 30 мм прогиб — не более 1 мм.</p></div>
+    <div class="check"><b>Компенсационный зазор</b><p>Оставляйте не менее 8 мм по всему периметру и вокруг труб, колонн и других неподвижных элементов.</p></div>
+  </div>
   <div class="notice"><strong>Большие площади и сложная планировка</strong><p>При площади укладки более 56 м² в одном помещении либо при нестандартной планировке производитель указывает увеличение компенсационного зазора до 10 мм. Дверные коробки при плавающем монтаже не должны препятствовать температурному расширению покрытия.</p></div>
 </div></section>
 
