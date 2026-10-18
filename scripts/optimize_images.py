@@ -139,14 +139,14 @@ js_path = ROOT / "product.js"
 js = js_path.read_text(encoding="utf-8")
 js = change_one(js, 'const PRODUCT_IMAGE_VERSION="?v=20261012-color2";',
                 'const PRODUCT_IMAGE_VERSION="?v=' + VERSION + '";', "product cache key")
-if js.count(".png\${PRODUCT_IMAGE_VERSION}") != 5:
-    raise RuntimeError(f"Unexpected product JS original references {js.count('.png\${PRODUCT_IMAGE_VERSION}')}")
-js = js.replace(".png\${PRODUCT_IMAGE_VERSION}", ".webp\${PRODUCT_IMAGE_VERSION}")
-js = change_one(js, 'src="\${src}" alt="\${product.name} — фото \${i+1}"',
-                'src="\${src.replace(".webp","-thumb.webp")}" loading="lazy" decoding="async" alt="\${product.name} — фото \${i+1}"',
+if js.count(".png${PRODUCT_IMAGE_VERSION}") != 5:
+    raise RuntimeError(f"Unexpected product JS original references {js.count('.png${PRODUCT_IMAGE_VERSION}')}")
+js = js.replace(".png${PRODUCT_IMAGE_VERSION}", ".webp${PRODUCT_IMAGE_VERSION}")
+js = change_one(js, 'src="${src}" alt="${product.name} — фото ${i+1}"',
+                'src="${src.replace(".webp","-thumb.webp")}" loading="lazy" decoding="async" alt="${product.name} — фото ${i+1}"',
                 "product gallery thumbnail")
-js = change_one(js, 'assets/\${slug}.webp\${PRODUCT_IMAGE_VERSION}',
-                'assets/\${slug}-card.webp\${PRODUCT_IMAGE_VERSION}', "related decor thumbnail")
+js = change_one(js, 'assets/${slug}.webp${PRODUCT_IMAGE_VERSION}',
+                'assets/${slug}-card.webp${PRODUCT_IMAGE_VERSION}', "related decor thumbnail")
 js_path.write_text(js, encoding="utf-8")
 
 for product in range(1, 11):
