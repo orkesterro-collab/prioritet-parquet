@@ -467,7 +467,8 @@ html,body{min-height:100%;width:100%;visibility:visible!important;opacity:1!impo
   #why .feature h3{font-size:19px}
 }
 </style><style>
-/* Декоры: исходно фактура древесины, при наведении или касании выезжает интерьер. */
+
+/* Original wood texture; only fine-pointer desktop receives on-demand interior. */
 #collection .decor-card .wood{position:relative;isolation:isolate}
 #collection .decor-card .wood-photo{flex:none}
 #collection .decor-card .wood-interior{
@@ -477,17 +478,15 @@ html,body{min-height:100%;width:100%;visibility:visible!important;opacity:1!impo
   transition:transform .46s cubic-bezier(.23,.72,.25,1);
   pointer-events:none;z-index:1;
 }
-#collection .decor-card:focus-visible .wood-interior{transform:translate3d(0,0,0)}
 @media(hover:hover) and (pointer:fine){
-  #collection .decor-card:hover .wood-interior{transform:translate3d(0,0,0)}
-}
-@media(hover:none){
-  #collection .decor-card.is-touch-preview .wood-interior,
-  #collection .decor-card:active .wood-interior{transform:translate3d(0,0,0)}
+ #collection .decor-card.is-preview-ready:hover .wood-interior,
+ #collection .decor-card.is-preview-ready:focus-visible .wood-interior{
+   transform:translate3d(0,0,0);
+ }
 }
 #collection .decor-card .sale-badge{z-index:3}
 @media(prefers-reduced-motion:reduce){
-  #collection .decor-card .wood-interior{transition:none}
+ #collection .decor-card .wood-interior{transition:none}
 }
 </style></head><body id="top">
 <header class="pp-header pp-home"><nav class="wrap pp-nav" aria-label="Основная навигация"><a class="pp-logo" href="index.html" aria-label="Приоритет Паркет, на главную">ПРИОРИТЕТ ПАРКЕТ<small>ALPINE FLOOR</small></a><div class="pp-links"><a href="#collection">Коллекция</a><a href="advantages.html">Преимущества</a><a href="spc-parket.html">Технология</a><a href="installation.html">Монтаж</a><a href="care.html">Уход</a><a href="layouts.html">Раскладки</a><a class="pp-buy" href="#contact">Где купить</a></div><button class="pp-toggle" type="button" aria-expanded="false" aria-controls="pp-menu" aria-label="Открыть меню"><svg class="pp-hamburger" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg><svg class="pp-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg></button></nav><div id="pp-menu" class="pp-menu" hidden><a href="index.html">Главная</a><a href="#collection">Коллекция</a><a href="advantages.html">Преимущества</a><a href="spc-parket.html">Технология</a><a href="installation.html">Монтаж</a><a href="care.html">Уход</a><a href="layouts.html">Раскладки</a><a class="pp-mobile-buy" href="#contact">Где купить</a></div></header><div class="pp-backdrop" hidden aria-hidden="true"></div>
@@ -620,7 +619,8 @@ let prices={...fallbackPrices};
 function money(n){return Number(n).toLocaleString("ru-RU")+" BYN";}
 function priceHTML(code){const p=prices[code]||fallbackPrices[code];if(p&&p.active&&p.sale){return '<span class="old-price">'+money(p.regular)+'</span><span class="sale-price">'+money(p.sale)+'</span><small> / м²</small>'}return '<span class="price">'+money((p&&p.regular)||189)+' <small>/ м²</small></span>'}
 const productUrls={"ECO 30-1":"eco-30-1.html","ECO 30-2":"eco-30-2.html","ECO 30-3":"eco-30-3.html","ECO 30-4":"eco-30-4.html","ECO 30-5":"eco-30-5.html","ECO 30-6":"eco-30-6.html","ECO 30-7":"eco-30-7.html","ECO 30-8":"eco-30-8.html","ECO 30-9":"eco-30-9.html","ECO 30-10":"eco-30-10.html"};
-function renderProducts(){document.getElementById("decorGrid").innerHTML=products.map(p=>'<a class="decor-card" href="'+productUrls[p[0]]+'" aria-label="'+p[1]+'">'+(((prices[p[0]]&&prices[p[0]].active)&&(prices[p[0]]&&prices[p[0]].sale))?'<span class="sale-badge">Акция</span>':'')+'<div class="wood" style="--wood:'+p[4]+'"><img class="wood-photo" src="assets/'+p[0].replace(" ","-")+'-4.png?v=20261018" alt="'+p[1]+' — фактура покрытия" loading="lazy" decoding="async"><img class="wood-photo wood-interior" src="assets/'+p[0].replace(" ","-")+'.png?v=20261018" alt="" aria-hidden="true" loading="lazy" decoding="async"></div><div class="decor-meta"><div class="meta-top"><span>'+p[2]+'</span><b class="sku">'+p[0]+'</b></div><h3>'+p[1].replace(p[2]+" ","")+'</h3><div class="pricebox">'+priceHTML(p[0])+'</div></div></a>').join("")}
+const supportsDecorHover=window.matchMedia("(hover:hover) and (pointer:fine)").matches;
+function renderProducts(){document.getElementById("decorGrid").innerHTML=products.map(p=>'<a class="decor-card" href="'+productUrls[p[0]]+'" aria-label="'+p[1]+'">'+(((prices[p[0]]&&prices[p[0]].active)&&(prices[p[0]]&&prices[p[0]].sale))?'<span class="sale-badge">Акция</span>':'')+'<div class="wood" style="--wood:'+p[4]+'"><img class="wood-photo" src="assets/'+p[0].replace(" ","-")+'-4-card.webp?v=20261018w1" alt="'+p[1]+' — фактура покрытия" loading="lazy" decoding="async">'+(supportsDecorHover?'<img class="wood-photo wood-interior" data-src="assets/'+p[0].replace(" ","-")+'-card.webp?v=20261018w1" alt="" aria-hidden="true" decoding="async">':'')+'</div><div class="decor-meta"><div class="meta-top"><span>'+p[2]+'</span><b class="sku">'+p[0]+'</b></div><h3>'+p[1].replace(p[2]+" ","")+'</h3><div class="pricebox">'+priceHTML(p[0])+'</div></div></a>').join("")}
 function renderFaq(items){document.getElementById("faqList").innerHTML=items.map(x=>'<div class="faq-item"><button class="faq-q"><span>'+x[0]+'</span><span>+</span></button><div class="faq-a"><p>'+x[1]+'</p></div></div>').join("");document.querySelectorAll(".faq-q").forEach(b=>b.onclick=()=>b.parentElement.classList.toggle("open"))}
 function openDecor(code){const p=products.find(x=>x[0]===code);document.getElementById("mname").textContent=p[1];document.getElementById("mcode").textContent=p[0];document.getElementById("mdetails").textContent=p[2]+" · "+p[3]+" поверхность";document.getElementById("mprice").innerHTML=priceHTML(code);document.getElementById("modalwood").style.background='repeating-linear-gradient(4deg,'+p[4]+' 0 18px,#ffffff12 19px 20px),'+p[4];document.getElementById("modal").classList.add("open")}
 function closeDecor(){document.getElementById("modal").classList.remove("open")}
@@ -642,42 +642,26 @@ async function loadSiteData(){
 }
 loadSiteData();
 </script><style>
-.wood{background-image:var(--photo)!important;background-position:center!important;background-size:cover!important;filter:none!important}.wood i{display:none!important}
+.wood{background-image:none!important;filter:none!important}.wood i{display:none!important}
 .layer-art{background:url('assets/layers.jpeg') center/contain no-repeat!important}.layer-art .layer{display:none}
 </style>
 <script>
-const decorGalleries={"ECO 30-1":["assets/ECO-30-1.png","assets/ECO-30-1-2.png","assets/ECO-30-1-3.png","assets/ECO-30-1-4.png"],"ECO 30-2":["assets/ECO-30-2.png","assets/ECO-30-2-2.png","assets/ECO-30-2-3.png","assets/ECO-30-2-4.png"],"ECO 30-3":["assets/ECO-30-3.png","assets/ECO-30-3-2.png","assets/ECO-30-3-3.png","assets/ECO-30-3-4.png"],"ECO 30-4":["assets/ECO-30-4.png","assets/ECO-30-4-2.png","assets/ECO-30-4-3.png","assets/ECO-30-4-4.png"],"ECO 30-5":["assets/ECO-30-5.png","assets/ECO-30-5-2.png","assets/ECO-30-5-3.png","assets/ECO-30-5-4.png"],"ECO 30-6":["assets/ECO-30-6.png","assets/ECO-30-6-2.png","assets/ECO-30-6-3.png","assets/ECO-30-6-4.png"],"ECO 30-7":["assets/ECO-30-7.png","assets/ECO-30-7-2.png","assets/ECO-30-7-3.png","assets/ECO-30-7-4.png"],"ECO 30-8":["assets/ECO-30-8.png","assets/ECO-30-8-2.png","assets/ECO-30-8-3.png","assets/ECO-30-8-4.png"],"ECO 30-9":["assets/ECO-30-9.png","assets/ECO-30-9-2.png","assets/ECO-30-9-3.png","assets/ECO-30-9-4.png"],"ECO 30-10":["assets/ECO-30-10.png","assets/ECO-30-10-2.png","assets/ECO-30-10-3.png","assets/ECO-30-10-4.png"]};
-function applyRealPhotos(){
-  document.querySelectorAll('.decor-card').forEach((card,i)=>{
-    const w=card.querySelector('.wood');
-    const code=(products[i]&&products[i][0]);
-    const src=code&&(decorGalleries[code]&&decorGalleries[code][3]);
-    if(w&&src){
-      w.style.setProperty('--photo',"url('"+src+"')");
-      w.style.backgroundPosition="center";
-      w.style.backgroundSize="cover";
-      w.style.backgroundRepeat="no-repeat";
-    }
-  });
-}
-const decorGridEl=document.getElementById('decorGrid');
-if(decorGridEl){
-  new MutationObserver(()=>applyRealPhotos()).observe(decorGridEl,{childList:true});
-}
-applyRealPhotos();
-// На сенсорных экранах интерьер показывается, пока палец на карточке.
-// Обработчик делегирован: карточки могут обновляться при загрузке цен.
-if(decorGridEl){
-  decorGridEl.addEventListener('pointerdown',e=>{
-    if(e.pointerType==='mouse')return;
-    const card=e.target.closest('.decor-card');
-    if(card)card.classList.add('is-touch-preview');
-  });
-  const resetTouchPreviews=()=>{
-    decorGridEl.querySelectorAll('.is-touch-preview').forEach(card=>card.classList.remove('is-touch-preview'));
+const decorGalleries={"ECO 30-1":["assets/ECO-30-1.webp","assets/ECO-30-1-2.webp","assets/ECO-30-1-3.webp","assets/ECO-30-1-4.webp"],"ECO 30-2":["assets/ECO-30-2.webp","assets/ECO-30-2-2.webp","assets/ECO-30-2-3.webp","assets/ECO-30-2-4.webp"],"ECO 30-3":["assets/ECO-30-3.webp","assets/ECO-30-3-2.webp","assets/ECO-30-3-3.webp","assets/ECO-30-3-4.webp"],"ECO 30-4":["assets/ECO-30-4.webp","assets/ECO-30-4-2.webp","assets/ECO-30-4-3.webp","assets/ECO-30-4-4.webp"],"ECO 30-5":["assets/ECO-30-5.webp","assets/ECO-30-5-2.webp","assets/ECO-30-5-3.webp","assets/ECO-30-5-4.webp"],"ECO 30-6":["assets/ECO-30-6.webp","assets/ECO-30-6-2.webp","assets/ECO-30-6-3.webp","assets/ECO-30-6-4.webp"],"ECO 30-7":["assets/ECO-30-7.webp","assets/ECO-30-7-2.webp","assets/ECO-30-7-3.webp","assets/ECO-30-7-4.webp"],"ECO 30-8":["assets/ECO-30-8.webp","assets/ECO-30-8-2.webp","assets/ECO-30-8-3.webp","assets/ECO-30-8-4.webp"],"ECO 30-9":["assets/ECO-30-9.webp","assets/ECO-30-9-2.webp","assets/ECO-30-9-3.webp","assets/ECO-30-9-4.webp"],"ECO 30-10":["assets/ECO-30-10.webp","assets/ECO-30-10-2.webp","assets/ECO-30-10-3.webp","assets/ECO-30-10-4.webp"]};
+// Gallery thumbnails and texture cards do not create second PNG background requests.
+const decorGridEl=document.getElementById("decorGrid");
+if(decorGridEl && supportsDecorHover){
+  const requestInterior=e=>{
+    const card=e.target.closest(".decor-card");
+    if(!card || !decorGridEl.contains(card))return;
+    const preview=card.querySelector(".wood-interior");
+    if(!preview || preview.hasAttribute("src"))return;
+    preview.addEventListener("load",()=>card.classList.add("is-preview-ready"),{once:true});
+    preview.src=preview.dataset.src;
   };
-  document.addEventListener('pointerup',resetTouchPreviews);
-  document.addEventListener('pointercancel',resetTouchPreviews);
+  decorGridEl.addEventListener("pointerover",e=>{
+    if(e.pointerType==="mouse")requestInterior(e);
+  });
+  decorGridEl.addEventListener("focusin",requestInterior);
 }
 
 let galleryCode=null;

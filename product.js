@@ -13,9 +13,9 @@ const ALL_PRODUCTS=[
 {code:"ECO 30-10",name:"Дуб Изящный",species:"Дуб",surface:"Брашированная",url:"eco-30-10.html"}
 ];
 const product=window.PRODUCT;
-const PRODUCT_IMAGE_VERSION="?v=20261012-color2";
+const PRODUCT_IMAGE_VERSION="?v=20261018w1";
 const codeSlug=product.code.replace(" ","-");
-const images=[`assets/${codeSlug}.png${PRODUCT_IMAGE_VERSION}`,`assets/${codeSlug}-2.png${PRODUCT_IMAGE_VERSION}`,`assets/${codeSlug}-3.png${PRODUCT_IMAGE_VERSION}`,`assets/${codeSlug}-4.png${PRODUCT_IMAGE_VERSION}`];
+const images=[`assets/${codeSlug}.webp${PRODUCT_IMAGE_VERSION}`,`assets/${codeSlug}-2.webp${PRODUCT_IMAGE_VERSION}`,`assets/${codeSlug}-3.webp${PRODUCT_IMAGE_VERSION}`,`assets/${codeSlug}-4.webp${PRODUCT_IMAGE_VERSION}`];
 let current=0;
 function money(n){return Number(n).toLocaleString("ru-RU")+" BYN"}
 function showImage(i){
@@ -26,7 +26,7 @@ function showImage(i){
 }
 function renderGallery(){
   document.getElementById("mainPhoto").src=images[0];
-  document.getElementById("thumbs").innerHTML=images.map((src,i)=>`<button class="thumb ${i===0?"active":""}" onclick="showImage(${i})"><img src="${src}" alt="${product.name} — фото ${i+1}"></button>`).join("");
+  document.getElementById("thumbs").innerHTML=images.map((src,i)=>`<button class="thumb ${i===0?"active":""}" onclick="showImage(${i})"><img src="${src.replace(".webp","-thumb.webp")}" loading="lazy" decoding="async" alt="${product.name} — фото ${i+1}"></button>`).join("");
 }
 function renderBase(){
   document.title=product.name+" "+product.code+" — Приоритет Паркет";
@@ -44,7 +44,7 @@ function renderBase(){
   const related=[1,2,3,4].map(n=>ALL_PRODUCTS[(idx+n)%ALL_PRODUCTS.length]);
   document.getElementById("relatedGrid").innerHTML=related.map(p=>{
     const slug=p.code.replace(" ","-");
-    return `<a class="related-card" href="${p.url}"><img src="assets/${slug}.png${PRODUCT_IMAGE_VERSION}" alt="${p.name}" loading="lazy"><div class="related-meta"><small><span>${p.species}</span><span>${p.code}</span></small><h3>${p.name.replace(p.species+" ","")}</h3></div></a>`;
+    return `<a class="related-card" href="${p.url}"><img src="assets/${slug}-card.webp${PRODUCT_IMAGE_VERSION}" alt="${p.name}" loading="lazy"><div class="related-meta"><small><span>${p.species}</span><span>${p.code}</span></small><h3>${p.name.replace(p.species+" ","")}</h3></div></a>`;
   }).join("");
 }
 function renderPrice(p){
