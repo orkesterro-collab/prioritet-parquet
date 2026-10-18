@@ -1,0 +1,108 @@
+/* Mobile spacing and typography system for the homepage.
+   Keep the desktop layout, imagery and colors unchanged. */
+@media (max-width:600px) {
+  :root {
+    --pp-mobile-gutter:16px;
+    --pp-mobile-section:56px;
+    --pp-mobile-heading-gap:12px;
+    --pp-mobile-content-gap:24px;
+  }
+  body .wrap {width:calc(100% - (2 * var(--pp-mobile-gutter)));max-width:1220px}
+  main > section:not(.hero),
+  main > #collection,main > #tech,main > #why,main > #spec,
+  main > #installation,main > #faq,main > #contact {
+    padding-top:var(--pp-mobile-section)!important;
+    padding-bottom:var(--pp-mobile-section)!important;
+  }
+  #collection .section-head,
+  #tech .section-head,
+  #why .section-head,
+  .proof .section-head,
+  #installation .section-head {
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:var(--pp-mobile-heading-gap)!important;
+    margin-bottom:var(--pp-mobile-content-gap)!important;
+  }
+  #collection h2,#tech h2,#why h2,.proof h2,
+  #spec .spec-passport-intro h2,#installation h2,
+  #faq h2,#contact h2 {
+    font-size:clamp(32px,8.5vw,40px)!important;
+    line-height:1.07;
+    letter-spacing:-.04em;
+  }
+  #collection .section-head h2,#tech .section-head h2,
+  #why .section-head h2,.proof .section-head h2,
+  #installation .section-head h2 {
+    margin:9px 0 0!important;
+  }
+  #collection .section-head .lead,
+  #tech .section-head .lead,
+  #why .section-head .lead,
+  .proof .section-head .lead,
+  #installation .section-head .lead {
+    margin:0!important;
+    font-size:17px!important;
+    line-height:1.5!important;
+    max-width:none;
+  }
+
+  /* Product gallery: repeatable two-column card proportions */
+  #collection .decor-grid {grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  #collection .decor-card {display:flex;flex-direction:column;min-width:0}
+  #collection .decor-card .wood {width:100%;height:auto!important;aspect-ratio:1/1.12;flex:none}
+  #collection .decor-card .decor-meta {display:flex;flex:1;flex-direction:column;min-width:0;padding:14px 12px 16px}
+  #collection .decor-card .meta-top {gap:5px;margin-bottom:8px}
+  #collection .decor-card .meta-top span,
+  #collection .decor-card .meta-top .sku {font-size:11px;line-height:1.2;overflow-wrap:anywhere}
+  #collection .decor-card .decor-meta h3 {font-size:16px;line-height:1.24;margin:0 0 12px}
+  #collection .decor-card .pricebox {margin-top:auto}
+
+  /* Technology illustration and explanatory rows */
+  #tech .layers {gap:16px!important}
+  #tech .layer-list div {padding:17px 0!important}
+
+  /* Benefits and proof share a similarly compact reading rhythm */
+  #why .why-two-features .feature {min-height:0!important;padding:20px 0!important}
+  #why .why-two-features .feature h3 {font-size:20px;line-height:1.22;margin-bottom:10px}
+  #why .why-two-features .feature p {font-size:15px;line-height:1.5}
+  #why .mobile-more-wrap {margin-top:20px}
+  .proof .proof-item {padding:22px 20px}
+  .proof .proof-item b {font-size:34px;line-height:1.12;margin-bottom:10px}
+  .proof .proof-item span {font-size:15px;line-height:1.5}
+
+  /* Material passport and layout thumbnails */
+  #spec .spec-passport-intro {margin-bottom:var(--pp-mobile-content-gap)!important}
+  #spec .spec-passport-intro .kicker {margin-bottom:0}
+  #spec .spec-passport-intro h2 {margin:9px 0 0!important}
+  #spec .layouts {margin-top:var(--pp-mobile-content-gap);gap:10px}
+  #spec .layout span {display:flex;align-items:center;justify-content:center;min-height:42px;padding:8px 5px;font-size:12px;line-height:1.25}
+  #spec .layouts-action {margin-top:18px}
+
+  /* Installation should start directly after its section intro */
+  #installation .install-compare {margin-top:0}
+  #installation .install-note {margin-top:16px}
+  #installation .install-guide-wrap {margin-top:16px}
+
+  /* FAQ and retailer section no longer feel disproportionately tall */
+  #faq h2 {margin:9px 0 var(--pp-mobile-content-gap)}
+  #faq .faq-q {padding:19px 0;font-size:18px;line-height:1.35;gap:14px}
+  #faq .faq-a p {font-size:15px;padding-bottom:19px}
+  #contact h2 {margin:9px auto 26px!important}
+  #contact .where-buy {margin:0 auto}
+  #contact .where-buy-head {gap:12px;padding-bottom:18px}
+  #contact .where-buy h3 {font-size:26px}
+  #contact .city-grid {gap:12px;margin-top:18px}
+  #contact .city-card {padding:18px}
+  #contact .where-city {margin-bottom:9px}
+  #contact .store-list {gap:0}
+  #contact .store-item {padding:12px 0}
+
+  /* Matching narrow-screen gutters throughout */
+  @media (max-width:355px) {
+    :root {--pp-mobile-gutter:14px}
+    #collection .decor-card .decor-meta {padding:12px 9px 14px}
+    #collection .decor-card .meta-top span,
+    #collection .decor-card .meta-top .sku {font-size:10px}
+  }
+}
