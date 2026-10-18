@@ -1,0 +1,77 @@
+name: Optimize decor images for web
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/optimize-webp.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: optimize-decor-images
+  cancel-in-progress: false
+
+jobs:
+  optimize-and-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Pillow
+        run: python -m pip install --quiet pillow
+
+      - name: Generate optimized images and responsive markup
+        run: python scripts/optimize_images.py
+
+      - name: Validate generated image set
+        run: |
+          test "$(find assets -name 'ECO-30-*.webp' | wc -l)" -eq 100
+          grep -q 'supportsDecorHover' index.html
+          grep -q -- '-4-card.webp' index.html
+          grep -q -- '-thumb.webp' product.js
+          if grep -q 'is-touch-preview' index.html; then
+            echo 'Unexpected mobile hover listener'; exit 1
+          fi
+
+      - name: Commit optimized images and code
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/ECO-30-*.webp index.html product.js eco-30-*.html
+          if git diff --cached --quiet; then
+            echo "Nothing to commit"
+          else
+            git commit -m "Optimize decor galleries for fast loading, remove mobile hover"
+            git push origin HEAD:main
+          fi
+
+      # GitHub Actions pushes do not start the ordinary deploy workflow.
+      # Publish the newly created images and matching HTML in this same run.
+      - name: Deploy optimized site to hoster.by
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: 87.232.64.108
+          username: chatgpt
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          port: 21
+          server-dir: /
+          local-dir: ./
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            .github/**
+            scripts/**
