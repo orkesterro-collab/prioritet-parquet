@@ -47,13 +47,52 @@ function renderBase(){
     return `<a class="related-card" href="${p.url}"><img src="assets/${slug}-card.webp${PRODUCT_IMAGE_VERSION}" alt="${p.name}" loading="lazy"><div class="related-meta"><small><span>${p.species}</span><span>${p.code}</span></small><h3>${p.name.replace(p.species+" ","")}</h3></div></a>`;
   }).join("");
 }
-function renderPrice(p){
+// Only current service data may create a Google Product/Offer. Fallback prices
+// remain informational and never imply verified availability or an Offer.
+function positivePrice(value){
+  if(typeof value!=="number"&&typeof value!=="string") return null;
+  if(typeof value==="string"&&!/^\d+(?:[.,]\d{1,2})?$/.test(value.trim())) return null;
+  const n=Number(String(value).replace(",","."));
+  return Number.isFinite(n)&&n>0?n:null;
+}
+function selectedPrice(p){
+  if(!p||typeof p!=="object") return null;
+  const regular=positivePrice(p.regular);
+  const sale=p.active===true?positivePrice(p.sale):null;
+  return regular?{regular,price:sale||regular,sale}:null;
+}
+function renderStructuredData(p,confirmed){
+  document.getElementById("productStructuredData")?.remove();
+  const selected=selectedPrice(p);
+  if(!confirmed||!selected) return;
+  const url="https://prioritetparket.by/"+product.slug+".html";
+  const offer={"@type":"Offer",url,priceCurrency:"BYN",price:selected.price,
+    priceSpecification:{"@type":"UnitPriceSpecification",price:selected.price,
+      priceCurrency:"BYN",referenceQuantity:{"@type":"QuantitativeValue",value:1,unitCode:"MTK",unitText:"м²"}}};
+  const availability={"В наличии":"InStock","Нет в наличии":"OutOfStock","Под заказ":"BackOrder","Предзаказ":"PreOrder"};
+  const status=typeof p.availability==="string"?p.availability.trim():"";
+  if(Object.hasOwn(availability,status)) offer.availability="https://schema.org/"+availability[status];
+  const schema={"@context":"https://schema.org","@type":"Product","@id":url+"#product",
+    url,name:product.name+" "+product.code,sku:product.code,
+    image:images.map(src=>new URL(src,"https://prioritetparket.by/").href),
+    description:product.description,brand:{"@type":"Brand",name:"Alpine Floor"},
+    category:"SPC-паркет с натуральным древесным шпоном",offers:offer,
+    mainEntityOfPage:{"@id":url+"#webpage"}};
+  const script=document.createElement("script");
+  script.id="productStructuredData";script.type="application/ld+json";
+  script.textContent=JSON.stringify(schema);document.head.appendChild(script);
+}
+function renderPrice(p,confirmed=false){
+  const selected=selectedPrice(p);
   const box=document.getElementById("priceBox");
-  if(p&&p.active&&p.sale){
-    box.innerHTML=`<div class="price-row"><span class="old-price">${money(p.regular)}</span><span class="sale-price">${money(p.sale)} <small>/ м²</small></span></div>`;
-  } else {
-    box.innerHTML=`<div class="price-row"><span class="price">${money((p&&p.regular)||product.price)} <small>/ м²</small></span></div>`;
-  }
+  const shown=selected||{price:product.price};
+  box.innerHTML=shown.sale
+    ?`<div class="price-row"><span class="old-price">${money(shown.regular)}</span><span class="sale-price">${money(shown.price)} <small>/ м²</small></span></div>`
+    :`<div class="price-row"><span class="price">${money(shown.price)} <small>/ м²</small></span></div>`;
+  const status=document.getElementById("availabilityText");
+  if(status) status.textContent=confirmed&&selected&&typeof p.availability==="string"
+    ?p.availability.trim():"Наличие уточняйте у продавца";
+  renderStructuredData(p,confirmed);
 }
 async function loadPrice(){
   renderPrice({regular:product.price});
@@ -61,7 +100,7 @@ async function loadPrice(){
     const r=await fetch(DATA_ENDPOINT,{cache:"no-store"});
     if(!r.ok) return;
     const data=await r.json();
-    if(data.prices&&data.prices[product.code]) renderPrice(data.prices[product.code]);
+    renderPrice(data?.prices?.[product.code],true);
   }catch(e){console.warn("Price fallback",e)}
 }
 window.showImage=showImage;
