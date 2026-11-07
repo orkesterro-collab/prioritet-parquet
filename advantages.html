@@ -85,13 +85,15 @@ h1{font-size:clamp(54px,8vw,112px);line-height:.88;letter-spacing:-.055em;text-t
 <link rel="stylesheet" href="site-system.css?v=1"><script defer src="site-system.js?v=1"></script>
 <style>/* Editorial advantage stories without decorative numbering */ .grid .item{display:block;max-width:1000px;padding:32px 0} .grid .item>div{width:100%;max-width:960px} .grid .item h2{max-width:900px} @media(max-width:640px){.grid .item{padding:28px 0}}</style>
 <style>
-/* Natural materials: text and sunlit material details. */
-.grid .item.item-illustrated{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:44px;max-width:none;align-items:center}
+/* Natural materials: balanced text and image columns. */
+.grid .item.item-illustrated{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:44px;max-width:none;align-items:stretch}
 .grid .item-illustrated h2{font-size:clamp(28px,3vw,42px);line-height:1.1}
 .grid .item-illustrated p{font-size:17px;line-height:1.6}
-.advantage-illustration{margin:0;min-width:0}
-.advantage-illustration img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:contain}
-@media(max-width:800px){.grid .item.item-illustrated{grid-template-columns:1fr;gap:24px}.grid .item-illustrated h2{font-size:clamp(28px,5vw,38px)}}
+.grid .item-illustrated p:last-child{margin-bottom:0}
+.advantage-illustration{position:relative;margin:0;min-width:0;min-height:0}
+.advantage-illustration img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover}
+@media(min-width:801px){.grid{grid-auto-rows:1fr}.grid .item-illustrated>div{display:flex;flex-direction:column;justify-content:space-between}}
+@media(max-width:800px){.grid .item.item-illustrated{grid-template-columns:1fr;gap:24px}.grid .item-illustrated h2{font-size:clamp(28px,5vw,38px)}.grid .item-illustrated p:last-child{margin-bottom:14px}.advantage-illustration img{position:static;height:auto;aspect-ratio:1;object-fit:contain}}
 </style>
 </head>
 <body>
