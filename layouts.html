@@ -95,4 +95,24 @@ a:focus-visible,summary:focus-visible{outline:2px solid #111;outline-offset:4px}
   </div>
 </section>
 <section class="method collection-cta"><div class="wrap"><div class="eyebrow">Выбор покрытия</div><h2>Подберите свой декор</h2><p class="lead">От светлого до тёмного дуба — найдите свой оттенок в коллекции.</p><a class="btn" href="./#collection">Смотреть коллекцию</a></div></section>
-</main><footer class="foot"><div class="wrap"><span>ПРИОРИТЕТ ПАРКЕТ · ALPINE FLOOR</span><a href="./">Вернуться на главную</a></div></footer></body></html>
+</main><footer class="foot"><div class="wrap"><span>ПРИОРИТЕТ ПАРКЕТ · ALPINE FLOOR</span><a href="./">Вернуться на главную</a></div></footer>
+<script>
+(function(){
+  const mobile=window.matchMedia("(max-width:800px)");
+  const details=Array.from(document.querySelectorAll(".layout-details"));
+  const mobileState=new Map(details.map(detail=>[detail,detail.open]));
+  function syncLayoutDetails(){
+    details.forEach(detail=>{
+      if(mobile.matches){
+        detail.open=mobileState.get(detail);
+      }else{
+        mobileState.set(detail,detail.open);
+        detail.open=true;
+      }
+    });
+  }
+  syncLayoutDetails();
+  mobile.addEventListener("change",syncLayoutDetails);
+})();
+</script>
+</body></html>
