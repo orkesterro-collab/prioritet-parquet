@@ -3,32 +3,93 @@
 <link rel="canonical" href="https://prioritetparket.by/layouts.html">
 <meta name="robots" content="index, follow"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#101112"><title>Английская и двойная ёлка, палубная укладка — Приоритет Паркет</title><meta name="description" content="Три варианта раскладки паркета: английская ёлка, двойная ёлка и палубная укладка. Сравнение рисунков и рекомендации по выбору для интерьера.">
 <style>
-:root{color-scheme:dark;--bg:#101112;--panel:#1b1c1d;--ink:#f4f4f4;--muted:#b5b8ba;--line:#393b3e}*{box-sizing:border-box}
-html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Arial,Helvetica,sans-serif}a{color:inherit;text-decoration:none}
-.wrap{width:calc(100% - 48px);max-width:1180px;margin:auto}header{border-bottom:1px solid var(--line);background:#101112;position:sticky;top:0;z-index:3}
-nav{min-height:90px;display:flex;align-items:center;justify-content:space-between;gap:18px}.logo{font-size:22px;line-height:1.15;font-weight:900;letter-spacing:.05em}.logo small{display:block;font-size:11px;letter-spacing:.32em;color:#a0a0a0;margin-top:10px}
-.btn{display:inline-block;padding:13px 20px;border:1px solid #bfc3c4;text-transform:uppercase;letter-spacing:.12em;font-size:12px;background:transparent;cursor:pointer}.btn:hover{background:#eee;color:#111}
-.hero{padding:82px 0 70px;background:linear-gradient(125deg,#242526,#101112 70%)}.eyebrow{color:#b8b8b8;letter-spacing:.22em;text-transform:uppercase;font-size:12px}.hero h1{font-size:clamp(38px,6vw,76px);line-height:1.02;margin:18px 0 24px;letter-spacing:-.035em}.lead{font-size:19px;color:#c5c7c8;max-width:800px}
-.quicknav{display:flex;gap:10px;flex-wrap:wrap;margin-top:30px}.quicknav a{border:1px solid var(--line);padding:10px 16px;font-size:13px}.quicknav a:hover{border-color:#fff}
-.method{padding:76px 0;border-top:1px solid #333}.method-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:44px;align-items:center}
-.method:nth-of-type(even){background:#171819}.method h2{font-size:clamp(34px,4vw,54px);margin:12px 0 24px;line-height:1.1}
-.method p{color:#c4c6c7;font-size:17px}.method h3{font-size:18px;margin:26px 0 9px}.method ul{padding-left:20px;color:#c4c6c7}.method li{margin:8px 0}
-.scene{border:1px solid #505255;aspect-ratio:1.12;position:relative;background:linear-gradient(#6b7074 0 4%,#d0d0ce 4% 50%,#acaaa5 50% 52%,transparent 52%),#333;overflow:hidden}
-.scene:before{content:"";position:absolute;left:12%;top:18%;width:30%;height:30%;background:linear-gradient(130deg,#fafafa,#b9b9b9);border:8px solid #eee;box-shadow:0 6px 20px #0003}
-.scene:after{content:"";position:absolute;right:11%;top:29%;width:25%;height:17%;background:#4b4e50;border-radius:15px 15px 4px 4px;box-shadow:0 12px 0 #303234}
-.floor{position:absolute;left:-15%;right:-15%;bottom:-25%;height:80%;transform:perspective(500px) rotateX(47deg);transform-origin:top;background-position:center;background-size:130px;background-repeat:repeat;background-color:#555;box-shadow:inset 0 25px 50px #0005}
-.floor.english{background-image:url("assets/layout-english.svg")}.floor.double{background-image:url("assets/layout-double.svg")}.floor.deck{background-image:url("assets/layout-deck.svg")}
-.scene-label{position:absolute;left:12px;bottom:12px;background:#101112dc;color:#fff;padding:7px 11px;font-size:11px;letter-spacing:.07em;text-transform:uppercase}
-.note{padding:18px 22px;margin:24px 0 0;border-left:2px solid #bfc3c4;background:#242526;color:#c5c7c8;font-size:14px}.foot{padding:42px 0;border-top:1px solid #333;color:#aaa}.foot .wrap{display:flex;gap:20px;justify-content:space-between;flex-wrap:wrap}
-@media(max-width:800px){.method-grid{grid-template-columns:1fr}.scene{max-width:680px}.method{padding:54px 0}}
-@media(max-width:560px){.wrap{width:calc(100% - 28px)}nav{min-height:84px}.logo{font-size:16px}.logo small{font-size:9px}nav .btn{font-size:10px;padding:12px}.hero{padding:45px 0}.hero h1{font-size:42px}.lead{font-size:16px}.method p{font-size:16px}.scene{aspect-ratio:1}.quicknav a{font-size:12px}}
+:root{color-scheme:dark;--bg:#101112;--ink:#f4f4f4;--muted:#b5b8ba;--line:#393b3e}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Arial,Helvetica,sans-serif}
+a{color:inherit;text-decoration:none}
+.wrap{width:calc(100% - 48px);max-width:1180px;margin:auto}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:12px 20px;border:1px solid #bfc3c4;text-transform:uppercase;letter-spacing:.1em;font-size:12px;background:transparent}
+.btn:hover{background:#eee;color:#111}
+a:focus-visible,summary:focus-visible{outline:2px solid #fff;outline-offset:4px}
+.hero{padding:48px 0 36px;background:linear-gradient(125deg,#242526,#101112 70%)}
+.eyebrow{color:#b8b8b8;letter-spacing:.18em;text-transform:uppercase;font-size:11px;line-height:1.4}
+.hero h1{max-width:850px;font-size:clamp(32px,5vw,60px);line-height:1.06;margin:12px 0 14px;letter-spacing:-.035em}
+.lead{font-size:18px;color:#c5c7c8;max-width:680px;margin:0}
+.quicknav{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
+.quicknav a{display:flex;align-items:center;justify-content:center;min-height:44px;border:1px solid #55585a;padding:10px 16px;font-size:13px;line-height:1.3;text-align:center;transition:background .15s,border-color .15s}
+.quicknav a:hover{border-color:#fff;background:#292b2c}
+.method{padding:40px 0;border-top:1px solid #333}
+.method:nth-of-type(even){background:#171819}
+.method-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-areas:"title preview" "copy preview";column-gap:48px;row-gap:16px;align-items:start}
+.method-title{grid-area:title;align-self:end;min-width:0}
+.method h2{font-size:clamp(28px,3.5vw,42px);margin:8px 0 0;line-height:1.12;letter-spacing:-.025em}
+.method-copy{grid-area:copy;min-width:0}
+.method p{color:#c4c6c7;margin:0;font-size:16px}
+.method h3{font-size:16px;margin:18px 0 6px}
+.method ul{padding-left:20px;color:#c4c6c7;margin:8px 0 0}
+.method li{margin:5px 0}
+.layout-preview{grid-area:preview;margin:0;min-width:0;background:#101112;align-self:stretch;display:flex;flex-direction:column;justify-content:center}
+.layout-preview img{display:block;width:100%;height:290px;object-fit:contain}
+.layout-preview figcaption{text-align:center;padding:0 12px 14px;font-size:11px;line-height:1.4;letter-spacing:.08em;color:#a5aaad}
+.layout-details{border-top:1px solid var(--line);margin-top:18px}
+.layout-details summary{cursor:pointer;min-height:44px;padding:12px 0;color:#e5e7e8;font-size:14px;line-height:1.4}
+.layout-details[open] summary{margin-bottom:4px}
+.layout-details p{font-size:15px}
+.note{padding:12px 14px;margin:16px 0 0;border-left:2px solid #7d8387;background:#242526;color:#c5c7c8;font-size:14px}
+.collection-cta h2{margin:0 0 12px}
+.collection-cta .btn{margin-top:20px}
+.foot{padding:28px 0;border-top:1px solid #333;color:#aaa;font-size:12px}
+.foot .wrap{display:flex;gap:16px;justify-content:space-between;flex-wrap:wrap}
+@media(max-width:800px){
+ .method-grid{grid-template-columns:1fr;grid-template-areas:"title" "preview" "copy";gap:16px}
+ .method{padding:28px 0}
+ .layout-preview img{height:250px}
+}
+@media(max-width:560px){
+ .wrap{width:calc(100% - 32px)}
+ .hero{padding:24px 0}
+ .hero h1{font-size:clamp(30px,8.2vw,38px);margin:10px 0 12px}
+ .eyebrow{font-size:10px;letter-spacing:.15em}
+ .lead{font-size:15px;line-height:1.5}
+ .quicknav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin-top:18px}
+ .quicknav a{min-height:48px;padding:8px 5px;font-size:12px}
+ .method{padding:24px 0}
+ .method h2{font-size:28px;margin-top:7px}
+ .method-grid{gap:14px}
+ .method p{font-size:15px;line-height:1.55}
+ .layout-preview img{height:210px}
+ .layout-preview figcaption{padding-bottom:10px;font-size:10px}
+ .layout-details{margin-top:14px}
+ .layout-details p,.layout-details li{font-size:14px}
+ .foot .wrap{display:grid;gap:12px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.quicknav a{transition:none}}
 </style><link rel="stylesheet" href="site-system.css?v=1"><script defer src="site-system.js?v=1"></script>
 </head><body>
 <header class="pp-header"><nav class="wrap pp-nav" aria-label="Основная навигация"><a class="pp-logo" href="index.html" aria-label="Приоритет Паркет, на главную">ПРИОРИТЕТ ПАРКЕТ<small>ALPINE FLOOR</small></a><div class="pp-links"><a href="index.html#collection">Коллекция</a><a href="advantages.html">Преимущества</a><a href="spc-parket.html">Технология</a><a href="installation.html">Монтаж</a><a href="care.html">Уход</a><a href="layouts.html" aria-current="page">Раскладки</a><a class="pp-buy" href="index.html#contact">Где купить</a></div><button class="pp-toggle" type="button" aria-expanded="false" aria-controls="pp-menu" aria-label="Открыть меню"><svg class="pp-hamburger" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg><svg class="pp-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg></button></nav><div id="pp-menu" class="pp-menu" hidden><a href="index.html">Главная</a><a href="index.html#collection">Коллекция</a><a href="advantages.html">Преимущества</a><a href="spc-parket.html">Технология</a><a href="installation.html">Монтаж</a><a href="care.html">Уход</a><a href="layouts.html" aria-current="page">Раскладки</a><a class="pp-mobile-buy" href="index.html#contact">Где купить</a></div></header><div class="pp-backdrop" hidden aria-hidden="true"></div>
 <main>
-<section class="hero"><div class="wrap"><div class="eyebrow">Дизайн вашего пола</div><h1>Выберите рисунок укладки</h1><p class="lead">Три рисунка укладки, от классической ёлки до спокойной геометрии. Посмотрите, как может выглядеть покрытие, и выберите геометрию, которая подходит вашему интерьеру.</p><div class="quicknav"><a href="#english">Английская ёлка</a><a href="#double">Двойная ёлка</a><a href="#deck">Палубная</a></div><p style="font-size:13px;color:#aaa;margin-top:24px">Визуализации условные: показывают направление и ритм раскладки, а не конкретный цвет декора или точный масштаб планки.</p></div></section>
-<section class="method" id="english"><div class="wrap method-grid"><div><div class="eyebrow">Классическая геометрия</div><h2>Английская ёлка</h2><p>Планки располагаются под прямым углом друг к другу, формируя повторяющийся зигзагообразный рисунок. Такой способ ассоциируется с традиционным паркетом, но хорошо смотрится и в современных лаконичных интерьерах.</p><h3>Визуальный эффект</h3><p>Ритмичный рисунок становится самостоятельным элементом дизайна, добавляет полу глубину и выразительность. Направление рядов помогает организовать восприятие пространства.</p><h3>Где уместна</h3><ul><li>Гостиная, кабинет, спальня и проходные зоны</li><li>Классика, неоклассика и современный интерьер</li><li>Помещения, где пол должен быть заметной частью композиции</li></ul><div class="note">Перед монтажом стоит определить центральную ось и направление рисунка, чтобы подрезки по краям выглядели симметрично.</div></div><div class="scene" aria-label="Условная визуализация английской ёлки"><div class="floor english"></div><span class="scene-label">Схематичный интерьер</span></div></div></section>
-<section class="method" id="double"><div class="wrap method-grid"><div><div class="eyebrow">Выразительный ритм</div><h2>Двойная ёлка</h2><p>Рисунок строится по принципу ёлочки, но планки группируются парами. Парные элементы создают более крупный и насыщенный геометрический ритм по сравнению с одиночной английской ёлкой.</p><h3>Визуальный эффект</h3><p>Пол воспринимается более графичным: повторяющиеся пары подчеркивают геометрию помещения и особенно хорошо работают в интерьерах со спокойной мебелью и однотонными стенами.</p><h3>Где уместна</h3><ul><li>Просторные гостиные и открытые планировки</li><li>Современные интерьеры с акцентом на фактуру дерева</li><li>Зоны, где нужен характерный декоративный рисунок</li></ul><div class="note">При планировании важно заранее согласовать ширину и направление парных рядов, а также раскладку около дверных проёмов.</div></div><div class="scene" aria-label="Условная визуализация двойной ёлки"><div class="floor double"></div><span class="scene-label">Схематичный интерьер</span></div></div></section>
-<section class="method" id="deck"><div class="wrap method-grid"><div><div class="eyebrow">Спокойная геометрия</div><h2>Палубная укладка</h2><p>Планки располагаются параллельными рядами со смещением торцевых стыков. Это наиболее сдержанный из представленных вариантов: он позволяет сосредоточить внимание на оттенке и текстуре древесины.</p><h3>Визуальный эффект</h3><p>Продольные линии делают рисунок более спокойным и цельным. В зависимости от направления укладки они могут зрительно подчеркнуть длину помещения.</p><h3>Где уместна</h3><ul><li>Спальни, кухни-гостиные, коридоры и небольшие комнаты</li><li>Минимализм, скандинавский и современный стиль</li><li>Пространства, где важно сохранить визуальную простоту пола</li></ul><div class="note">Смещение торцевых стыков и минимальную длину крайних планок необходимо выбирать по монтажной инструкции производителя; не стоит считать произвольную разбежку допустимой.</div></div><div class="scene" aria-label="Условная визуализация палубной укладки"><div class="floor deck"></div><span class="scene-label">Схематичный интерьер</span></div></div></section>
-<section class="method"><div class="wrap"><div class="eyebrow">Выбор покрытия</div><h2>Подберите свой декор</h2><p class="lead">Один и тот же рисунок укладки выглядит по-разному в светлом дубе и в насыщенном тёмном оттенке. Посмотрите коллекцию «Приоритет Паркет».</p><a class="btn" href="./#collection">Смотреть коллекцию</a></div></section>
+<section class="hero"><div class="wrap"><div class="eyebrow">Дизайн вашего пола</div><h1>Выберите рисунок укладки</h1><p class="lead">Три варианта — сравните рисунок и выберите свой.</p><nav class="quicknav" aria-label="Рисунки укладки"><a href="#english">Английская ёлка</a><a href="#double">Двойная ёлка</a><a href="#deck">Палубная</a></nav></div></section>
+<section class="method" id="english" aria-labelledby="english-title">
+  <div class="wrap method-grid">
+    <div class="method-title"><div class="eyebrow">Классическая геометрия</div><h2 id="english-title">Английская ёлка</h2></div>
+    <figure class="layout-preview"><img src="assets/layout-english.svg" width="600" height="600" alt="Английская ёлка: одиночные планки под прямым углом" fetchpriority="high"><figcaption>Схема укладки</figcaption></figure>
+    <div class="method-copy"><p>Планки под прямым углом создают выразительный зигзаг. Классический рисунок для спокойных и современных интерьеров.</p><details class="layout-details"><summary>Подробнее об укладке</summary><h3>Визуальный эффект</h3><p>Ритмичный рисунок становится самостоятельным элементом дизайна, добавляет полу глубину и выразительность. Направление рядов помогает организовать восприятие пространства.</p><h3>Где уместна</h3><ul><li>Гостиная, кабинет, спальня и проходные зоны</li><li>Классика, неоклассика и современный интерьер</li><li>Помещения, где пол должен быть заметной частью композиции</li></ul><div class="note">Перед монтажом стоит определить центральную ось и направление рисунка, чтобы подрезки по краям выглядели симметрично.</div></details></div>
+  </div>
+</section>
+<section class="method" id="double" aria-labelledby="double-title">
+  <div class="wrap method-grid">
+    <div class="method-title"><div class="eyebrow">Выразительный ритм</div><h2 id="double-title">Двойная ёлка</h2></div>
+    <figure class="layout-preview"><img src="assets/layout-double.svg" width="600" height="600" alt="Двойная ёлка: планки, объединённые в пары" loading="lazy"><figcaption>Схема укладки</figcaption></figure>
+    <div class="method-copy"><p>Планки объединены в пары: рисунок становится крупнее и заметнее. Особенно выразительно смотрится в просторных комнатах.</p><details class="layout-details"><summary>Подробнее об укладке</summary><h3>Визуальный эффект</h3><p>Пол воспринимается более графичным: повторяющиеся пары подчеркивают геометрию помещения и особенно хорошо работают в интерьерах со спокойной мебелью и однотонными стенами.</p><h3>Где уместна</h3><ul><li>Просторные гостиные и открытые планировки</li><li>Современные интерьеры с акцентом на фактуру дерева</li><li>Зоны, где нужен характерный декоративный рисунок</li></ul><div class="note">При планировании важно заранее согласовать ширину и направление парных рядов, а также раскладку около дверных проёмов.</div></details></div>
+  </div>
+</section>
+<section class="method" id="deck" aria-labelledby="deck-title">
+  <div class="wrap method-grid">
+    <div class="method-title"><div class="eyebrow">Спокойная геометрия</div><h2 id="deck-title">Палубная укладка</h2></div>
+    <figure class="layout-preview"><img src="assets/layout-deck.svg" width="600" height="600" alt="Палубная укладка: параллельные ряды со смещением" loading="lazy"><figcaption>Схема укладки</figcaption></figure>
+    <div class="method-copy"><p>Параллельные ряды со смещением стыков. Спокойный рисунок подчёркивает текстуру дерева и направление комнаты.</p><details class="layout-details"><summary>Подробнее об укладке</summary><h3>Визуальный эффект</h3><p>Продольные линии делают рисунок более спокойным и цельным. В зависимости от направления укладки они могут зрительно подчеркнуть длину помещения.</p><h3>Где уместна</h3><ul><li>Спальни, кухни-гостиные, коридоры и небольшие комнаты</li><li>Минимализм, скандинавский и современный стиль</li><li>Пространства, где важно сохранить визуальную простоту пола</li></ul><div class="note">Смещение торцевых стыков и минимальную длину крайних планок необходимо выбирать по монтажной инструкции производителя; не стоит считать произвольную разбежку допустимой.</div></details></div>
+  </div>
+</section>
+<section class="method collection-cta"><div class="wrap"><div class="eyebrow">Выбор покрытия</div><h2>Подберите свой декор</h2><p class="lead">От светлого до тёмного дуба — найдите свой оттенок в коллекции.</p><a class="btn" href="./#collection">Смотреть коллекцию</a></div></section>
 </main><footer class="foot"><div class="wrap"><span>ПРИОРИТЕТ ПАРКЕТ · ALPINE FLOOR</span><a href="./">Вернуться на главную</a></div></footer></body></html>
