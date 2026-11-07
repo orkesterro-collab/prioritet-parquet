@@ -22,7 +22,7 @@ header{position:sticky;top:0;z-index:20;background:rgba(10,12,13,.94);backdrop-f
 nav{height:74px;display:flex;align-items:center;gap:28px}.logo{font-weight:900;letter-spacing:.055em;margin-right:auto}.logo small{display:block;font-size:9px;letter-spacing:.28em;color:#999}
 .btn{display:inline-block;border:1px solid #111;padding:14px 20px;text-transform:uppercase;font-size:11px;letter-spacing:.13em}
 .btn:hover{background:#111;color:#fff}
-main a:focus-visible,.comparison-scroll:focus-visible,.comparison-panel:focus-visible{outline:2px solid #111;outline-offset:4px}
+main a:focus-visible,.comparison-scroll:focus-visible{outline:2px solid #111;outline-offset:4px}
 .hero+section{background:#fff}
 .hero{padding:110px 0 72px;border-bottom:1px solid var(--line)}.kicker{text-transform:uppercase;letter-spacing:.22em;font-size:11px;color:#656b6e}
 h1{font-size:clamp(54px,8vw,112px);line-height:.88;letter-spacing:-.055em;text-transform:uppercase;margin:22px 0 28px;max-width:980px}
@@ -40,13 +40,7 @@ h1{font-size:clamp(54px,8vw,112px);line-height:.88;letter-spacing:-.055em;text-t
 
 .veneer-depth{border-top:1px solid #d3d5d6;margin-top:38px;padding:33px 0 22px}.veneer-depth h3{font-size:clamp(25px,3vw,36px);line-height:1.2;margin:16px 0 22px}.veneer-depth p{font-size:17px;line-height:1.65;color:#43484b;max-width:960px;margin:0 0 19px}.veneer-quote{border-left:3px solid #8b9295;background:#e9ebea;padding:18px 22px;font-weight:700;color:#0b0d0e!important}
 </style><style>
-/* Three balanced product comparisons: 2 product columns with one visible tab panel. */
-.comparison-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid #aeb4b6;margin:0 0 25px;background:#e9ebea}
-.comparison-tabs [role="tab"]{min-height:54px;border:0;border-right:1px solid #d3d5d6;background:transparent;color:#43484b;font:700 15px/1.3 Arial,sans-serif;cursor:pointer;padding:12px 14px;transition:background .16s,color .16s}
-.comparison-tabs [role="tab"]:last-child{border-right:0}
-.comparison-tabs [role="tab"][aria-selected="true"]{background:#272c2f;color:#fff}
-.comparison-tabs [role="tab"]:focus-visible{outline:2px solid #111;outline-offset:3px;position:relative;z-index:1}
-.comparison-panel[hidden]{display:none!important}
+/* One comparison table with two product columns. */
 .comparison-panel-heading{font-size:clamp(22px,3vw,30px);letter-spacing:-.02em;line-height:1.17;margin:0 0 7px}
 .comparison-panel-lead{color:#43484b;font-size:16px;line-height:1.48;margin:0 0 19px;max-width:900px}
 .comparison-table{min-width:780px;table-layout:fixed}
@@ -63,8 +57,6 @@ h1{font-size:clamp(54px,8vw,112px);line-height:.88;letter-spacing:-.055em;text-t
  .parquet-comparison{padding:45px 0 65px}
  .parquet-comparison h2{font-size:clamp(34px,9vw,44px)}
  .comparison-lead{font-size:15px;line-height:1.48;margin-bottom:20px}
- .comparison-tabs{margin-bottom:21px}
- .comparison-tabs [role="tab"]{min-height:48px;font-size:12.5px;line-height:1.15;padding:9px 5px}
  .comparison-panel-heading{font-size:22px}
  .comparison-panel-lead{font-size:14px}
  .comparison-swipe-hint{display:block;font-size:12px;color:#596064;margin:0 0 9px}
@@ -80,7 +72,6 @@ h1{font-size:clamp(54px,8vw,112px);line-height:.88;letter-spacing:-.055em;text-t
  .comparison-conclusion p{font-size:14px;line-height:1.55}
  .comparison-note{font-size:12px;line-height:1.5}
 }
-@media(prefers-reduced-motion:reduce){.comparison-tabs [role="tab"]{transition:none}}
 </style>
 <link rel="stylesheet" href="site-system.css?v=1"><script defer src="site-system.js?v=1"></script>
 <style>/* Editorial advantage stories without decorative numbering */ .grid .item{display:block;max-width:1000px;padding:32px 0} .grid .item>div{width:100%;max-width:960px} .grid .item h2{max-width:900px} @media(max-width:640px){.grid .item{padding:28px 0}}</style>
@@ -106,21 +97,20 @@ h1{font-size:clamp(54px,8vw,112px);line-height:.88;letter-spacing:-.055em;text-t
 </div></section>
 <section class="details"><div class="wrap"><div class="kicker">Практические возможности</div><h2>Что дают эти два материала вместе?</h2><div class="detail-grid"><div><h3>Тёплый пол</h3><p>Конструкция может применяться с совместимыми системами подогрева при соблюдении допустимых температур и инструкции производителя.</p></div><div><h3>Ровная геометрия</h3><p>Жёсткая SPC-основа помогает обеспечить стабильную работу замковых соединений при правильно подготовленном основании.</p></div><div><h3>Выбор монтажа</h3><p>Для коллекции предусмотрены плавающая укладка на рекомендованную подложку и клеевой монтаж.</p></div><div><h3>Натуральный характер</h3><p>При всей технологичности основы, видимая поверхность остаётся древесной и требует соответствующего ухода.</p></div></div><a class="btn" href="installation.html">Подробнее о монтаже</a></div></section>
 <section class="parquet-comparison" id="comparison"><div class="wrap">
-<div class="kicker">Сравнение покрытий</div>
+<div class="kicker">Сравнение с паркетом</div>
 <h2>Сравните и выберите.</h2>
-<p class="comparison-lead">Натуральное дерево и современная SPC-основа в одном покрытии. Сравните Приоритет Паркет с другими решениями для квартиры, учитывая преимущества каждого.</p>
-<div class="comparison-tabs" role="tablist" aria-label="С каким покрытием сравнить Приоритет Паркет"><button type="button" role="tab" id="tab-parquet" aria-controls="compare-parquet" aria-selected="true" tabindex="0">С паркетом</button><button type="button" role="tab" id="tab-vinyl" aria-controls="compare-vinyl" aria-selected="false" tabindex="-1">С винилом</button><button type="button" role="tab" id="tab-laminate" aria-controls="compare-laminate" aria-selected="false" tabindex="-1">С ламинатом</button></div>
-<div class="comparison-panel" id="compare-parquet" role="tabpanel" aria-labelledby="tab-parquet" tabindex="0">
+<p class="comparison-lead">Натуральное дерево и современная SPC-основа в одном покрытии. Сравните Приоритет Паркет с паркетной и инженерной доской, учитывая особенности каждой конструкции.</p>
+<div class="comparison-panel" id="compare-parquet">
   <h3 class="comparison-panel-heading">Паркетная / инженерная доска</h3>
   <p class="comparison-panel-lead">Настоящее дерево в обоих случаях. Главное отличие — конструкция основания.</p>
   <p class="comparison-swipe-hint">Смахните таблицу в сторону, чтобы увидеть все колонки <span aria-hidden="true">↔</span></p>
-  <div class="comparison-scroll" role="region" aria-label="Сравнение Приоритет Паркет с Паркетная / инженерная доска" tabindex="0">
+  <div class="comparison-scroll" role="region" aria-label="Сравнение Приоритет Паркет с паркетной и инженерной доской" tabindex="0">
     <table class="comparison-table">
       <thead><tr><th scope="col">Характеристика</th><th scope="col" class="ours">Приоритет Паркет<small>Шпон + SPC</small></th><th scope="col">Паркетная / инженерная доска</th></tr></thead>
-      <tbody><tr><th scope="row">Поверхность</th><td class="ours">Шпон дуба или ореха</td><td>Натуральная древесина</td></tr>
+      <tbody><tr><th scope="row">Поверхность</th><td class="ours">Настоящее дерево</td><td>Настоящее дерево</td></tr>
 <tr><th scope="row">Основа</th><td class="ours">Каменно-полимерный SPC</td><td>Многослойная древесная конструкция, часто с фанерой</td></tr>
-<tr><th scope="row">Влага</th><td class="ours">Водостойкая основа; лак и стыки требуют аккуратности</td><td>Древесные слои более чувствительны к влаге</td></tr>
-<tr><th scope="row">Стабильность</th><td class="ours">Высокая стабильность SPC-основы</td><td>Зависит от конструкции и влажности</td></tr>
+<tr><th scope="row">Влага</th><td class="ours">Практически полностью влагостойкий</td><td>Древесные слои более чувствительны к влаге</td></tr>
+<tr><th scope="row">Стабильность</th><td class="ours">Высокая стабильность SPC-основы</td><td>Восприимчив к влажности в помещении и пролитым жидкостям. Степень чувствительности зависит от конструкции.</td></tr>
 <tr><th scope="row">Толщина</th><td class="ours">5,5 мм без подложки или клея</td><td>Как правило, заметно толще</td></tr>
 <tr><th scope="row">Реставрация</th><td class="ours">Возможен локальный ремонт царапин; сплошная шлифовка не предусмотрена</td><td>У некоторых изделий возможна повторная шлифовка</td></tr>
 <tr><th scope="row">Монтаж</th><td class="ours">Плавающий или клеевой</td><td>Зависит от конструкции и допуска производителя</td></tr></tbody>
@@ -128,44 +118,6 @@ h1{font-size:clamp(54px,8vw,112px);line-height:.88;letter-spacing:-.055em;text-t
   </div>
   <p class="comparison-note">Для обеих конструкций важны условия монтажа и эксплуатации. Возможность шлифовки деревянной доски зависит от толщины рабочего слоя.</p>
   <div class="comparison-conclusion"><h4>Какой вариант выбрать?</h4><p>Приоритет Паркет подойдёт тем, кому нравится настоящий деревянный пол, но нужна тонкая конструкция и стабильная влагостойкая основа. Классическая паркетная или инженерная доска привлекательна возможностью обновления древесного слоя у ряда моделей.</p></div>
-</div>
-<div class="comparison-panel" id="compare-vinyl" role="tabpanel" aria-labelledby="tab-vinyl" tabindex="0" hidden>
-  <h3 class="comparison-panel-heading">Виниловое покрытие</h3>
-  <p class="comparison-panel-lead">Две современные технологии, но разная природа поверхности.</p>
-  <p class="comparison-swipe-hint">Смахните таблицу в сторону, чтобы увидеть все колонки <span aria-hidden="true">↔</span></p>
-  <div class="comparison-scroll" role="region" aria-label="Сравнение Приоритет Паркет с Виниловое покрытие" tabindex="0">
-    <table class="comparison-table">
-      <thead><tr><th scope="col">Характеристика</th><th scope="col" class="ours">Приоритет Паркет<small>Шпон + SPC</small></th><th scope="col">Виниловое покрытие</th></tr></thead>
-      <tbody><tr><th scope="row">Поверхность</th><td class="ours">Настоящий древесный шпон под лаком</td><td>Печатный декоративный слой</td></tr>
-<tr><th scope="row">Рисунок</th><td class="ours">Уникальная текстура древесины</td><td>Повторяемый рисунок, качество зависит от коллекции</td></tr>
-<tr><th scope="row">Вода</th><td class="ours">SPC-основа водостойкая; деревянный верх требует ухода</td><td>Обычно лучше переносит частое намокание</td></tr>
-<tr><th scope="row">Царапины</th><td class="ours">Лак может царапаться</td><td>Защитный слой также может царапаться</td></tr>
-<tr><th scope="row">Ремонт</th><td class="ours">Возможна локальная реставрация лака и царапин</td><td>Зависит от вида винила, иногда нужна замена планки</td></tr>
-<tr><th scope="row">Уход</th><td class="ours">Подходящие средства для лакированного паркета</td><td>Как правило, простой повседневный уход</td></tr>
-<tr><th scope="row">Ощущения</th><td class="ours">Тактильно настоящая древесина</td><td>Полимерная поверхность с имитацией</td></tr></tbody>
-    </table>
-  </div>
-  <p class="comparison-note">Свойства виниловых покрытий зависят от типа конструкции и защитного слоя. Сравнение относится к типичным бытовым коллекциям.</p>
-  <div class="comparison-conclusion"><h4>Какой вариант выбрать?</h4><p>Если хочется видеть и ощущать настоящее дерево, Приоритет Паркет даёт натуральную поверхность при современной основе. Если важнее частый контакт с водой и минимум забот о деревянном слое, винил может быть практичнее.</p></div>
-</div>
-<div class="comparison-panel" id="compare-laminate" role="tabpanel" aria-labelledby="tab-laminate" tabindex="0" hidden>
-  <h3 class="comparison-panel-heading">Ламинат</h3>
-  <p class="comparison-panel-lead">Оба покрытия могут иметь замковое соединение, но различаются материалом поверхности и основы.</p>
-  <p class="comparison-swipe-hint">Смахните таблицу в сторону, чтобы увидеть все колонки <span aria-hidden="true">↔</span></p>
-  <div class="comparison-scroll" role="region" aria-label="Сравнение Приоритет Паркет с Ламинат" tabindex="0">
-    <table class="comparison-table">
-      <thead><tr><th scope="col">Характеристика</th><th scope="col" class="ours">Приоритет Паркет<small>Шпон + SPC</small></th><th scope="col">Ламинат</th></tr></thead>
-      <tbody><tr><th scope="row">Поверхность</th><td class="ours">Натуральный шпон дерева</td><td>Декоративная имитация под защитным слоем</td></tr>
-<tr><th scope="row">Основа</th><td class="ours">Каменно-полимерный SPC</td><td>Обычно HDF-плита</td></tr>
-<tr><th scope="row">Влага</th><td class="ours">Водостойкая основа; деревянный верх и стыки требуют ухода</td><td>Зависит от влагозащиты плиты и стыков</td></tr>
-<tr><th scope="row">Износ</th><td class="ours">Лак требует защиты от песка и абразивов</td><td>Качественный ламинат часто стойче к истиранию</td></tr>
-<tr><th scope="row">Ремонт</th><td class="ours">Возможна локальная реставрация царапин</td><td>Мелкие дефекты можно маскировать; глубокие часто сложнее устранить</td></tr>
-<tr><th scope="row">Монтаж</th><td class="ours">Плавающий или клеевой</td><td>Обычно плавающий замковый</td></tr>
-<tr><th scope="row">Бюджет</th><td class="ours">Премиальная коллекция</td><td>Широкий выбор, включая бюджетный сегмент</td></tr></tbody>
-    </table>
-  </div>
-  <p class="comparison-note">Устойчивость к воде, царапинам и истиранию зависит от конкретной коллекции ламината. Сравнивать модели корректнее по документации производителя.</p>
-  <div class="comparison-conclusion"><h4>Какой вариант выбрать?</h4><p>Ламинат остаётся рациональным выбором, особенно по бюджету и износостойкости. Приоритет Паркет интересен тем, кто хочет не имитацию, а натуральную древесную поверхность на стабильной основе.</p></div>
 </div>
 <div class="veneer-depth"><div class="kicker">Тонкий натуральный слой</div><h3>Шпон 0,6 мм: стабильность и удобство реставрации</h3>
 <p>В «Приоритет Паркет» используется натуральный шпон толщиной 0,6 мм. По сравнению с более толстыми деревянными слоями — 1,2, 2,5 или 4 мм — у тонкого шпона меньше объём древесины, способной изменять размеры при увлажнении. При прочном соединении с жёсткой SPC-основой это помогает ограничивать деформации поверхности.</p>
@@ -189,33 +141,4 @@ document.addEventListener('click',function(event){
 });
 </script>
 
-<script>
-/* Accessible comparison tabs. Only one product comparison is visible. */
-(function(){
-const list=document.querySelector('.comparison-tabs');
-if(!list)return;
-const tabs=Array.from(list.querySelectorAll('[role="tab"]'));
-function activate(tab,focus){
- tabs.forEach(t=>{
-  const active=t===tab;
-  t.setAttribute('aria-selected',String(active));
-  t.tabIndex=active?0:-1;
-  const panel=document.getElementById(t.getAttribute('aria-controls'));
-  if(panel){panel.hidden=!active; if(active){const scroller=panel.querySelector('.comparison-scroll');if(scroller)scroller.scrollLeft=0;}}
- });
- if(focus)tab.focus();
-}
-tabs.forEach((tab,index)=>{
- tab.addEventListener('click',()=>activate(tab,false));
- tab.addEventListener('keydown',event=>{
-  let next;
-  if(event.key==='ArrowRight')next=(index+1)%tabs.length;
-  else if(event.key==='ArrowLeft')next=(index-1+tabs.length)%tabs.length;
-  else if(event.key==='Home')next=0;
-  else if(event.key==='End')next=tabs.length-1;
-  else return;
-  event.preventDefault();activate(tabs[next],true);
- });
-});
-})();
-</script></body></html>
+</body></html>
