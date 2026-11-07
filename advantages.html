@@ -34,7 +34,22 @@ h1{font-size:clamp(54px,8vw,112px);line-height:.88;letter-spacing:-.055em;text-t
 .bottom{padding:0 0 100px;text-align:center}
 @media(max-width:640px){.wrap{width:min(100% - 30px,1220px)}nav{gap:10px}.logo{font-size:16px;line-height:1.1}.logo small{margin-top:6px}.btn{padding:12px 14px;font-size:10px}.hero{padding:72px 0 52px}h1{font-size:50px}.lead{font-size:19px}.grid{padding:38px 0 70px}.item{grid-template-columns:1fr;gap:16px;padding:34px 0}.num{font-size:38px}.item p{font-size:17px}}
 
-.details{border-top:1px solid var(--line);padding:65px 0 85px}.details h2{font-size:clamp(32px,4vw,52px);line-height:1.15}.detail-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin:30px 0}.detail-grid>div{border:1px solid var(--line);padding:26px;background:var(--panel)}.detail-grid h3{font-size:21px;margin:0 0 11px}.detail-grid p{color:#43484b;margin:0}.item p{line-height:1.65}@media(max-width:640px){.detail-grid{grid-template-columns:1fr}.details{padding:48px 0}}
+.details{border-top:1px solid var(--line);padding:65px 0 85px}
+.details h2{font-size:clamp(32px,4vw,52px);line-height:1.15;margin:16px 0 0;max-width:850px}
+.benefit-list{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:28px;list-style:none;padding:0;margin:40px 0 34px}
+.benefit-list li{min-width:0;padding-top:24px;border-top:1px solid var(--line)}
+.benefit-icon{display:block;width:52px;height:52px;margin-bottom:22px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;color:#272c2f}
+.benefit-list p{margin:0;color:#272c2f;font-size:17px;line-height:1.5}
+.item p{line-height:1.65}
+@media(min-width:641px) and (max-width:1000px){.benefit-list{grid-template-columns:repeat(3,minmax(0,1fr));gap:28px 24px}}
+@media(max-width:640px){
+ .details{padding:42px 0 48px}
+ .benefit-list{grid-template-columns:1fr;gap:0;margin:26px 0 28px}
+ .benefit-list li{display:grid;grid-template-columns:44px minmax(0,1fr);align-items:center;gap:18px;padding:19px 0}
+ .benefit-list li:last-child{padding-bottom:0}
+ .benefit-icon{width:44px;height:44px;margin:0}
+ .benefit-list p{font-size:16px;line-height:1.45}
+}
 
 .parquet-comparison{border-top:1px solid var(--line);padding:70px 0 85px;background:#fff}.parquet-comparison h2{font-size:clamp(34px,4vw,54px);line-height:1.1;margin:16px 0 20px}.comparison-lead{max-width:850px;color:#43484b;font-size:18px;margin-bottom:28px}.comparison-scroll{overflow-x:auto;border:1px solid #bfc3c4}.comparison-table{border-collapse:collapse;width:100%;min-width:760px;text-align:left;font-size:15px}.comparison-table th,.comparison-table td{padding:17px 16px;border-bottom:1px solid #d3d5d6;border-right:1px solid #d3d5d6;vertical-align:top}.comparison-table thead th{background:#e9ebea;color:var(--ink);font-size:16px;line-height:1.3}.comparison-table thead small{display:block;color:#596064;font-weight:400;font-size:12px;margin-top:5px}.comparison-table tbody th{color:#272c2f;font-weight:700;width:22%}.comparison-table td{color:#43484b}.comparison-table .ours{background:#e2e5e3;color:var(--ink)}.comparison-note{font-size:14px;color:#596064;margin-top:20px;max-width:1000px}.comparison-conclusion{border-left:3px solid #8b9295;padding:8px 0 8px 22px;margin-top:35px}.comparison-conclusion h3{font-size:24px;margin:0 0 12px}.comparison-conclusion p{color:#43484b;margin:0;font-size:17px;max-width:950px}@media(max-width:640px){.parquet-comparison{padding:50px 0 65px}.comparison-lead{font-size:16px}.comparison-table{font-size:13px}.comparison-table th,.comparison-table td{padding:13px 11px}.comparison-scroll{margin-right:-15px}.comparison-conclusion p{font-size:15px}}
 
@@ -95,7 +110,32 @@ h1{font-size:clamp(54px,8vw,112px);line-height:.88;letter-spacing:-.055em;text-t
 <article class="item item-illustrated"><div><h2>Визуально и тактильно — настоящее дерево</h2><p class="fact">Верхний слой — натуральный строганый древесный шпон, а не напечатанный рисунок дерева.</p><p>На каждой планке видны настоящие волокна и природные особенности древесины. Рисунок не повторяется механически, как у печатных декоров: пол воспринимается как натуральный деревянный.</p><p>При прикосновении ощущается фактура древесной поверхности, защищённой лаком. Именно шпон формирует внешний вид и характер пола, а не SPC-основа под ним.</p><p>Натуральное дерево остаётся натуральным: поверхность следует защищать от абразивов, стоячей воды и механических повреждений. Лаковое покрытие не делает её неуязвимой.</p></div><figure class="advantage-illustration"><img src="assets/advantage-oak-texture-v1.webp" srcset="assets/advantage-oak-texture-v1-720.webp 720w, assets/advantage-oak-texture-v1.webp 1254w" sizes="(max-width:640px) calc(100vw - 30px), (max-width:800px) calc(100vw - 48px), (max-width:1268px) calc(50vw - 46px), 588px" width="1254" height="1254" alt="Щит дубового паркета английской ёлкой: солнечный свет подчёркивает волокна и фактуру натурального шпона" loading="lazy" decoding="async"></figure></article>
 <article class="item item-illustrated"><div><h2>Основа: стабильность и влагостойкость</h2><p class="fact">SPC — каменно-полимерный композит, который формирует жёсткую несущую основу покрытия.</p><p>В «Приоритет Паркет» SPC-основа дополнительно стабилизирована доломитом. Минеральный наполнитель помогает ограничивать расширение композита и сохранять геометрию планок.</p><p>Влагостойкая основа не разбухает подобно обычным древесным плитам. Это особенно полезно в повседневных условиях, когда пол сталкивается с перепадами влажности.</p><p>Однако влагостойкость основания не означает полной водонепроницаемости всей конструкции. Древесный шпон, стыки и основание под покрытием требуют соблюдения инструкции по монтажу и уходу.</p></div><figure class="advantage-illustration"><img src="assets/advantage-dolomite-v1.webp" srcset="assets/advantage-dolomite-v1-720.webp 720w, assets/advantage-dolomite-v1.webp 1254w" sizes="(max-width:640px) calc(100vw - 30px), (max-width:800px) calc(100vw - 48px), (max-width:1268px) calc(50vw - 46px), 588px" width="1254" height="1254" alt="Иллюстрация минерального сырья: светлые камни доломита и тонкоизмельчённый порошок в солнечном свете" loading="lazy" decoding="async"></figure></article>
 </div></section>
-<section class="details"><div class="wrap"><div class="kicker">Практические возможности</div><h2>Что дают эти два материала вместе?</h2><div class="detail-grid"><div><h3>Тёплый пол</h3><p>Конструкция может применяться с совместимыми системами подогрева при соблюдении допустимых температур и инструкции производителя.</p></div><div><h3>Ровная геометрия</h3><p>Жёсткая SPC-основа помогает обеспечить стабильную работу замковых соединений при правильно подготовленном основании.</p></div><div><h3>Выбор монтажа</h3><p>Для коллекции предусмотрены плавающая укладка на рекомендованную подложку и клеевой монтаж.</p></div><div><h3>Натуральный характер</h3><p>При всей технологичности основы, видимая поверхность остаётся древесной и требует соответствующего ухода.</p></div></div><a class="btn" href="installation.html">Подробнее о монтаже</a></div></section>
+<section class="details" id="everyday-benefits" aria-labelledby="benefits-title"><div class="wrap">
+<div class="kicker">Практические возможности</div><h2 id="benefits-title">Что дают эти два материала вместе?</h2>
+<ul class="benefit-list" role="list">
+ <li>
+  <svg class="benefit-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><rect x="7" y="5" width="34" height="38" rx="2"/><path d="M15 5c0 8 7 10 7 19s-7 11-7 19M32 5c0 8-7 10-7 19s7 11 7 19M7 15c7 1 9 4 9 9s-2 8-9 9M41 15c-7 1-9 4-9 9s2 8 9 9"/><path d="M24 19c-3 3-3 7 0 10 3-3 3-7 0-10Z"/></svg>
+  <p>Натуральное дерево — визуально и тактильно.</p>
+ </li>
+ <li>
+  <svg class="benefit-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 11s-9 10-9 17a9 9 0 0 0 18 0c0-7-9-17-9-17Z"/><path d="M20 29a4 4 0 0 0 4 4M8 31V15m-4 4 4-4 4 4M40 17v16m-4-4 4 4 4-4M17 5h14M17 43h14"/></svg>
+  <p>Высокая стабильность при перепадах влажности воздуха в помещении.</p>
+ </li>
+ <li>
+  <svg class="benefit-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="m24 4 16 6v13c0 10-7 17-16 21C15 40 8 33 8 23V10L24 4Z"/><path d="M24 12s-6 7-6 12a6 6 0 0 0 12 0c0-5-6-12-6-12ZM16 34h16"/></svg>
+  <p>Высокая устойчивость к воздействию пролитых жидкостей.</p>
+ </li>
+ <li>
+  <svg class="benefit-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 25c-6-6 6-11 0-17m-3 3 3-3 4 2M24 25c-6-6 6-11 0-17m-3 3 3-3 4 2M35 25c-6-6 6-11 0-17m-3 3 3-3 4 2M5 32h38v9H5zM16 32v9M32 32v9"/></svg>
+  <p>Совместимость с системами тёплого пола.</p>
+ </li>
+ <li>
+  <svg class="benefit-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="m22 5 17 8-17 8L5 13l17-8ZM5 22l17 8 4-2M5 31l17 8 3-1"/><circle cx="35" cy="34" r="10"/><path d="m30 34 3 3 7-7"/></svg>
+  <p>Сохранение прочности и стабильности конструкции на долгие годы.</p>
+ </li>
+</ul>
+<a class="btn" href="installation.html">Подробнее о монтаже</a>
+</div></section>
 <section class="parquet-comparison" id="comparison"><div class="wrap">
 <div class="kicker">Сравнение с паркетом</div>
 <h2>Сравните и выберите.</h2>
