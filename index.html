@@ -326,7 +326,7 @@ html,body{min-height:100%;width:100%;visibility:visible!important;opacity:1!impo
 }
 </style><style>
 /* Compact technology section on phones */
-@media(max-width:560px){
+@media(max-width:600px){
   #tech{padding:56px 0 44px!important}
   #tech .section-head{
     display:grid!important;
@@ -349,11 +349,14 @@ html,body{min-height:100%;width:100%;visibility:visible!important;opacity:1!impo
   #tech .layer-art{
     grid-column:auto!important;
     grid-row:auto!important;
-    height:255px!important;
+    width:100%;
+    height:auto!important;
+    aspect-ratio:5 / 4;
     min-height:0!important;
     margin:0!important;
-    background-position:center!important;
-    background-size:contain!important;
+    /* Fill the column and crop only the source image's empty top/bottom margins. */
+    background-position:center 90%!important;
+    background-size:100% auto!important;
   }
   #tech .layer-list{
     grid-column:auto!important;
