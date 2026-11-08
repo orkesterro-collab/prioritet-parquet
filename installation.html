@@ -299,7 +299,7 @@ footer{background:#050505;color:#888;padding:34px 0;font-size:12px}
 </style><link rel="stylesheet" href="site-system.css?v=1"><script defer src="site-system.js?v=1"></script>
 <style>.installer-jumps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;padding:15px 0 2px}.installer-jumps a{display:flex;align-items:center;justify-content:center;min-height:54px;padding:12px 10px;text-align:center;border:1px solid #92999b;color:inherit;font:700 13px/1.3 Arial,sans-serif;text-decoration:none}.installer-jumps a:hover{background:#dedfe0;color:#111}@media(max-width:600px){.installer-jumps{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.installer-jumps a{font-size:12px;min-height:46px}}</style></head>
 <body id="top">
-<header class="pp-header"><nav class="wrap pp-nav" aria-label="Основная навигация"><a class="pp-logo" href="index.html" aria-label="Приоритет Паркет, на главную">ПРИОРИТЕТ ПАРКЕТ<small>ALPINE FLOOR</small></a><div class="pp-links"><a href="index.html#collection">Коллекция</a><a href="advantages.html">Преимущества</a><a href="spc-parket.html">Технология</a><a href="installation.html" aria-current="page">Монтаж</a><a href="care.html">Уход</a><a href="layouts.html">Раскладки</a><a class="pp-buy" href="index.html#contact">Где купить</a></div><button class="pp-toggle" type="button" aria-expanded="false" aria-controls="pp-menu" aria-label="Открыть меню"><svg class="pp-hamburger" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg><svg class="pp-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg></button></nav><div id="pp-menu" class="pp-menu" hidden><a href="index.html">Главная</a><a href="index.html#collection">Коллекция</a><a href="advantages.html">Преимущества</a><a href="spc-parket.html">Технология</a><a href="installation.html" aria-current="page">Монтаж</a><a href="care.html">Уход</a><a href="layouts.html">Раскладки</a><a class="pp-mobile-buy" href="index.html#contact">Где купить</a></div></header><div class="pp-backdrop" hidden aria-hidden="true"></div>
+<header class="pp-header"><nav class="wrap pp-nav" aria-label="Основная навигация"><a class="pp-logo" href="index.html" aria-label="Приоритет Паркет, на главную">ПРИОРИТЕТ ПАРКЕТ<small>ALPINE FLOOR</small></a><div class="pp-links"><a href="index.html#collection">Коллекция</a><a href="advantages.html">Преимущества</a><a href="spc-parket.html">Технология</a><a href="installation.html" aria-current="page">Монтаж</a><a href="care.html">Уход</a><a href="layouts.html">Раскладки</a><a class="pp-buy" href="where-to-buy.html">Где купить</a></div><button class="pp-toggle" type="button" aria-expanded="false" aria-controls="pp-menu" aria-label="Открыть меню"><svg class="pp-hamburger" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg><svg class="pp-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg></button></nav><div id="pp-menu" class="pp-menu" hidden><a href="index.html">Главная</a><a href="index.html#collection">Коллекция</a><a href="advantages.html">Преимущества</a><a href="spc-parket.html">Технология</a><a href="installation.html" aria-current="page">Монтаж</a><a href="care.html">Уход</a><a href="layouts.html">Раскладки</a><a class="pp-mobile-buy" href="where-to-buy.html">Где купить</a></div></header><div class="pp-backdrop" hidden aria-hidden="true"></div>
 
 <main>
 <h1 class="visually-hidden">Инструкция по монтажу Приоритет Паркет</h1>
@@ -452,7 +452,7 @@ footer{background:#050505;color:#888;padding:34px 0;font-size:12px}
 
 <section class="bottom-cta"><div class="wrap bottom-row">
   <div><div class="kicker" style="color:#555">Приоритет Паркет</div><h2>Вернуться к коллекции<br>или выбрать декор.</h2></div>
-  <div><a class="btn fill" href="index.html#collection">Смотреть коллекцию</a> <a class="btn" href="index.html#contact">Где купить</a> <a class="btn" href="care.html">Эксплуатация и уход</a></div>
+  <div><a class="btn fill" href="index.html#collection">Смотреть коллекцию</a> <a class="btn" href="where-to-buy.html">Где купить</a> <a class="btn" href="care.html">Эксплуатация и уход</a></div>
 </div></section>
 </main>
 
@@ -482,7 +482,7 @@ footer{background:#050505;color:#888;padding:34px 0;font-size:12px}
 document.addEventListener('click',function(event){
   var link=event.target.closest('a[href]');if(!link)return;
   var target=link.getAttribute('href')||'';
-  if(/(?:^|\/)(?:index\.html)?#contact$|^#contact$/.test(target) && typeof gtag==='function'){
+  if(/(?:^|\/)where-to-buy\.html(?:[?#].*)?$|(?:^|\/)(?:index\.html)?#contact$|^#contact$/.test(target) && typeof gtag==='function'){
     gtag('event','where_to_buy_click',{link_url:target,page_location:location.href});
   }
 });
