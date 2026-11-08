@@ -21,6 +21,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://prioritetparket.by/installation-methods.html</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://prioritetparket.by/spc-parket.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -81,3 +87,4 @@
     <priority>0.7</priority>
   </url>
 </urlset>
+
