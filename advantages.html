@@ -53,7 +53,7 @@ h1{font-size:clamp(54px,8vw,112px);line-height:.88;letter-spacing:-.055em;text-t
  .benefit-list p{font-size:16px;line-height:1.45}
 }
 
-.parquet-comparison{border-top:1px solid var(--line);padding:70px 0 85px;background:#fff}.parquet-comparison h2{font-size:clamp(34px,4vw,54px);line-height:1.1;margin:16px 0 20px}.comparison-lead{max-width:850px;color:#43484b;font-size:18px;margin-bottom:28px}.comparison-scroll{overflow-x:auto;border:1px solid #bfc3c4}.comparison-table{border-collapse:collapse;width:100%;min-width:760px;text-align:left;font-size:15px}.comparison-table th,.comparison-table td{padding:17px 16px;border-bottom:1px solid #d3d5d6;border-right:1px solid #d3d5d6;vertical-align:top}.comparison-table thead th{background:#e9ebea;color:var(--ink);font-size:16px;line-height:1.3}.comparison-table thead small{display:block;color:#596064;font-weight:400;font-size:12px;margin-top:5px}.comparison-table tbody th{color:#272c2f;font-weight:700;width:22%}.comparison-table td{color:#43484b}.comparison-table .ours{background:#e2e5e3;color:var(--ink)}.comparison-note{font-size:14px;color:#596064;margin-top:20px;max-width:1000px}.comparison-conclusion{border-left:3px solid #8b9295;padding:8px 0 8px 22px;margin-top:35px}.comparison-conclusion h3{font-size:24px;margin:0 0 12px}.comparison-conclusion p{color:#43484b;margin:0;font-size:17px;max-width:950px}@media(max-width:640px){.parquet-comparison{padding:50px 0 65px}.comparison-lead{font-size:16px}.comparison-table{font-size:13px}.comparison-table th,.comparison-table td{padding:13px 11px}.comparison-scroll{margin-right:-15px}.comparison-conclusion p{font-size:15px}}
+.parquet-comparison{border-top:1px solid var(--line);padding:70px 0 85px;background:#fff}.parquet-comparison h2{font-size:clamp(34px,4vw,54px);line-height:1.1;margin:16px 0 20px}.comparison-lead{max-width:850px;color:#43484b;font-size:18px;margin-bottom:28px}.comparison-scroll{overflow-x:auto;border:1px solid #bfc3c4}.comparison-table{border-collapse:collapse;width:100%;min-width:760px;text-align:left;font-size:15px}.comparison-table th,.comparison-table td{padding:17px 16px;border-bottom:1px solid #d3d5d6;border-right:1px solid #d3d5d6;vertical-align:top}.comparison-table thead th{background:#e9ebea;color:var(--ink);font-size:16px;line-height:1.3}.comparison-table thead small{display:block;color:#596064;font-weight:400;font-size:12px;margin-top:5px}.comparison-table tbody th{color:#272c2f;font-weight:700;width:22%}.comparison-table td{color:#43484b}.comparison-table .ours{background:#e2e5e3;color:var(--ink)}.comparison-note{font-size:14px;color:#596064;margin-top:20px;max-width:1000px}.comparison-conclusion{padding:8px 0;margin-top:35px}.comparison-conclusion h3{font-size:24px;margin:0 0 12px}.comparison-conclusion p{color:#43484b;margin:0;font-size:17px;max-width:950px}@media(max-width:640px){.parquet-comparison{padding:50px 0 65px}.comparison-lead{font-size:16px}.comparison-table{font-size:13px}.comparison-table th,.comparison-table td{padding:13px 11px}.comparison-scroll{margin-right:-15px}.comparison-conclusion p{font-size:15px}}
 
 .veneer-depth{border-top:1px solid var(--line);margin-top:40px;padding:40px 0 0;scroll-margin-top:94px}
 .veneer-intro{display:grid;grid-template-columns:1fr 1fr;align-items:end;gap:40px}
@@ -88,6 +88,20 @@ h1{font-size:clamp(54px,8vw,112px);line-height:.88;letter-spacing:-.055em;text-t
  .veneer-answer{padding:0 0 18px}
  .veneer-depth .veneer-care{font-size:12px;margin-top:14px}
 }
+
+/* Practical comparison uses the same two-column mobile layout as the overview. */
+.practical-comparison{margin-top:32px;scroll-margin-top:100px}
+.practical-comparison h3{font-size:clamp(27px,3vw,38px);line-height:1.15;letter-spacing:-.025em;margin:0 0 14px}
+.practical-lead{max-width:900px;color:#43484b;font-size:16px;line-height:1.55;margin:0 0 22px}
+.practical-table strong{display:block;font-weight:700;margin-bottom:5px}
+.practical-table thead small{line-height:1.5}
+.practical-notes{margin-top:18px;color:#596064;font-size:13px;line-height:1.55;max-width:1000px}
+.practical-notes p{margin:0 0 10px}
+.practical-method{border-top:1px solid var(--line);margin-top:18px}
+.practical-method summary{cursor:pointer;padding:15px 0;font-size:14px;font-weight:700;color:#272c2f}
+.practical-method summary:focus-visible{outline:2px solid #272c2f;outline-offset:3px}
+.practical-method p{margin:0 0 12px}
+@media(max-width:640px){.practical-comparison{margin-top:28px}.practical-comparison h3{font-size:27px}.practical-lead{font-size:14px;margin-bottom:18px}.practical-notes{font-size:12px}}
 </style><style>
 /* One comparison table with two product columns. */
 .comparison-panel-heading{font-size:clamp(22px,3vw,30px);letter-spacing:-.02em;line-height:1.17;margin:0 0 7px}
@@ -190,6 +204,44 @@ h1{font-size:clamp(54px,8vw,112px);line-height:.88;letter-spacing:-.055em;text-t
   </div>
   <div class="comparison-conclusion"><p>Приоритет Паркет — если вам важны <strong>настоящее дерево, влагостойкая основа и небольшая толщина пола.</strong></p></div>
 </div>
+
+<section class="practical-comparison" id="practice" aria-labelledby="practice-title">
+<h3 id="practice-title">Что мы имеем на практике:</h3>
+<p class="practical-lead" id="practice-assumptions">Сравним поведение двух конструкций в повседневных ситуациях. В обоих случаях — натуральный дуб и 7 слоёв лака. Для сравнения царапин и истирания принимаем одинаковые состав, общую толщину и качество отверждения лака.</p>
+<div class="comparison-scroll">
+<table class="comparison-table practical-table" role="table" aria-labelledby="practice-title" aria-describedby="practice-assumptions practice-limits">
+<thead><tr>
+<th scope="col">Ситуация</th>
+<th scope="col" class="ours">Приоритет Паркет<small>Дуб 0,6&nbsp;мм · SPC<br>Плотность основы 1&nbsp;600&nbsp;кг/м³<br>7 слоёв лака</small></th>
+<th scope="col">Инженерная доска 14&nbsp;мм<small>Дуб 3&nbsp;мм · паркетная фанера<br>7 аналогичных слоёв лака</small></th>
+</tr></thead>
+<tbody>
+<tr><th scope="row">Царапины</th><td class="ours"><strong>Сопоставимая стойкость</strong>При одинаковом лаке защита от поверхностных царапин сопоставима.</td><td><strong>Сопоставимая стойкость</strong>Более толстый слой дуба сам по себе не защищает лак от царапин.</td></tr>
+<tr><th scope="row">Вмятины: предмет 1&nbsp;кг с высоты 1,5&nbsp;м</th><td class="ours"><strong>Потенциально меньшая вмятина</strong>Тонкий шпон поддерживает жёсткая SPC-основа. Степень преимущества нужно проверить парным испытанием.</td><td><strong>Вмятина может быть глубже</strong>Более толстый слой дуба может сильнее сминаться под ударом. Глубина зависит от древесины, фанеры и укладки.</td></tr>
+<tr><th scope="row">Залитие жидкостью: разбухание</th><td class="ours"><strong>Основа устойчива к воде</strong>SPC не разбухает как древесина. Натуральный шпон при длительном намокании может набухнуть; точная вероятность не определена.</td><td><strong>Реагируют древесные слои</strong>Набухнуть могут дуб и фанера. При длительном залитии возможны коробление и расслоение; риск зависит от клея и защиты стыков.</td></tr>
+<tr><th scope="row">Зима: влажность воздуха ниже 40%</th><td class="ours"><strong>Ожидаемо меньшая реакция</strong>SPC-основа сдерживает изменения размеров тонкого шпона при высыхании.</td><td><strong>Возможны усушка и щели</strong>Дуб отдаёт влагу и сжимается. При длительной пересушке возможны также трещины в верхнем слое.</td></tr>
+<tr><th scope="row">Лето: влажность воздуха выше 60%</th><td class="ours"><strong>Стабильная основа</strong>SPC не набухает от влажного воздуха как древесина и ограничивает деформацию шпона.</td><td><strong>Возможно расширение</strong>Дуб набирает влагу. При длительной высокой влажности возможны изменения размеров и коробление.</td></tr>
+<tr><th scope="row">Истирание при эксплуатации</th><td class="ours"><strong>Сопоставимый износ лака</strong>При одинаковом финишном покрытии и нагрузке. Сплошная шлифовка шпона 0,6&nbsp;мм не предусмотрена.</td><td><strong>Сопоставимый износ лака</strong>Толщина дуба не увеличивает стойкость лака. Слой 3&nbsp;мм даёт запас для шлифовки, если её допускает производитель.</td></tr>
+
+</tbody></table>
+</div>
+<div class="practical-notes">
+<p id="practice-limits">Это сравнение ожидаемого поведения конструкций. Глубина вмятин и вероятность повреждений в процентах для этой пары покрытий не измерены.</p>
+<details class="practical-method"><summary>От чего зависит результат сравнения</summary>
+<p><strong>Удар.</strong> Падение 1&nbsp;кг с высоты 1,5&nbsp;м — это около 14,7&nbsp;Дж. Плотность 1&nbsp;600&nbsp;кг/м³ не равна твёрдости: для расчёта вмятины нужны форма и площадь контакта предмета, свойства слоёв, подложка и способ укладки.</p>
+<p>В опубликованных испытаниях тонкий дубовый шпон 0,6&nbsp;мм на HDF показывал меньшие вмятины, чем слой 3&nbsp;мм на HDF. Это объясняет возможное преимущество тонкого шпона, но не заменяет испытаний нашей SPC-конструкции и доски на фанере.</p>
+<p><strong>Вода и влажность.</strong> Результат зависит от длительности воздействия, температуры, состояния лака, стыков и клеевого соединения. Границы 40% и 60% не означают мгновенного появления дефектов: допустимый диапазон устанавливает производитель конкретного пола.</p>
+<p><strong>Лак.</strong> Число слоёв само по себе не определяет защиту. Сопоставимая стойкость к царапинам и истиранию предполагает одинаковую систему покрытия и одинаковые условия эксплуатации.</p>
+</details>
+</div>
+<!-- Research checked 2026-11-09.
+Impact: Sepliarsky et al., Forests 2022, 13(2), 167, https://doi.org/10.3390/f13020167 .
+0.6 mm and 3 mm hardwood on 9 mm HDF (850 kg/m3); maximum tested energy 5.99 J.
+Not SPC vs plywood, not a 14.7 J test; no numerical dent depth or probabilities inferred.
+Finish: https://www.bona.com/en/professional/faq
+Humidity: https://timberwise.fi/en/maintenance-of-lacquered-surfaces/
+-->
+</section>
 <section class="veneer-depth" id="veneer" aria-labelledby="veneer-title">
 <div class="veneer-intro">
  <div><div class="kicker">Продуманная конструкция</div><h3 id="veneer-title">Почему шпон 0,6&nbsp;мм?</h3></div>
