@@ -36,18 +36,20 @@ h1{font-size:clamp(54px,8vw,112px);line-height:.88;letter-spacing:-.055em;text-t
 
 .details{border-top:1px solid var(--line);padding:65px 0 85px}
 .details h2{font-size:clamp(32px,4vw,52px);line-height:1.15;margin:16px 0 0;max-width:850px}
-.benefit-list{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:28px;list-style:none;padding:0;margin:40px 0 0}
+.benefit-list{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px;list-style:none;padding:0;margin:40px 0 0}
 .benefit-list li{min-width:0;padding-top:24px;border-top:1px solid var(--line)}
 .benefit-icon{display:block;width:88px;height:88px;margin-bottom:22px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;color:#272c2f}
+.benefit-list h3{margin:0 0 10px;color:#272c2f;font-size:21px;line-height:1.25;letter-spacing:-.015em}
 .benefit-list p{margin:0;color:#272c2f;font-size:17px;line-height:1.5}
 .item p{line-height:1.65}
-@media(min-width:641px) and (max-width:1000px){.benefit-list{grid-template-columns:repeat(3,minmax(0,1fr));gap:28px 24px}}
+@media(min-width:641px) and (max-width:1000px){.benefit-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 24px}}
 @media(max-width:640px){
  .details{padding:42px 0 48px}
  .benefit-list{grid-template-columns:1fr;gap:0;margin:26px 0 0}
- .benefit-list li{display:grid;grid-template-columns:44px minmax(0,1fr);align-items:center;gap:18px;padding:19px 0}
+ .benefit-list li{display:grid;grid-template-columns:44px minmax(0,1fr);align-items:start;gap:18px;padding:19px 0}
  .benefit-list li:last-child{padding-bottom:0}
  .benefit-icon{width:44px;height:44px;margin:0}
+ .benefit-list h3{font-size:18px;margin-bottom:8px}
  .benefit-list p{font-size:16px;line-height:1.45}
 }
 
@@ -151,23 +153,19 @@ h1{font-size:clamp(54px,8vw,112px);line-height:.88;letter-spacing:-.055em;text-t
 <ul class="benefit-list" role="list">
  <li>
   <svg class="benefit-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><rect x="7" y="5" width="34" height="38" rx="2"/><path d="M15 5c0 8 7 10 7 19s-7 11-7 19M32 5c0 8-7 10-7 19s7 11 7 19M7 15c7 1 9 4 9 9s-2 8-9 9M41 15c-7 1-9 4-9 9s2 8 9 9"/><path d="M24 19c-3 3-3 7 0 10 3-3 3-7 0-10Z"/></svg>
-  <p>Натуральное дерево — визуально и тактильно.</p>
- </li>
- <li>
-  <svg class="benefit-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 11s-9 10-9 17a9 9 0 0 0 18 0c0-7-9-17-9-17Z"/><path d="M20 29a4 4 0 0 0 4 4M8 31V15m-4 4 4-4 4 4M40 17v16m-4-4 4 4 4-4M17 5h14M17 43h14"/></svg>
-  <p>Высокая стабильность при перепадах влажности воздуха в помещении.</p>
- </li>
- <li>
-  <svg class="benefit-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="m24 4 16 6v13c0 10-7 17-16 21C15 40 8 33 8 23V10L24 4Z"/><path d="M24 12s-6 7-6 12a6 6 0 0 0 12 0c0-5-6-12-6-12ZM16 34h16"/></svg>
-  <p>Высокая устойчивость к воздействию пролитых жидкостей.</p>
+  <div><h3>Настоящее дерево</h3><p>Природный рисунок дуба, живая фактура и приятные ощущения под ногами. Вы видите и чувствуете настоящее дерево.</p></div>
  </li>
  <li>
   <svg class="benefit-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 25c-6-6 6-11 0-17m-3 3 3-3 4 2M24 25c-6-6 6-11 0-17m-3 3 3-3 4 2M35 25c-6-6 6-11 0-17m-3 3 3-3 4 2M5 32h38v9H5zM16 32v9M32 32v9"/></svg>
-  <p>Совместимость с системами тёплого пола.</p>
+  <div><h3>Комфорт тёплого пола</h3><p>Натуральный дуб и тепло под ногами. Покрытие подходит для совместимых систем подогрева при соблюдении температурного режима и правил монтажа.</p></div>
+ </li>
+ <li>
+  <svg class="benefit-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 11s-9 10-9 17a9 9 0 0 0 18 0c0-7-9-17-9-17Z"/><path d="M20 29a4 4 0 0 0 4 4M8 31V15m-4 4 4-4 4 4M40 17v16m-4-4 4 4 4-4M17 5h14M17 43h14"/></svg>
+  <div><h3>Стабильность круглый год</h3><p>Жёсткая SPC-основа сдерживает изменения размеров при сезонных перепадах влажности. Планки сохраняют геометрию, а риск появления щелей снижается.</p></div>
  </li>
  <li>
   <svg class="benefit-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="m22 5 17 8-17 8L5 13l17-8ZM5 22l17 8 4-2M5 31l17 8 3-1"/><circle cx="35" cy="34" r="10"/><path d="m30 34 3 3 7-7"/></svg>
-  <p>Сохранение прочности и стабильности конструкции на долгие годы.</p>
+  <div><h3>Устойчивость к вмятинам</h3><p>Вмятины — одни из самых сложных повреждений деревянного пола. Плотная SPC-основа поддерживает дубовый шпон и помогает поверхности противостоять продавливанию.</p></div>
  </li>
 </ul>
 </div></section>
