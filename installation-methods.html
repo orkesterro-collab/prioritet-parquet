@@ -22,7 +22,7 @@
 @media(max-width:700px){body{font-size:15px;line-height:1.55}.wrap{width:calc(100% - 32px)}.hero{padding:22px 0 32px}.breadcrumbs{font-size:11px;gap:6px;margin-bottom:25px}h1{font-size:clamp(36px,9.2vw,54px);margin:13px 0 18px}.lead{font-size:17px;line-height:1.5}.hero-note{font-size:12px;margin-top:17px}.toc{gap:15px 20px;padding:20px 0}.toc a{font-size:13px}.section{padding:36px 0}.section-head{margin-bottom:22px}.section-head h2{font-size:31px}.section-head p{font-size:16px}.takeaway{grid-template-columns:1fr;gap:18px;padding:0 0 26px}.takeaway strong{font-size:19px}.methods{grid-template-columns:1fr;gap:38px}.method figure{padding:0 12px 14px}.method figure img{width:230px}.method h3{font-size:30px;margin:21px 0 10px}.method-intro{margin-bottom:16px}.list-title{font-size:17px;margin:21px 0 3px}.balance-list li{padding-block:11px}.scope-note{font-size:13px;padding-left:14px;margin-top:25px}.matrix,.matrix tbody{display:block}.matrix thead{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}.matrix caption{display:block;font-size:13px}.matrix tbody tr{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);border-bottom:1px solid var(--line);padding:0 10px 6px}.matrix tbody th{grid-column:1/-1;padding:14px 0 7px;font-size:16px;border:0}.matrix td{padding:3px 10px 12px 0;font-size:14px;border:0;min-width:0}.matrix td+td{padding-left:10px;padding-right:0;border-left:1px solid #cbd0d1}.cell-label{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.045em;font-weight:bold;color:#111;margin-bottom:8px}.details-heading{align-items:start;flex-direction:column;gap:12px}.detail summary{padding:18px 0;font-size:18px;gap:14px}.detail summary:after{font-size:25px}.detail-body{font-size:15px;padding-bottom:20px}.cost-grid{grid-template-columns:1fr;gap:26px}.cost-grid h3{font-size:23px}.cost-note{font-size:16px}.scenario{grid-template-columns:1fr;gap:10px;padding:20px 0}.scenario dt{font-size:18px}.next-step{padding:24px 20px;margin-top:25px}.next-step h3{font-size:26px}.next-step a{display:flex;justify-content:space-between;padding:15px 14px;font-size:11px;gap:15px}.footer .wrap{flex-direction:column;gap:9px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 @media print{.pp-header,.pp-backdrop,.skip-link,.toc,.text-button,.next-step,.footer{display:none!important}.wrap{width:100%;max-width:none}.hero{background:#fff;color:#111;padding:0 0 20px}.hero p,.hero .kicker{color:#444}.section{padding:22px 0}.detail-body{display:block!important}}</style>
-<link rel="stylesheet" href="site-system.css?v=1">
+<link rel="stylesheet" href="site-system.css?v=20261109-footer">
 <script defer src="site-system.js?v=1"></script>
 </head>
 <body id="top">
@@ -165,7 +165,14 @@
 </section>
 </div>
 </main>
-<footer class="footer"><div class="wrap"><span>Приоритет Паркет · Alpine Floor · Беларусь</span><span><a href="index.html#installation">К сравнению на главной</a> · <a href="care.html">Эксплуатация и уход</a></span></div></footer>
+<footer class="pp-footer" id="site-footer">
+  <div class="pp-footer-wrap">
+    <div class="pp-footer-row">
+      <p class="pp-footer-copyright">© 2026 Приоритет Паркет</p>
+      <img class="pp-footer-logo" src="assets/alpine-floor-footer.png" alt="Alpine Floor" width="1165" height="305" loading="lazy" decoding="async">
+    </div>
+  </div>
+</footer>
 <script>
 (function(){
  var details=Array.from(document.querySelectorAll('#details-list > details'));

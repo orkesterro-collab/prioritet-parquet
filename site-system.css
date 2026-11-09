@@ -43,3 +43,20 @@ body:has(.product-tabs) main section[id]{scroll-margin-top:148px}
 
 /* Product-gallery dialogs must remain above the shared navigation. */
 body .modal.open{z-index:160}
+
+/* Shared footer: original Alpine Floor logo and copyright on every page. */
+footer.pp-footer{display:block;clear:both;width:100%;margin:0;padding:22px 0 24px;border:0;background:#050505;color:#888;font:14px/1.5 Arial,sans-serif}
+.pp-footer-wrap{width:calc(100% - 92px);max-width:1440px;margin:0 auto}
+.pp-footer-row{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-top:21px;border-top:1px solid #333}
+.pp-footer-copyright{flex:0 1 auto;margin:0;color:#888;font:14px/1.5 Arial,sans-serif}
+.pp-footer-logo{display:block;flex:0 0 auto;width:250px;max-width:46%;height:auto;margin:0;opacity:.92}
+.pp-legal{padding:45px 0 2px;background:#050505;color:#888;font:12px/1.55 Arial,sans-serif}
+.pp-legal-copy{max-width:980px}
+@media(max-width:640px){
+ footer.pp-footer{padding:18px 0 22px}
+ .pp-footer-wrap{width:calc(100% - 30px)}
+ .pp-footer-row{gap:18px;padding-top:18px}
+ .pp-footer-copyright{font-size:11px}
+ .pp-footer-logo{width:160px;max-width:44%}
+ .pp-legal{padding-top:30px}
+}
