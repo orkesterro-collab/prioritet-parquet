@@ -60,3 +60,10 @@ footer.pp-footer{display:block;clear:both;width:100%;margin:0;padding:22px 0 24p
  .pp-footer-logo{width:160px;max-width:44%}
  .pp-legal{padding-top:30px}
 }
+
+
+/* Warranty page entry in the shared footer. */
+.pp-footer-copyright .pp-footer-warranty{display:inline-block;margin-left:22px;color:#c2c6c4;font:inherit;text-decoration:underline;text-underline-offset:3px}
+.pp-footer-copyright .pp-footer-warranty:hover{color:#fff}
+.pp-footer-warranty:focus-visible{outline:2px solid #fff;outline-offset:4px}
+@media(max-width:640px){.pp-footer-copyright .pp-footer-warranty{display:block;margin:6px 0 0}}
