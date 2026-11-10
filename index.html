@@ -555,6 +555,28 @@ html,body{min-height:100%;width:100%;visibility:visible!important;opacity:1!impo
 }
 @media(prefers-reduced-motion:reduce){#heritage .heritage-cta{transition:none}}
 </style>
+<style id="dealer-invite-styles">
+/* Homepage invitation to partner salons */
+#contact.dealer-invite{padding:72px 0;background:#f1f1ef;color:#0b0d0e;text-align:left}
+#contact .dealer-invite-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,1fr);align-items:stretch;background:#fff}
+#contact .dealer-invite-photo{min-width:0;min-height:500px;overflow:hidden;background:#d5c6b4}
+#contact .dealer-invite-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:55% center}
+#contact .dealer-invite-copy{min-width:0;padding:48px 48px 40px;display:flex;flex-direction:column;align-items:flex-start}
+#contact .dealer-invite-kicker{margin:0 0 26px;color:#656b6e;font-size:11px;font-weight:700;line-height:1.4;letter-spacing:.2em;text-transform:uppercase}
+#contact.dealer-invite h2{max-width:none;margin:0 0 24px!important;font-size:clamp(38px,4.5vw,58px);line-height:1.04;letter-spacing:-.045em;font-weight:800}
+#contact .dealer-invite-text{max-width:370px;margin:0 0 34px;color:#43484b;font-size:18px;line-height:1.55}
+#contact .dealer-invite-action{width:100%;margin-top:auto}
+#contact .dealer-invite-link{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:64px;padding:18px 22px;border:1px solid #111;background:#111;color:#fff;font-size:13px;line-height:1.35;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:background .18s}
+#contact .dealer-invite-link svg{flex:none;transition:transform .18s}
+#contact .dealer-invite-link:hover{background:#303334;border-color:#303334}
+#contact .dealer-invite-link:hover svg{transform:translateX(4px)}
+#contact .dealer-invite-link:focus-visible{outline:2px solid #111;outline-offset:4px}
+#contact .dealer-invite-action p{margin:12px 0 0;color:#656b6e;font-size:12px;line-height:1.5}
+@media(max-width:1000px){#contact .dealer-invite-copy{padding:36px 30px}#contact .dealer-invite-photo{min-height:460px}#contact .dealer-invite-text{font-size:17px}}
+@media(max-width:760px){#contact.dealer-invite{padding:48px 0!important}#contact .dealer-invite-grid{grid-template-columns:1fr}#contact .dealer-invite-photo{min-height:0;aspect-ratio:16/10}#contact .dealer-invite-copy{padding:30px 24px 26px}#contact .dealer-invite-kicker{margin-bottom:18px;font-size:10px}#contact.dealer-invite h2{margin:0 0 18px!important;font-size:clamp(34px,8.5vw,44px)!important;line-height:1.06}#contact .dealer-invite-text{max-width:480px;margin-bottom:26px;font-size:16px}#contact .dealer-invite-link{min-height:58px;padding:16px 18px;font-size:11px;letter-spacing:.06em}#contact .dealer-invite-action p{margin-top:10px}}
+@media(max-width:350px){#contact .dealer-invite-copy{padding:26px 20px 24px}#contact.dealer-invite h2{font-size:32px!important}#contact .dealer-invite-link{padding:16px 14px;gap:12px;font-size:10px}}
+@media(prefers-reduced-motion:reduce){#contact .dealer-invite-link,#contact .dealer-invite-link svg{transition:none}}
+</style>
 </head><body id="top">
 <header class="pp-header pp-home"><nav class="wrap pp-nav" aria-label="Основная навигация"><a class="pp-logo" href="index.html" aria-label="Приоритет Паркет, на главную">ПРИОРИТЕТ ПАРКЕТ<small>ALPINE FLOOR</small></a><div class="pp-links"><a href="#collection">Коллекция</a><a href="advantages.html">Преимущества</a><a href="spc-parket.html">Технология</a><a href="installation.html">Монтаж</a><a href="care.html">Уход</a><a href="layouts.html">Раскладки</a><a class="pp-buy" href="where-to-buy.html">Где купить</a></div><button class="pp-toggle" type="button" aria-expanded="false" aria-controls="pp-menu" aria-label="Открыть меню"><svg class="pp-hamburger" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg><svg class="pp-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg></button></nav><div id="pp-menu" class="pp-menu" hidden><a href="index.html">Главная</a><a href="#collection">Коллекция</a><a href="advantages.html">Преимущества</a><a href="spc-parket.html">Технология</a><a href="installation.html">Монтаж</a><a href="care.html">Уход</a><a href="layouts.html">Раскладки</a><a class="pp-mobile-buy" href="where-to-buy.html">Где купить</a></div></header><div class="pp-backdrop" hidden aria-hidden="true"></div>
 <main><section class="hero"><div class="wrap hero-copy"><div class="eyebrow">Премиум-коллекция VSPC</div><h1>Настоящее<br>дерево.<br>Новые правила.</h1><p>Натуральный строганый шпон на влагостойкой SPC-основе. Такой каменный паркет сочетает поверхность настоящего дерева со стабильной каменно-полимерной основой.</p><div class="actions"><a class="btn fill" href="#collection">Смотреть коллекцию</a><a class="btn" href="#tech">Как это устроено</a></div></div><div class="statbar"><div class="wrap stats"><div class="stat"><b>SPC</b><span>Водостойкая основа</span></div><div class="stat"><b>200 м²</b><span>без порогов</span></div><div class="stat"><b>0,6 мм</b><span>натуральный шпон</span></div><div class="stat"><b>7 слоёв</b><span>УФ-лака</span></div></div></div></section>
@@ -652,7 +674,15 @@ html,body{min-height:100%;width:100%;visibility:visible!important;opacity:1!impo
 <div class="install-guide-wrap"><a class="btn install-guide-btn" href="installation.html">Полная инструкция по укладке</a></div><div class="install-guide-wrap"><a class="btn install-guide-btn" href="care.html">Эксплуатация и уход</a></div>
 </div></section>
 <section id="faq" class="faq"><div class="wrap faq-wrap"><div class="kicker">Вопросы и ответы</div><h2>Что важно знать<br>о Приоритет Паркет.</h2><div id="faqList"></div></div></section>
-<section id="contact" class="cta"><div class="wrap"><div class="kicker">Салоны партнёров</div><h2>Почувствуйте дерево вживую.</h2><p style="max-width:600px;margin:24px auto 30px;color:#b7bcbc;font-size:18px">Посмотрите коллекцию и сравните декоры в ближайшем салоне.</p><a class="btn" href="where-to-buy.html" style="min-width:240px;text-align:center">Салоны на карте <span aria-hidden="true">→</span></a></div></section></main>
+<section id="contact" class="dealer-invite" aria-labelledby="dealer-invite-title">
+<div class="wrap dealer-invite-grid">
+<div class="dealer-invite-photo"><img src="assets/layout-english-interior-v1-720.webp" srcset="assets/layout-english-interior-v1-720.webp 720w, assets/layout-english-interior-v1.webp 1448w" sizes="(max-width:760px) calc(100vw - 32px), (max-width:1268px) 52vw, 634px" width="1448" height="1086" alt="Деревянный пол английской ёлкой в светлом современном интерьере" loading="lazy" decoding="async"></div>
+<div class="dealer-invite-copy">
+<p class="dealer-invite-kicker">Салоны партнёров</p>
+<h2 id="dealer-invite-title">Выберите свой<br>пол вживую.</h2>
+<p class="dealer-invite-text">Сравните оттенки и почувствуйте фактуру настоящего дерева. В салоне выбрать проще.</p>
+<div class="dealer-invite-action"><a class="dealer-invite-link" href="where-to-buy.html"><span>Найти салон рядом</span><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a><p>Адреса и маршруты на карте</p></div>
+</div></div></section></main>
 <aside class="pp-legal" aria-label="Информация о сайте и дистрибьюторе"><div class="pp-footer-wrap"><div class="pp-legal-copy">
       <p style="margin:0 0 12px;color:#c7cbcc">
         Данный веб-сайт посвящён премиальной коллекции напольных покрытий «Приоритет Паркет» от бренда Alpine Floor.
