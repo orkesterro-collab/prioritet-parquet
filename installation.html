@@ -27,8 +27,8 @@
 .packaging-copy h1{font-size:clamp(32px,4.3vw,54px);line-height:1.08;letter-spacing:-.045em;margin:0 0 24px;font-weight:800}
 .packaging-copy p{font-size:18px;line-height:1.55;color:#c9cdd0;margin:0 0 16px}.packaging-copy p:last-child{margin-bottom:0}
 .instruction-choice{padding:30px 0 24px;scroll-margin-top:94px}.choice-title{margin:0 0 12px;font-size:18px;font-weight:700}
-.guide-switch{display:grid;grid-template-columns:1fr 1fr;gap:12px}.guide-switch a{display:flex;align-items:center;justify-content:center;padding:18px 14px;min-height:64px;border:1px solid #92999b;text-decoration:none;font-size:18px;font-weight:700;text-align:center}
-.guide-switch a:hover{background:#e7e8e7}.guide-switch a[aria-selected="true"]{background:#dfe1e1;border-color:#4e5558;box-shadow:inset 0 -3px #4e5558}
+.guide-switch{display:flex;flex-wrap:wrap;gap:32px;border-bottom:1px solid var(--line)}.guide-switch a{display:inline-flex;align-items:center;min-height:52px;padding:12px 0;margin-bottom:-1px;border:0;border-bottom:2px solid transparent;background:transparent;color:var(--muted);text-decoration:none;font-size:18px;font-weight:700}
+.guide-switch a:hover{color:var(--ink)}.guide-switch a[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--ink)}
 .guide-switch a:focus-visible,.guide-step a:focus-visible,.related-links a:focus-visible,.guide-end a:focus-visible,.bottom-links a:focus-visible{outline:2px solid #111;outline-offset:4px}
 .related-links{display:flex;flex-wrap:wrap;gap:8px 24px;margin:18px 0 0;font-size:14px;color:var(--muted)}.related-links a{text-underline-offset:4px}
 .install-guide{padding:24px 0 48px;scroll-margin-top:94px}.install-guide[hidden]{display:none!important}.guide-head{max-width:900px}.guide-head h2{font-size:clamp(32px,4.3vw,48px);line-height:1.06;letter-spacing:-.035em;margin:0 0 18px}.guide-head>p{font-size:18px;color:var(--muted);margin:0 0 24px;max-width:840px}
@@ -43,7 +43,7 @@
 .bottom-links{border-top:1px solid var(--line);padding:34px 0 48px;display:flex;flex-wrap:wrap;gap:14px}
 .bottom-links a{display:flex;align-items:center;justify-content:center;min-height:50px;border:1px solid #737a7e;padding:14px 20px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none}
 @media(max-width:600px){body{font-size:15px;line-height:1.55}.wrap{width:calc(100% - 28px)}.packaging-intro{padding:24px 0}.packaging-intro-grid{grid-template-columns:minmax(0,32%) minmax(0,1fr);gap:15px}.packaging-image img{max-height:320px}.packaging-copy h1{font-size:clamp(26px,6.7vw,35px);margin-bottom:16px}.packaging-copy p{font-size:14px;line-height:1.5;margin-bottom:12px}
-.instruction-choice{padding:22px 0 12px}.choice-title{font-size:16px}.guide-switch{gap:8px}.guide-switch a{font-size:16px;min-height:56px;padding:14px 8px}.related-links{font-size:13px;gap:10px 18px;margin-top:16px}
+.instruction-choice{padding:22px 0 12px}.choice-title{font-size:16px}.guide-switch{gap:28px}.guide-switch a{font-size:16px;min-height:48px;padding:12px 0}.related-links{font-size:13px;gap:10px 18px;margin-top:16px}
 .install-guide{padding:24px 0 32px}.guide-head h2{font-size:32px;margin-bottom:14px}.guide-head>p{font-size:16px;margin-bottom:20px}.guide-facts{margin-bottom:2px}.guide-facts>div{padding:14px 10px 14px 0}.guide-facts>div+div{padding-left:10px}.guide-facts dt{font-size:11px;line-height:1.35}.guide-facts dd{font-size:14px;line-height:1.35}
 .guide-step{grid-template-columns:30px minmax(0,1fr);gap:10px;padding:24px 0}.guide-step:before{font-size:17px;padding-top:1px}.guide-step h3{font-size:20px;margin-bottom:10px}.guide-step p{margin-bottom:11px}.substeps{padding-left:19px}.substeps li{padding-left:2px}
 .guide-end{font-size:14px;align-items:flex-start;flex-direction:column;gap:16px}.bottom-links{padding:26px 0 34px;gap:10px}.bottom-links a{width:100%;min-height:48px}
@@ -64,7 +64,7 @@
 <div class="wrap">
 <div class="instruction-choice" id="instruction-choice"><p class="choice-title">Выберите способ укладки</p>
 <nav class="guide-switch" aria-label="Способ укладки"><a id="tab-floating" href="#floating">На подложку</a><a id="tab-glue" href="#glue">На клей</a></nav>
-<p class="related-links"><a href="installation-methods.html">Плюсы и минусы способов</a><a href="advantages.html">Преимущества покрытия</a></p></div>
+<p class="related-links"><a href="installation-methods.html">Плюсы и минусы способов</a></p></div>
 <section class="install-guide" id="floating" aria-labelledby="floating-title">
 <div class="guide-head"><h2 id="floating-title">Укладка на подложку</h2><p>Планки соединяются замками и лежат на подложке без приклеивания к основанию. Монтаж обычно быстрее и дешевле; на подготовленном основании его можно выполнить самостоятельно.</p></div>
 <dl class="guide-facts"><div><dt>Зазор по периметру</dt><dd>8–10 мм</dd></div><div><dt>Высота с подложкой 1,5 мм</dt><dd>Около 7 мм</dd></div><div><dt>После сборки</dt><dd>Без ожидания клея</dd></div></dl>
