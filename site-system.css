@@ -24,7 +24,7 @@ body.pp-menu-open{overflow:hidden}
 header.pp-header a:focus-visible,header.pp-header button:focus-visible{outline:2px solid #fff!important;outline-offset:3px}
 main section[id],main [id="collection"],main [id="contact"]{scroll-margin-top:94px}
 body:has(.product-tabs) main section[id]{scroll-margin-top:148px}
-@media(max-width:1040px){
+@media(max-width:1120px){
  header.pp-header .pp-links{display:none!important}
  header.pp-header .pp-toggle{display:flex!important}
 }
@@ -67,3 +67,6 @@ footer.pp-footer{display:block;clear:both;width:100%;margin:0;padding:22px 0 24p
 .pp-footer-copyright .pp-footer-warranty:hover{color:#fff}
 .pp-footer-warranty:focus-visible{outline:2px solid #fff;outline-offset:4px}
 @media(max-width:640px){.pp-footer-copyright .pp-footer-warranty{display:block;margin:6px 0 0}}
+
+/* Keep the salon action full-width below the eight mobile navigation links. */
+header.pp-header .pp-menu>a.pp-mobile-buy{grid-column:1 / -1}
