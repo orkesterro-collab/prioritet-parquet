@@ -6,6 +6,7 @@
   const live=document.getElementById('locator-status');
   const mapError=document.getElementById('map-error');
   let partners=[],city='',map=null,markers=new Map(),selected='';
+  let popup;
   const byId=new Map();
   const clean=v=>String(v??'').trim();
   const number=v=>clean(v)===''?NaN:Number(clean(v).replace(',','.'));
@@ -31,7 +32,27 @@
     byId.forEach((other,key)=>{if(key!==p.id)other.open=false;});
     markSelected(p.id);
     const marker=markers.get(p.id);
-    if(map&&marker){if(pan)map.setView([p.lat,p.lng],Math.max(map.getZoom(),14),{animate:false});marker.openPopup();}
+    if (marker) {
+      const position = marker.getPosition();
+      const view = map.getView();
+      if (pan) {
+        view.setCenter(position);
+        view.setZoom(Math.max(view.getZoom(), 14));
+      }
+      const close = el('button', 'popup-close', '×');
+      close.type = 'button';
+      close.setAttribute('aria-label', 'Закрыть');
+      function closePopup() {
+        popup.setPosition(undefined);
+        marker.getElement().focus({preventScroll:true});
+      }
+      close.addEventListener('click', closePopup);
+      const content = popup.getElement();
+      content.replaceChildren(close, el('strong', '', p.name), el('p', '', p.address),
+        external('Построить маршрут ↗', routeUrl(p)));
+      content.onkeydown = event => { if (event.key === 'Escape') closePopup(); };
+      popup.setPosition(position);
+    }
     live.textContent=p.name+', '+p.address;
   }
   function renderList(items){
@@ -51,18 +72,30 @@
       byId.set(p.id,d);list.append(d);
     });
   }
-  function renderMarkers(items){
-    if(!map)return;
-    markers.forEach(m=>m.remove());markers.clear();
-    items.filter(p=>p.hasPoint).forEach(p=>{
-      const icon=L.divIcon({className:'partner-pin',html:'<span class="pin-dot" aria-hidden="true"></span>',iconSize:[34,42],iconAnchor:[17,42],popupAnchor:[0,-35]});
-      const m=L.marker([p.lat,p.lng],{icon,title:p.name+', '+p.address,alt:p.name+', '+p.address,keyboard:true}).addTo(map);
-      const popup=el('div','map-popup');popup.append(el('strong','',p.name),el('p','',p.address),external('Построить маршрут ↗',routeUrl(p)));
-      m.bindPopup(popup,{maxWidth:270,autoPan:true});m.on('click',()=>choose(p,false));markers.set(p.id,m);
+  function renderMarkers(items) {
+    if (!map) return;
+    popup.setPosition(undefined);
+    markers.forEach(marker => map.removeOverlay(marker));
+    markers.clear();
+    const extent = ol.extent.createEmpty();
+    for (const partner of items.filter(p => p.hasPoint)) {
+      const position = ol.proj.fromLonLat([partner.lng, partner.lat]);
+      const button = el('button', 'partner-pin');
+      button.type = 'button';
+      button.title = `${partner.name}, ${partner.address}`;
+      button.setAttribute('aria-label', button.title);
+      const pin = el('span', 'pin-dot');
+      pin.setAttribute('aria-hidden', 'true');
+      button.append(pin);
+      button.addEventListener('click', () => choose(partner, false));
+      const marker = new ol.Overlay({element:button, position, positioning:'bottom-center'});
+      map.addOverlay(marker);
+      markers.set(partner.id, marker);
+      ol.extent.extendCoordinate(extent, position);
+    }
+    if (markers.size) map.getView().fit(extent, {
+      padding:[48, 48, 48, 48], maxZoom:markers.size === 1 ? 14 : 13
     });
-    const points=items.filter(p=>p.hasPoint).map(p=>[p.lat,p.lng]);
-    if(points.length===1)map.setView(points[0],14,{animate:false});
-    else if(points.length)map.fitBounds(points,{padding:[48,48],maxZoom:13,animate:false});
   }
   function setCity(value){
     city=value;selected='';cityNav.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.city===city)));
@@ -74,12 +107,36 @@
     cities.forEach(place=>{const b=el('button','',place);b.type='button';b.dataset.city=place;b.setAttribute('aria-pressed','false');b.addEventListener('click',()=>setCity(place));cityNav.append(b);});
     setCity(cities.includes(city)?city:(cities.includes('Минск')?'Минск':cities[0]||''));
   }
-  function initMap(){
-    if(!window.L){mapError.hidden=false;return;}
-    map=L.map('partner-map',{scrollWheelZoom:false,zoomControl:false}).setView([53.9,27.56],11);
-    L.control.zoom({position:'topright'}).addTo(map);
-    const tiles=L.tileLayer(config.tileUrl||'https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>'}).addTo(map);
-    let failures=0;tiles.on('tileerror',()=>{if(++failures>=3)mapError.hidden=false;});tiles.on('tileload',()=>{mapError.hidden=true;failures=0;});
+  function initMap() {
+    if (!window.ol || !window.olms) {
+      mapError.hidden = false;
+      return;
+    }
+    const basemap = new ol.layer.Group();
+    map = new ol.Map({
+      target: 'partner-map',
+      controls: [new ol.control.Zoom({zoomInTipLabel:'Приблизить', zoomOutTipLabel:'Отдалить'})],
+      view: new ol.View({center:ol.proj.fromLonLat([27.56, 53.9]), zoom:11,
+        minZoom:2, maxZoom:19, enableRotation:false})
+    });
+    for (const interaction of map.getInteractions().getArray().slice()) {
+      if (interaction instanceof ol.interaction.MouseWheelZoom) map.removeInteraction(interaction);
+    }
+    const content = el('div', 'map-popup');
+    popup = new ol.Overlay({element:content, positioning:'bottom-center', offset:[0, -42],
+      autoPan:{margin:12}, insertFirst:false});
+    map.addOverlay(popup);
+    map.on('singleclick', () => popup.setPosition(undefined));
+    const styleUrl = new URL('map-style.json?v=20261118-ink', document.baseURI).href;
+    olms.apply(basemap, styleUrl).then(() => {
+      const sources = new Set(basemap.getLayers().getArray().map(layer => layer.getSource()));
+      for (const source of sources) {
+        if (!source) continue;
+        source.on('tileloaderror', () => { mapError.hidden = false; });
+        source.on('tileloadend', () => { mapError.hidden = true; });
+      }
+      map.addLayer(basemap);
+    }).catch(() => { mapError.hidden = false; });
   }
   async function load(){
     initMap();
