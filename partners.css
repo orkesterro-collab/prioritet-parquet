@@ -17,6 +17,8 @@ header.pp-header .pp-links>.pp-buy[aria-current="page"]{color:#17191a!important}
 .map-popup{position:relative;width:max-content;max-width:min(250px,70vw);padding:15px 38px 15px 16px;background:#fff;border:1px solid #b8ada5;box-shadow:0 3px 12px #33271e24;color:#30251e;font:14px/1.4 Arial,sans-serif}
 .map-popup strong{display:block;font-size:17px;line-height:1.25}
 .map-popup p{margin:6px 0 12px}
+.map-popup .salon-phone{display:block;width:fit-content}
+.map-popup .salon-hours{white-space:pre-line}
 .map-popup a{text-underline-offset:3px}
 .popup-close{position:absolute;right:3px;top:3px;width:30px;height:30px;border:0;background:#fff;color:#493526;font-size:20px;line-height:1}
 @media(max-width:950px){.wrap{width:calc(100% - 40px)}.partners-intro{gap:30px}.locator{grid-template-columns:minmax(0,1.2fr) minmax(280px,1fr);gap:22px}.partner-map{height:530px}.salon-name{font-size:18px}.salon summary{padding-left:14px}.salon-body{padding-left:14px;padding-right:14px}.locator-note{margin-left:14px}}

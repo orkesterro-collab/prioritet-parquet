@@ -18,11 +18,17 @@
     const name=clean(pick('name','Салон')),address=clean(pick('address','Адрес')),place=clean(pick('city','Город'));
     if(!name||!address||!place)return null;
     const lat=number(pick('lat','latitude','Широта')),lng=number(pick('lng','lon','longitude','Долгота'));
-    return {id:clean(row.id)||place+'|'+name+'|'+address,name,address,city:place,phone:clean(pick('phone','Телефон')),hours:clean(pick('hours','Часы работы')),website:webUrl(pick('website','Сайт')),lat,lng,hasPoint:Number.isFinite(lat)&&Math.abs(lat)<=90&&Number.isFinite(lng)&&Math.abs(lng)<=180,map_url:webUrl(pick('map_url','Ссылка на карту')),description:clean(pick('description','Информация для посетителя')),sort_order:number(pick('sort_order','Порядок'))||index};
+    const phones = clean(pick('phone','Телефон')).split(/[\n;,]+/).map(clean).filter(Boolean);
+    return {id:clean(row.id)||place+'|'+name+'|'+address,name,address,city:place,phones,hours:clean(pick('hours','Часы работы')),website:webUrl(pick('website','Сайт')),lat,lng,hasPoint:Number.isFinite(lat)&&Math.abs(lat)<=90&&Number.isFinite(lng)&&Math.abs(lng)<=180,map_url:webUrl(pick('map_url','Ссылка на карту')),description:clean(pick('description','Информация для посетителя')),sort_order:number(pick('sort_order','Порядок'))||index};
   }
   function routeUrl(p){return p.map_url||'https://www.google.com/maps/dir/?api=1&destination='+encodeURIComponent(p.city+', '+p.address+', Беларусь');}
   function el(tag,className,text){const e=document.createElement(tag);if(className)e.className=className;if(text!==undefined)e.textContent=text;return e;}
   function external(label,href,className){const a=el('a',className,label);a.href=href;a.target='_blank';a.rel='noopener noreferrer';return a;}
+  function phoneLink(number) {
+    const link = el('a', 'salon-phone', number);
+    link.href = 'tel:' + number.replace(/[^\d+]/g, '');
+    return link;
+  }
   function markSelected(id){
     selected=id;
     markers.forEach((m,key)=>{const node=m.getElement();if(node)node.classList.toggle('is-selected',key===id);});
@@ -48,8 +54,10 @@
       }
       close.addEventListener('click', closePopup);
       const content = popup.getElement();
-      content.replaceChildren(close, el('strong', '', p.name), el('p', '', p.address),
-        external('Построить маршрут ↗', routeUrl(p)));
+      content.replaceChildren(close, el('strong', '', p.name), el('p', '', p.address));
+      if (p.phones.length) content.append(phoneLink(p.phones[0]));
+      if (p.hours) content.append(el('p', 'salon-hours', p.hours));
+      content.append(external('Построить маршрут ↗', routeUrl(p)));
       content.onkeydown = event => { if (event.key === 'Escape') closePopup(); };
       popup.setPosition(position);
     }
@@ -62,7 +70,7 @@
       const d=el('details','salon');d.dataset.partnerId=p.id;
       const summary=el('summary');summary.append(el('span','salon-name',p.name),el('span','salon-address',p.address));d.append(summary);
       const body=el('div','salon-body');
-      if(p.phone){const phone=el('a','salon-phone',p.phone);phone.href='tel:'+p.phone.replace(/[^\d+]/g,'');body.append(phone);}
+      for (const number of p.phones) body.append(phoneLink(number));
       if(p.hours)body.append(el('p','salon-hours',p.hours));
       if(p.description)body.append(el('p','salon-description',p.description));
       if(p.website)body.append(external('Сайт салона',p.website,'salon-site'));
