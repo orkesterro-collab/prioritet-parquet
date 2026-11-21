@@ -1,22 +1,36 @@
 name: Deploy to hoster.by
-# deployment trigger
 
 on:
   push:
     branches: [main]
+    paths-ignore:
+      - .github/**
   workflow_dispatch:
 
 permissions:
   contents: read
 
+concurrency:
+  group: prioritet-hoster-production
+  cancel-in-progress: false
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
 
-      - name: Deploy website via FTP
+      - name: Verify the Prioritet FTP directory
+        env:
+          FTP_USERNAME: chatgpt
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        run: python3 .github/scripts/verify_prioritet_root.py
+
+      - name: Deploy website via FTPS
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: 87.232.64.108
@@ -24,7 +38,7 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftps
           port: 21
-          server-dir: /
+          server-dir: /prioritetparket.by/
           local-dir: ./
           exclude: |
             **/.git*

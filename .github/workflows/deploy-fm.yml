@@ -1,0 +1,55 @@
+name: Publish FM to hoster.by
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/deploy-fm.yml
+      - .github/scripts/publish_fm.py
+      - .github/scripts/fm_deploy_ftps.py
+  schedule:
+    - cron: '7,17,27,37,47,57 * * * *'
+  workflow_dispatch:
+    inputs:
+      force:
+        description: Republish the current FM build even if its version already matches
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: fm-floorstock-production
+  cancel-in-progress: false
+
+jobs:
+  publish-fm:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out trusted publisher scripts only
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            .github/scripts/publish_fm.py
+            .github/scripts/fm_deploy_ftps.py
+
+      - name: Publish immutable FM build
+        env:
+          FTP_USERNAME: chatgpt
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          # Temporary bootstrap permission; HTTPS is always attempted with validation first.
+          FM_ALLOW_HTTP_BOOTSTRAP: '1'
+          FM_FORCE_PUBLISH: ${{ inputs.force && '1' || '0' }}
+        shell: bash
+        run: |
+          args=()
+          if [ "$FM_FORCE_PUBLISH" = "1" ]; then
+            args+=(--force)
+          fi
+          python3 .github/scripts/publish_fm.py "${args[@]}"
