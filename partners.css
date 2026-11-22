@@ -25,3 +25,18 @@ header.pp-header .pp-links>.pp-buy[aria-current="page"]{color:#17191a!important}
 @media(max-width:950px){.wrap{width:calc(100% - 40px)}.partners-intro{gap:30px}.locator{grid-template-columns:minmax(0,1.2fr) minmax(280px,1fr);gap:22px}.partner-map{height:530px}.salon-name{font-size:18px}.salon-select{padding-left:14px}.salon-body{padding-left:14px;padding-right:14px}.locator-note{margin-left:14px}}
 @media(max-width:700px){.wrap{width:calc(100% - 32px)}.partners-intro{display:block;padding:36px 0 22px}.partners-intro .eyebrow{font-size:10px;margin-bottom:12px}h1{font-size:48px}.partners-intro>p{font-size:16px;margin-top:19px;max-width:450px}.city-tabs{gap:6px 26px;margin-bottom:20px}.city-tabs button{font-size:16px;padding:10px 0 12px;min-height:44px}.locator{display:flex;flex-direction:column;gap:25px;padding-bottom:35px}.map-panel{position:relative;top:auto;width:100%}.partner-map{height:330px}.map-caption{font-size:11px;margin-top:10px}.salon-list{width:100%}.salon-select{padding:20px 4px 20px 13px}.salon summary{top:6px;right:0}.salon-name{font-size:19px}.salon-address{font-size:14px;margin-top:7px}.salon-body{padding:0 13px 22px}.locator-note{max-width:none;margin:24px 13px 0}.partners-footer .wrap{display:block}.partners-footer a{display:inline-block;margin-top:12px}.partners-footer{padding:23px 0 30px}}
 @media(max-width:350px){h1{font-size:42px}.city-tabs{gap:6px 20px}.partner-map{height:300px}.wrap{width:calc(100% - 28px)}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.salon{transition:none}}
+
+.training-footer-link {
+  display: table;
+  margin-top: 2px;
+  padding: 4px 0;
+  color: inherit;
+  font-size: 12px;
+  text-decoration: none;
+}
+.training-footer-link:hover,
+.training-footer-link:focus-visible {
+  color: #eee;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
