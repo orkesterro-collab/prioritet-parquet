@@ -5,8 +5,11 @@
   const list=document.getElementById('salons');
   const live=document.getElementById('locator-status');
   const mapError=document.getElementById('map-error');
-  let partners=[],city='',map=null,markers=new Map(),selected='';
-  let popup;
+  const mapCaption=document.getElementById('map-caption');
+  const mapContacts=document.getElementById('map-contacts');
+  const mapHint=mapCaption.textContent;
+  const markers=new Map();
+  let partners=[],city='',map=null,selected=null;
   const byId=new Map();
   const clean=v=>String(v??'').trim();
   const number=v=>clean(v)===''?NaN:Number(clean(v).replace(',','.'));
@@ -24,81 +27,113 @@
   function routeUrl(p){return p.map_url||'https://www.google.com/maps/dir/?api=1&destination='+encodeURIComponent(p.city+', '+p.address+', Беларусь');}
   function el(tag,className,text){const e=document.createElement(tag);if(className)e.className=className;if(text!==undefined)e.textContent=text;return e;}
   function external(label,href,className){const a=el('a',className,label);a.href=href;a.target='_blank';a.rel='noopener noreferrer';return a;}
-  function trackSalonLink(link, goal, partner, source) {
+  function trackSalonLink(link, goal, partner) {
     link.addEventListener('click', () => {
       if (typeof window.ym !== 'function') return;
       window.ym(114347832, 'reachGoal', goal, {
         salon: partner.name,
         city: partner.city,
         address: partner.address,
-        source
+        source: link.closest('details').dataset.source || 'list'
       });
     });
     return link;
   }
-  function routeLink(partner, source, label, className) {
-    const link = external(label, routeUrl(partner), className);
-    return trackSalonLink(link, 'salon_route', partner, source);
+  function routeLink(partner) {
+    const link = external('Маршрут ↗', routeUrl(partner), 'route-link');
+    return trackSalonLink(link, 'salon_route', partner);
   }
-  function phoneLink(partner, number, source) {
+  function phoneLink(partner, number) {
     const link = el('a', 'salon-phone', number);
     link.href = 'tel:' + number.replace(/[^\d+]/g, '');
-    return trackSalonLink(link, 'salon_phone', partner, source);
+    return trackSalonLink(link, 'salon_phone', partner);
   }
-  function markSelected(id){
-    selected=id;
-    markers.forEach((m,key)=>{const node=m.getElement();if(node)node.classList.toggle('is-selected',key===id);});
-  }
-  function choose(p,pan=true){
-    const detail=byId.get(p.id);if(detail&&!detail.open)detail.open=true;
-    byId.forEach((other,key)=>{if(key!==p.id)other.open=false;});
-    markSelected(p.id);
-    const marker=markers.get(p.id);
+  function selectPartner(partner) {
+    selected = partner;
+    byId.forEach(({card, address, details}, id) => {
+      const active = id === partner.id;
+      card.classList.toggle('is-selected', active);
+      if (address.tagName === 'BUTTON') address.setAttribute('aria-pressed', String(active));
+      details.open = false;
+    });
+    markers.forEach((overlay, id) => {
+      const pin = overlay.getElement();
+      pin.classList.toggle('is-selected', id === partner.id);
+      pin.setAttribute('aria-pressed', String(id === partner.id));
+    });
+    const marker = markers.get(partner.id);
     if (marker) {
-      const position = marker.getPosition();
+      map.updateSize();
       const view = map.getView();
-      if (pan) {
-        view.setCenter(position);
-        view.setZoom(Math.max(view.getZoom(), 14));
-      }
-      const close = el('button', 'popup-close', '×');
-      close.type = 'button';
-      close.setAttribute('aria-label', 'Закрыть');
-      function closePopup() {
-        popup.setPosition(undefined);
-        marker.getElement().focus({preventScroll:true});
-      }
-      close.addEventListener('click', closePopup);
-      const content = popup.getElement();
-      content.replaceChildren(close, el('strong', '', p.name), el('p', '', p.address));
-      if (p.phones.length) content.append(phoneLink(p, p.phones[0], 'map'));
-      if (p.hours) content.append(el('p', 'salon-hours', p.hours));
-      content.append(routeLink(p, 'map', 'Построить маршрут ↗'));
-      content.onkeydown = event => { if (event.key === 'Escape') closePopup(); };
-      popup.setPosition(position);
+      view.cancelAnimations();
+      view.setZoom(Math.max(view.getZoom(), 15));
+      view.setCenter(marker.getPosition());
     }
-    live.textContent=p.name+', '+p.address;
+    const label = partner.name + ', ' + partner.address;
+    mapCaption.textContent = marker ? label : mapHint;
+    mapContacts.hidden = !marker;
+    live.textContent = label;
   }
+  function showOnMap(partner) {
+    selectPartner(partner);
+    if (window.matchMedia('(max-width: 700px)').matches) {
+      map.getTargetElement().scrollIntoView({block:'center'});
+    }
+  }
+  mapContacts.addEventListener('click', () => {
+    const row = byId.get(selected?.id);
+    if (!row) return;
+    row.details.dataset.source = 'map';
+    row.details.open = true;
+    row.details.querySelector('summary').focus({preventScroll:true});
+    row.card.scrollIntoView({block:'nearest'});
+  });
   function renderList(items){
     list.replaceChildren();byId.clear();
     if(!items.length){list.append(el('p','empty-list','Адреса салонов скоро появятся.'));return;}
     items.forEach(p=>{
-      const d=el('details','salon');d.dataset.partnerId=p.id;
-      const summary=el('summary');summary.append(el('span','salon-name',p.name),el('span','salon-address',p.address));d.append(summary);
+      const card = el('article', 'salon');
+      card.dataset.partnerId = p.id;
+      const canShow = Boolean(map && p.hasPoint);
+      const address = el(canShow ? 'button' : 'div', 'salon-select');
+      const label = p.name + ', ' + p.address;
+      address.append(el('span','salon-name',p.name), el('span','salon-address',p.address));
+      if (canShow) {
+        address.type = 'button';
+        address.setAttribute('aria-label', label + ' — показать на карте');
+        address.setAttribute('aria-pressed', 'false');
+        address.addEventListener('click', () => showOnMap(p));
+      }
+      const details = el('details');
+      const summary = el('summary');
+      summary.setAttribute('aria-label', 'Контакты — ' + label);
+      summary.addEventListener('click', () => {
+        if (!details.open) {
+          selectPartner(p);
+          details.dataset.source = 'list';
+        }
+      });
       const body=el('div','salon-body');
-      for (const number of p.phones) body.append(phoneLink(p, number, 'list'));
+      for (const number of p.phones) body.append(phoneLink(p, number));
       if(p.hours)body.append(el('p','salon-hours',p.hours));
       if(p.description)body.append(el('p','salon-description',p.description));
       if(p.website)body.append(external('Сайт салона',p.website,'salon-site'));
-      const links=el('div','salon-links');links.append(routeLink(p, 'list', 'Маршрут ↗', 'route-link'));
-      if(p.hasPoint){const show=el('button','','На карте');show.type='button';show.addEventListener('click',()=>{choose(p);document.querySelector('.map-panel').scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'center'});});links.append(show);}
-      body.append(links);d.append(body);d.addEventListener('toggle',()=>{if(d.open&&selected!==p.id)choose(p);});
-      byId.set(p.id,d);list.append(d);
+      const links=el('div','salon-links');links.append(routeLink(p));
+      if (canShow) {
+        const show = el('button', '', 'На карте');
+        show.type = 'button';
+        show.addEventListener('click', () => { address.focus({preventScroll:true}); showOnMap(p); });
+        links.append(show);
+      }
+      body.append(links);
+      details.append(summary, body);
+      card.append(address, details);
+      byId.set(p.id, {card, address, details});
+      list.append(card);
     });
   }
   function renderMarkers(items) {
     if (!map) return;
-    popup.setPosition(undefined);
     markers.forEach(marker => map.removeOverlay(marker));
     markers.clear();
     const extent = ol.extent.createEmpty();
@@ -108,10 +143,11 @@
       button.type = 'button';
       button.title = `${partner.name}, ${partner.address}`;
       button.setAttribute('aria-label', button.title);
+      button.setAttribute('aria-pressed', 'false');
       const pin = el('span', 'pin-dot');
       pin.setAttribute('aria-hidden', 'true');
       button.append(pin);
-      button.addEventListener('click', () => choose(partner, false));
+      button.addEventListener('click', () => selectPartner(partner));
       const marker = new ol.Overlay({element:button, position, positioning:'bottom-center'});
       map.addOverlay(marker);
       markers.set(partner.id, marker);
@@ -122,14 +158,30 @@
     });
   }
   function setCity(value){
-    city=value;selected='';cityNav.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.city===city)));
+    city=value;selected=null;mapCaption.textContent=mapHint;mapContacts.hidden=true;
+    cityNav.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.city===city)));
     const items=partners.filter(p=>p.city===city);renderList(items);renderMarkers(items);live.textContent='Салоны: '+city;
   }
   function setData(rows){
+    const previous = selected;
+    const previousDetails = byId.get(previous?.id)?.details;
     partners=rows.map(normalize).filter(Boolean).sort((a,b)=>a.sort_order-b.sort_order);
     const cities=[...new Set(partners.map(p=>p.city))];cityNav.replaceChildren();
     cities.forEach(place=>{const b=el('button','',place);b.type='button';b.dataset.city=place;b.setAttribute('aria-pressed','false');b.addEventListener('click',()=>setCity(place));cityNav.append(b);});
     setCity(cities.includes(city)?city:(cities.includes('Минск')?'Минск':cities[0]||''));
+    // The sheet and the initial snapshot can use different IDs for the same address.
+    if (previous && previous.city === city) {
+      const match = partners.find(p => p.city === city && (p.id === previous.id ||
+        (p.name === previous.name && p.address === previous.address)));
+      if (match) {
+        selectPartner(match);
+        if (previousDetails?.open) {
+          const details = byId.get(match.id).details;
+          details.dataset.source = previousDetails.dataset.source || 'list';
+          details.open = true;
+        }
+      }
+    }
   }
   function initMap() {
     if (!window.ol || !window.olms) {
@@ -146,11 +198,6 @@
     for (const interaction of map.getInteractions().getArray().slice()) {
       if (interaction instanceof ol.interaction.MouseWheelZoom) map.removeInteraction(interaction);
     }
-    const content = el('div', 'map-popup');
-    popup = new ol.Overlay({element:content, positioning:'bottom-center', offset:[0, -42],
-      autoPan:{margin:12}, insertFirst:false});
-    map.addOverlay(popup);
-    map.on('singleclick', () => popup.setPosition(undefined));
     const styleUrl = new URL('map-style.json?v=20261118-ink', document.baseURI).href;
     olms.apply(basemap, styleUrl).then(() => {
       const sources = new Set(basemap.getLayers().getArray().map(layer => layer.getSource()));
